@@ -149,24 +149,35 @@
 }());
 
 
-function calcularIdade(dataNascimento) {
-const hoje = new Date();
-const nascimento = new Date(dataNascimento);
-let idade = hoje.getFullYear() - nascimento.getFullYear();
-const mes = hoje.getMonth() - nascimento.getMonth();
-const dia = hoje.getDate() - nascimento.getDate();
-
-// Ajusta se o aniversário ainda não aconteceu este ano
-if (mes < 0 || (mes === 0 && dia < 0)) {
-	idade--;
+function calcularSemestreAtual(dataInicio) {
+	const hoje = new Date();
+	const inicio = new Date(dataInicio);
+	const mesesPassados = (hoje.getFullYear() - inicio.getFullYear()) * 12 + (hoje.getMonth() - inicio.getMonth())	;
+	console.log(mesesPassados);
+	const semestreAtual = Math.floor(mesesPassados / 6) + 1;
+	return semestreAtual;
 }
 
-return idade;
-}
+// function calcularIdade(dataNascimento) {
+// const hoje = new Date();
+// const nascimento = new Date(dataNascimento);
+// let idade = hoje.getFullYear() - nascimento.getFullYear();
+// const mes = hoje.getMonth() - nascimento.getMonth();
+// const dia = hoje.getDate() - nascimento.getDate();
+
+// // Ajusta se o aniversário ainda não aconteceu este ano
+// if (mes < 0 || (mes === 0 && dia < 0)) {
+// 	idade--;
+// }
+
+// return idade;
+// }
 
 function getYear() {
 	return new Date().getFullYear();
 }
 
-document.getElementById("idade").textContent = calcularIdade("2006-09-21");
+document.getElementById("semestre").textContent = calcularSemestreAtual("2024-01-01") + "º";
+
+// document.getElementById("idade").textContent = calcularIdade("2006-09-21");
 document.getElementById("atualYear").textContent = getYear();
