@@ -4,6 +4,34 @@ let lenis;
 const contentElements = [...document.querySelectorAll('.content--sticky')];
 const totalContentElements = contentElements.length;
 
+// Setup Theme Switcher
+const initThemeSwitcher = () => {
+	const savedTheme = localStorage.getItem('matheus_portfolio_theme') || 'cyber';
+	document.documentElement.setAttribute('data-theme', savedTheme);
+	
+	const themeBtns = document.querySelectorAll('.theme-btn');
+	themeBtns.forEach(btn => {
+		if (btn.getAttribute('data-set-theme') === savedTheme) {
+			btn.classList.add('active');
+		} else {
+			btn.classList.remove('active');
+		}
+		
+		btn.addEventListener('click', () => {
+			const theme = btn.getAttribute('data-set-theme');
+			document.documentElement.setAttribute('data-theme', theme);
+			localStorage.setItem('matheus_portfolio_theme', theme);
+			
+			themeBtns.forEach(b => b.classList.remove('active'));
+			btn.classList.add('active');
+			
+			if (typeof ScrollTrigger !== 'undefined') {
+				ScrollTrigger.refresh();
+			}
+		});
+	});
+};
+
 const initSmoothScrolling = () => {
 	lenis = new Lenis({
 		lerp: 0.15,
@@ -76,15 +104,15 @@ const scroll = () => {
 		if (img) {
 			tl.fromTo(img, {
 				yPercent: 20,
-				rotation: 40,
-				scale: 0.8,
-				filter: 'contrast(300%)'
+				rotation: 30,
+				scale: 0.85,
+				filter: 'brightness(150%)'
 			}, {
 				ease: 'none',
 				yPercent: -100,
 				rotation: 0,
-				scale: 1,
-				filter: 'contrast(100%)',
+				scale: 1.05,
+				filter: 'brightness(100%)',
 				scrollTrigger: {
 					trigger: el,
 					start: 'top bottom',
@@ -97,6 +125,7 @@ const scroll = () => {
 };
 
 const init = () => {
+	initThemeSwitcher();
     initSmoothScrolling();
     scroll();
 };

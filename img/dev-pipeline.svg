@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="glowPipe" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer Target Grid -->
+  <circle cx="150" cy="150" r="125" fill="none" stroke="url(#pipeGrad)" stroke-width="1.5" stroke-dasharray="10 6" opacity="0.4" />
+  
+  <!-- 3D Database Cylinder Cluster -->
+  <!-- Database 1 (Top) -->
+  <ellipse cx="150" cy="65" rx="55" ry="18" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2" filter="url(#glowPipe)" />
+  <path d="M95,65 v30 c0,10 25,18 55,18 s55,-8 55,-18 v-30" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+  
+  <!-- Database 2 (Middle) -->
+  <ellipse cx="150" cy="125" rx="55" ry="18" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" />
+  <path d="M95,125 v30 c0,10 25,18 55,18 s55,-8 55,-18 v-30" fill="#0f172a" stroke="#6366f1" stroke-width="2" />
+  
+  <!-- Database 3 (Bottom) -->
+  <ellipse cx="150" cy="185" rx="55" ry="18" fill="#1e1b4b" stroke="#a855f7" stroke-width="2" />
+  <path d="M95,185 v30 c0,10 25,18 55,18 s55,-8 55,-18 v-30" fill="#0f172a" stroke="#a855f7" stroke-width="2" />
+  
+  <!-- Flowing Data Stream Pipes -->
+  <path d="M60,110 C80,110 80,140 95,140" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6 4" />
+  <path d="M240,170 C220,170 220,140 205,140" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="6 4" />
+  
+  <circle cx="60" cy="110" r="6" fill="#38bdf8" filter="url(#glowPipe)" />
+  <circle cx="240" cy="170" r="6" fill="#a855f7" filter="url(#glowPipe)" />
+</svg>

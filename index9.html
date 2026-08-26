@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="no-js">
+<html lang="pt-BR" class="no-js" data-theme="cyber">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Matheus Alves | Software Developer — Backend C# & .NET</title>
-		<meta name="description" content="Portfólio e Apresentação de Matheus Alves da Costa - Desenvolvedor Backend C# (.NET 8), Microsserviços, Clean Architecture e Automação." />
+		<meta name="description" content="Portfólio de Matheus Alves da Costa - Desenvolvedor Backend C# (.NET 8), Microsserviços, Clean Architecture e Automação." />
 		<meta name="keywords" content="Matheus Alves, C#, .NET 8, Backend, Microsserviços, Clean Architecture, RabbitMQ, PostgreSQL, DataClean, Meppo, PUC-GO, Actuar" />
 		<meta name="author" content="Matheus Alves" />
 		<link rel="shortcut icon" href="img/logotype.png">
@@ -29,6 +29,23 @@
 				<img src="img/avatar.png" alt="Matheus Alves" />
 				<span>Matheus Alves</span>
 			</a>
+			
+			<!-- Interactive Theme Selector -->
+			<div class="theme-selector" title="Escolha um tema visual de desenvolvedor">
+				<button class="theme-btn active" data-set-theme="cyber">
+					<span class="theme-btn__dot theme-btn__dot--cyber"></span> .NET Cyber
+				</button>
+				<button class="theme-btn" data-set-theme="matrix">
+					<span class="theme-btn__dot theme-btn__dot--matrix"></span> Matrix
+				</button>
+				<button class="theme-btn" data-set-theme="tokyo">
+					<span class="theme-btn__dot theme-btn__dot--tokyo"></span> Tokyo
+				</button>
+				<button class="theme-btn" data-set-theme="stealth">
+					<span class="theme-btn__dot theme-btn__dot--stealth"></span> Stealth
+				</button>
+			</div>
+
 			<ul class="top-nav__links">
 				<li><a href="#hero" class="top-nav__link">Início</a></li>
 				<li><a href="#about" class="top-nav__link">Sobre</a></li>
@@ -37,10 +54,11 @@
 				<li><a href="#experience" class="top-nav__link">Trajetória</a></li>
 				<li><a href="#contact" class="top-nav__link">Contato</a></li>
 			</ul>
+			
 			<div class="top-nav__actions">
 				<a href="Matheus_Alves_Curriculo.pdf" download="Matheus_Alves_Curriculo.pdf" class="btn btn--secondary btn--sm">
-					<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-					Currículo PDF
+					<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+					PDF
 				</a>
 				<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
 					<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -53,7 +71,7 @@
 
 		<main id="hero">
 			<!-- Header / Hero Section -->
-			<header class="frame frame--header" style="background-image:url(img/5.png);">
+			<header class="frame frame--header">
 				
 				<div class="status-badge">
 					<span class="status-badge__dot"></span>
@@ -120,13 +138,13 @@
 				</p>
 			</div>
 
-			<!-- Sticky Sections Interactive Stack (Demo 9 Mechanism) -->
+			<!-- Sticky Sections Interactive Stack (Side-by-Side on Desktop) -->
 			<div id="stack" class="wrap">
 				
 				<!-- SECTION 1: Backend Architecture (Right side) -->
 				<div class="content content--sticky content--half bg-1">
-					<img class="content__img content__img--small" src="img/1.png" alt="Core Backend Engine" />
-					<span class="section-tag">01 / ARQUITETURA & ECOSSISTEMA</span>
+					<img class="content__img content__img--small" src="img/dev-csharp.svg" alt="Core C# .NET Engine" />
+					<span class="section-tag">01 / ARQUITETURA &amp; ECOSSISTEMA</span>
 					<h2 class="content__title"><i>Core</i> .NET Engine</h2>
 					<p class="content__text content__text--narrow">
 						Desenvolvimento de APIs e microsserviços em <strong>C# 12 e .NET 8</strong> estruturados em <strong>Clean Architecture</strong>, CQRS, Repository Pattern, PostgreSQL, RabbitMQ e Docker.
@@ -148,7 +166,7 @@
 
 				<!-- SECTION 2: DataClean Microservice (Left side) -->
 				<div id="projects" class="content content--sticky content--half bg-2">
-					<img class="content__img content__img--small" src="img/2.png" alt="DataClean Microservice" />
+					<img class="content__img content__img--small" src="img/dev-dataclean.svg" alt="DataClean Microservice" />
 					<span class="section-tag">02 / PRODUTO EM PRODUÇÃO</span>
 					<h2 class="content__title"><i>DataClean</i> Suite</h2>
 					<p class="content__text content__text--narrow">
@@ -170,7 +188,7 @@
 
 				<!-- SECTION 3: Meppo Suite (Right side) -->
 				<div class="content content--sticky content--half bg-3">
-					<img class="content__img content__img--small" src="img/3.png" alt="Meppo Suite" />
+					<img class="content__img content__img--small" src="img/dev-meppo.svg" alt="Meppo Automation Engine" />
 					<span class="section-tag">03 / AUTOMAÇÃO OPERACIONAL</span>
 					<h2 class="content__title"><i>Meppo</i> Suite</h2>
 					<p class="content__text content__text--narrow">
@@ -192,7 +210,7 @@
 
 				<!-- SECTION 4: NextFit & Data Migration (Left side) -->
 				<div class="content content--sticky content--half bg-4">
-					<img class="content__img content__img--small" src="img/4.png" alt="NextFit Migration" />
+					<img class="content__img content__img--small" src="img/dev-pipeline.svg" alt="NextFit Data Migration" />
 					<span class="section-tag">04 / DATA PIPELINE</span>
 					<h2 class="content__title"><i>NextFit</i> Zero-Gap</h2>
 					<p class="content__text content__text--narrow">
@@ -214,9 +232,9 @@
 
 				<!-- SECTION 5: Career & RCA (Right side) -->
 				<div id="experience" class="content content--sticky content--half bg-5">
-					<img class="content__img content__img--small" src="img/5.png" alt="Carreira e RCA" />
-					<span class="section-tag">05 / TRAJETÓRIA & EXCELÊNCIA</span>
-					<h2 class="content__title"><i>Carreira</i> & Impacto</h2>
+					<img class="content__img content__img--small" src="img/dev-telemetry.svg" alt="Carreira e RCA" />
+					<span class="section-tag">05 / TRAJETÓRIA &amp; EXCELÊNCIA</span>
+					<h2 class="content__title"><i>Carreira</i> &amp; Impacto</h2>
 					<p class="content__text content__text--narrow">
 						5x Top 1 Analista N1 &rarr; N2 ponto focal de Root Cause Analysis (RCA) com nota 14.75/15 em arquitetura &rarr; Promoção a <strong>Desenvolvedor C# Jr na Actuar</strong>.
 					</p>
@@ -236,9 +254,9 @@
 
 				<!-- SECTION 6: Academics & IoT (Left side) -->
 				<div class="content content--sticky content--half bg-6">
-					<img class="content__img content__img--small" src="img/6.png" alt="Foundations e IoT" />
-					<span class="section-tag">06 / FORMAÇÃO & HARDWARE</span>
-					<h2 class="content__title"><i>Foundations</i> & IoT</h2>
+					<img class="content__img content__img--small" src="img/dev-iot.svg" alt="Foundations e IoT" />
+					<span class="section-tag">06 / FORMAÇÃO &amp; HARDWARE</span>
+					<h2 class="content__title"><i>Foundations</i> &amp; IoT</h2>
 					<p class="content__text content__text--narrow">
 						Bacharelado em <strong>Ciência da Computação (PUC-GO, CR 8.6)</strong>, sistemas distribuídos, algoritmos, linguagem C, Arduino, Raspberry Pi Pico e docência em robótica.
 					</p>
@@ -332,13 +350,13 @@
 					</a>
 				</div>
 
-				<img class="content__img spacer" src="img/5.png" alt="3D Geometry Accent" />
+				<img class="content__img spacer" src="img/dev-telemetry.svg" alt="Diagnostic Telemetry" />
 			</div>
 
 			<!-- Footer -->
 			<footer class="frame frame--footer">
 				<div class="footer-credits">
-					<p>&copy; 2026 <strong>Matheus Alves da Costa</strong> &bull; Engenharia de Software &bull; Goiânia, GO</p>
+					<p>&copy; 2026 <strong>Matheus Alves da Costa</strong> &bull; Engenharia de Software Backend C# &bull; Goiânia, GO</p>
 				</div>
 				<div class="footer-nav">
 					<a href="#hero">Voltar ao Topo &uarr;</a>
