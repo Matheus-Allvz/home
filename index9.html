@@ -1,90 +1,354 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="pt-BR" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sticky Sections | Demo 9 | Codrops</title>
-		<meta name="description" content="Some examples for how sticky sections can be animated." />
-		<meta name="keywords" content="sticky, css, gsap, animation, sticky section, layout" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="favicon.ico">
+		<title>Matheus Alves | Software Developer — Backend C# & .NET</title>
+		<meta name="description" content="Portfólio e Apresentação de Matheus Alves da Costa - Desenvolvedor Backend C# (.NET 8), Microsserviços, Clean Architecture e Automação." />
+		<meta name="keywords" content="Matheus Alves, C#, .NET 8, Backend, Microsserviços, Clean Architecture, RabbitMQ, PostgreSQL, DataClean, Meppo, PUC-GO, Actuar" />
+		<meta name="author" content="Matheus Alves" />
+		<link rel="shortcut icon" href="img/logotype.png">
+		
+		<!-- Open Graph / Meta -->
+		<meta property="og:title" content="Matheus Alves | Backend C# & .NET Developer" />
+		<meta property="og:description" content="Desenvolvedor Backend C# (.NET 8), microsserviços, automação de processos e graduação em Ciência da Computação (PUC-GO)." />
+		<meta property="og:image" content="img/avatar.png" />
+		<meta property="og:url" content="https://matheus-allvz.github.io/" />
+		<meta property="og:type" content="website" />
+		
+		<!-- Original Typekit Fonts & Base Styles -->
 		<link rel="stylesheet" href="https://use.typekit.net/lsf5xpv.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<script>document.documentElement.className="js";</script>
 	</head>
 	<body class="loading demo-9">
-		<main>
+		
+		<!-- Top Fixed Navigation -->
+		<nav class="top-nav">
+			<a href="#hero" class="top-nav__brand">
+				<img src="img/avatar.png" alt="Matheus Alves" />
+				<span>Matheus Alves</span>
+			</a>
+			<ul class="top-nav__links">
+				<li><a href="#hero" class="top-nav__link">Início</a></li>
+				<li><a href="#about" class="top-nav__link">Sobre</a></li>
+				<li><a href="#stack" class="top-nav__link">Arquitetura</a></li>
+				<li><a href="#projects" class="top-nav__link">Projetos</a></li>
+				<li><a href="#experience" class="top-nav__link">Trajetória</a></li>
+				<li><a href="#contact" class="top-nav__link">Contato</a></li>
+			</ul>
+			<div class="top-nav__actions">
+				<a href="Matheus_Alves_Curriculo.pdf" download="Matheus_Alves_Curriculo.pdf" class="btn btn--secondary btn--sm">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+					Currículo PDF
+				</a>
+				<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+					<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+				</a>
+				<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+					<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+				</a>
+			</div>
+		</nav>
+
+		<main id="hero">
+			<!-- Header / Hero Section -->
 			<header class="frame frame--header" style="background-image:url(img/5.png);">
-				<h1 class="frame__title">Sticky Sections</h1> 
-				<a class="frame__back" href="https://tympanus.net/codrops/?p=75532">Article</a>
-				<a class="frame__prev" href="http://tympanus.net/Development/ScrollCarousel/">Previous demo</a>
-				<a class="frame__sub" href="https://tympanus.net/codrops/collective/">Subscribe to our frontend news</a>
-				<nav class="frame__demos">
-					<a href="index.html">1</a>
-					<a href="index2.html">2</a>
-					<a href="index3.html">3</a>
-					<a href="index4.html">4</a>
-					<a href="index5.html">5</a>
-					<a href="index6.html">6</a>
-					<a href="index7.html">7</a>
-					<a href="index8.html">8</a>
-					<span>9</span>
-					<a href="index10.html">10</a>
-					<a href="index11.html">11</a>
-					<a href="index12.html">12</a>
-					<a href="index13.html">13</a>
-					<a href="index14.html">14</a>
-					<a href="index15.html">15</a>
-				</nav>
+				
+				<div class="status-badge">
+					<span class="status-badge__dot"></span>
+					<span>Dev Júnior C# @ Actuar &bull; Ciência da Computação (PUC-GO)</span>
+				</div>
+
 				<div class="frame__heading">
-					<h2 class="content__title"><i>The</i> Escape</h2>
-					<p class="text-meta">An exploration of the Synthetic Era.</p>
+					<h2><i>Matheus</i> Alves</h2>
+					<h2>Backend <i>C# & .NET</i> Engineer</h2>
+					<p class="hero-tagline">
+						Desenvolvedor focado no ecossistema <strong>C# (.NET 8)</strong>, arquitetura de <strong>microsserviços</strong>, mensageria com <strong>RabbitMQ</strong>, modelagem relacional com <strong>PostgreSQL</strong> e diagnóstico de causa raiz (RCA) para incidentes de alta complexidade. Criador do <strong>Meppo</strong> e do <strong>DataClean</strong>.
+					</p>
 				</div>
+
+				<div class="hero-actions">
+					<a href="#stack" class="btn btn--primary">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+						Explorar Arquitetura & Projetos
+					</a>
+					<a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.17 8.17 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.1l-.29-.17-3.04.8 1.05-2.96-.19-.31a8.216 8.216 0 01-1.26-4.5c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+						Conversar no WhatsApp
+					</a>
+					<div class="hero-socials">
+						<a href="mailto:workingaccount.matheus@gmail.com" class="social-icon-btn" title="Email Direto">
+							<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+						</a>
+						<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+							<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+						</a>
+						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
+							<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Key Metrics Strip -->
+				<div class="metric-strip">
+					<div class="metric-card">
+						<span class="metric-card__value">N1 ➔ N2 ➔ Dev</span>
+						<span class="metric-card__label">Evolução acelerada na Actuar por impacto e domínio de código</span>
+					</div>
+					<div class="metric-card">
+						<span class="metric-card__value">6m ➔ &lt;2s</span>
+						<span class="metric-card__label">Otimização de processos críticos com o ecossistema Meppo</span>
+					</div>
+					<div class="metric-card">
+						<span class="metric-card__value">14.75 / 15.0</span>
+						<span class="metric-card__label">Nota técnica em arquitetura e regras de negócio corporativas</span>
+					</div>
+					<div class="metric-card">
+						<span class="metric-card__value">CR 8.6</span>
+						<span class="metric-card__label">Ciência da Computação (PUC-GO) com sólido rigor analítico</span>
+					</div>
+				</div>
+
 			</header>
-			<div class="content content--highlight content--intro">
-				<p class="text-large">As data conglomerates reveled in the opulence of cognitive wealth, a silent underclass manifested, condemned to the digital periphery.</p>
+
+			<!-- Intro Highlight Statement -->
+			<div id="about" class="content content--highlight content--intro">
+				<p class="text-large">Transformando <em>gargalos operacionais</em> em <em>microsserviços escaláveis</em>, pipelines resilientes e automações inteligentes.</p>
+				<p class="intro-subtext">
+					Com experiência em investigação de causa raiz (RCA) na esteira de produção e construção de ferramentas de alto rendimento, uno fundamentos de Ciência da Computação a práticas modernas de engenharia de software em C#/.NET.
+				</p>
 			</div>
-			<div class="wrap">
+
+			<!-- Sticky Sections Interactive Stack (Demo 9 Mechanism) -->
+			<div id="stack" class="wrap">
+				
+				<!-- SECTION 1: Backend Architecture (Right side) -->
 				<div class="content content--sticky content--half bg-1">
-					<img class="content__img content__img--small" src="img/1.png" />
-					<h2 class="content__title"><i>The</i> Algorithm</h2>
-					<p class="content__text content__text--narrow text-meta">The algorithm's workings are shrouded in complexity.</p>
+					<img class="content__img content__img--small" src="img/1.png" alt="Core Backend Engine" />
+					<span class="section-tag">01 / ARQUITETURA & ECOSSISTEMA</span>
+					<h2 class="content__title"><i>Core</i> .NET Engine</h2>
+					<p class="content__text content__text--narrow">
+						Desenvolvimento de APIs e microsserviços em <strong>C# 12 e .NET 8</strong> estruturados em <strong>Clean Architecture</strong>, CQRS, Repository Pattern, PostgreSQL, RabbitMQ e Docker.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">C# 12 / .NET 8</span>
+						<span class="tech-pill">ASP.NET Core</span>
+						<span class="tech-pill">Clean Architecture</span>
+						<span class="tech-pill">PostgreSQL</span>
+						<span class="tech-pill">RabbitMQ</span>
+						<span class="tech-pill">Docker</span>
+					</div>
+					<div class="card-action-group">
+						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+							Ver no GitHub &rarr;
+						</a>
+					</div>
 				</div>
-				<div class="content content--sticky content--half bg-2">
-					<img class="content__img content__img--small" src="img/2.png" />
-					<h2 class="content__title"><i>The</i> Dogma</h2>
-					<p class="content__text content__text--narrow text-meta">Enshrining the principles of conformity and reinforcing the status quo.</p>
+
+				<!-- SECTION 2: DataClean Microservice (Left side) -->
+				<div id="projects" class="content content--sticky content--half bg-2">
+					<img class="content__img content__img--small" src="img/2.png" alt="DataClean Microservice" />
+					<span class="section-tag">02 / PRODUTO EM PRODUÇÃO</span>
+					<h2 class="content__title"><i>DataClean</i> Suite</h2>
+					<p class="content__text content__text--narrow">
+						Microsserviço em <strong>.NET 8</strong> para parsing multi-formato (XLSX, XLS OLE2, ODS, XML), scoring heurístico de cabeçalhos e validação rigorosa de regras de domínio.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">.NET 8 API</span>
+						<span class="tech-pill">Multi-Format Parser</span>
+						<span class="tech-pill">PostgreSQL</span>
+						<span class="tech-pill">RabbitMQ</span>
+						<span class="tech-pill">React Studio</span>
+					</div>
+					<div class="card-action-group">
+						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+							Explorar Projeto &rarr;
+						</a>
+					</div>
 				</div>
+
+				<!-- SECTION 3: Meppo Suite (Right side) -->
 				<div class="content content--sticky content--half bg-3">
-					<img class="content__img content__img--small" src="img/3.png" />
-					<h2 class="content__title"><i>The</i> Architects</h2>
-					<p class="content__text content__text--narrow text-meta">The elusive entities, lacking human form, operate in the shadows.</p>
+					<img class="content__img content__img--small" src="img/3.png" alt="Meppo Suite" />
+					<span class="section-tag">03 / AUTOMAÇÃO OPERACIONAL</span>
+					<h2 class="content__title"><i>Meppo</i> Suite</h2>
+					<p class="content__text content__text--narrow">
+						Extensão e suíte de automação que reduziu processos de <strong>6 minutos para segundos</strong> na Actuar via orquestração de APIs REST, ClickUp e WhatsApp.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">JavaScript ES6+</span>
+						<span class="tech-pill">REST APIs</span>
+						<span class="tech-pill">Chrome Extensions</span>
+						<span class="tech-pill">ClickUp API</span>
+						<span class="tech-pill">WhatsApp Web</span>
+					</div>
+					<div class="card-action-group">
+						<a href="https://www.linkedin.com/posts/matheusallvz_produtividade-customerexperience-desenvolvimento-activity-7432189024691404802-HZ0r" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+							Ver no LinkedIn &rarr;
+						</a>
+					</div>
 				</div>
+
+				<!-- SECTION 4: NextFit & Data Migration (Left side) -->
 				<div class="content content--sticky content--half bg-4">
-					<img class="content__img content__img--small" src="img/4.png" />
-					<h2 class="content__title"><i>The</i> Wasteland</h2>
-					<p class="content__text content__text--narrow text-meta">This overlooked realm, a consequence of algorithmic judgments.</p>
+					<img class="content__img content__img--small" src="img/4.png" alt="NextFit Migration" />
+					<span class="section-tag">04 / DATA PIPELINE</span>
+					<h2 class="content__title"><i>NextFit</i> Zero-Gap</h2>
+					<p class="content__text content__text--narrow">
+						Pipeline de engenharia reversa de APIs, scraping adaptativo, chunking e batch import massivo entre ERPs de gestão esportiva sem perda histórica.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">Reverse Engineering</span>
+						<span class="tech-pill">Batch Ingestion</span>
+						<span class="tech-pill">Chunking Engine</span>
+						<span class="tech-pill">Python & C#</span>
+						<span class="tech-pill">Integridade de Dados</span>
+					</div>
+					<div class="card-action-group">
+						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+							Ver Soluções &rarr;
+						</a>
+					</div>
 				</div>
-				<div class="content content--sticky content--half bg-5">
-					<img class="content__img content__img--small" src="img/5.png" />
-					<h2 class="content__title"><i>The</i> Narrative</h2>
-					<p class="content__text content__text--narrow text-meta">The collective story sculpted by the architects.</p>
+
+				<!-- SECTION 5: Career & RCA (Right side) -->
+				<div id="experience" class="content content--sticky content--half bg-5">
+					<img class="content__img content__img--small" src="img/5.png" alt="Carreira e RCA" />
+					<span class="section-tag">05 / TRAJETÓRIA & EXCELÊNCIA</span>
+					<h2 class="content__title"><i>Carreira</i> & Impacto</h2>
+					<p class="content__text content__text--narrow">
+						5x Top 1 Analista N1 &rarr; N2 ponto focal de Root Cause Analysis (RCA) com nota 14.75/15 em arquitetura &rarr; Promoção a <strong>Desenvolvedor C# Jr na Actuar</strong>.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">N1 &rarr; N2 &rarr; Dev C#</span>
+						<span class="tech-pill">Root Cause Analysis</span>
+						<span class="tech-pill">Sustentação .NET</span>
+						<span class="tech-pill">Nota 14.75/15</span>
+						<span class="tech-pill">Inglês Técnico Fluente</span>
+					</div>
+					<div class="card-action-group">
+						<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">
+							Ver LinkedIn &rarr;
+						</a>
+					</div>
 				</div>
+
+				<!-- SECTION 6: Academics & IoT (Left side) -->
 				<div class="content content--sticky content--half bg-6">
-					<img class="content__img content__img--small" src="img/6.png" />
-					<h2 class="content__title"><i>The</i> Opulence</h2>
-					<p class="content__text content__text--narrow text-meta">The cognitive elite's wealth in the algorithmic society.</p>
+					<img class="content__img content__img--small" src="img/6.png" alt="Foundations e IoT" />
+					<span class="section-tag">06 / FORMAÇÃO & HARDWARE</span>
+					<h2 class="content__title"><i>Foundations</i> & IoT</h2>
+					<p class="content__text content__text--narrow">
+						Bacharelado em <strong>Ciência da Computação (PUC-GO, CR 8.6)</strong>, sistemas distribuídos, algoritmos, linguagem C, Arduino, Raspberry Pi Pico e docência em robótica.
+					</p>
+					<div class="tech-pill-container">
+						<span class="tech-pill">PUC-GO (CR 8.6)</span>
+						<span class="tech-pill">Linguagem C</span>
+						<span class="tech-pill">Arduino & Pico</span>
+						<span class="tech-pill">Estruturas de Dados</span>
+						<span class="tech-pill">Robotec Educacional</span>
+					</div>
+					<div class="card-action-group">
+						<a href="Matheus_Alves_Curriculo.pdf" download="Matheus_Alves_Curriculo.pdf" class="btn btn--secondary btn--sm">
+							Baixar Currículo PDF &rarr;
+						</a>
+					</div>
 				</div>
+
 			</div>
-			<div class="content content--highlight content--outro">
-				<p class="text-large">Lost in perpetual dependency, inhabitants of the Synthetic Era found solace in cryptic simulations, where pain ebbed and cognitive loads momentarily lightened.</p>
-				<img class="content__img spacer" src="img/5.png" />
+
+			<!-- Outro & Contact Hub -->
+			<div id="contact" class="content content--highlight content--outro">
+				<p class="text-large">Vamos construir algo <em>resiliente</em> e de <em>alto impacto</em> juntos.</p>
+				<p class="intro-subtext">
+					Aberto a conexões profissionais, colaborações técnicas, projetos em C# .NET, microsserviços e desafios de engenharia backend.
+				</p>
+
+				<!-- Direct Contact Cards -->
+				<div class="contact-cards-grid">
+					<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="contact-card">
+						<div class="contact-card__header">
+							<div class="contact-card__icon">
+								<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+							</div>
+							<div>
+								<h4 class="contact-card__title">LinkedIn</h4>
+								<p class="contact-card__subtitle">Perfil Profissional & Conexões</p>
+							</div>
+						</div>
+						<span class="contact-card__value">linkedin.com/in/matheusallvz &rarr;</span>
+					</a>
+
+					<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="contact-card">
+						<div class="contact-card__header">
+							<div class="contact-card__icon">
+								<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+							</div>
+							<div>
+								<h4 class="contact-card__title">GitHub</h4>
+								<p class="contact-card__subtitle">Código, Repositórios & Labs</p>
+							</div>
+						</div>
+						<span class="contact-card__value">github.com/Matheus-Allvz &rarr;</span>
+					</a>
+
+					<a href="mailto:workingaccount.matheus@gmail.com" class="contact-card">
+						<div class="contact-card__header">
+							<div class="contact-card__icon">
+								<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+							</div>
+							<div>
+								<h4 class="contact-card__title">E-mail</h4>
+								<p class="contact-card__subtitle">Contato Profissional Direto</p>
+							</div>
+						</div>
+						<span class="contact-card__value">workingaccount.matheus@gmail.com &rarr;</span>
+					</a>
+
+					<a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="contact-card">
+						<div class="contact-card__header">
+							<div class="contact-card__icon">
+								<svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.17 8.17 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.1l-.29-.17-3.04.8 1.05-2.96-.19-.31a8.216 8.216 0 01-1.26-4.5c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+							</div>
+							<div>
+								<h4 class="contact-card__title">WhatsApp</h4>
+								<p class="contact-card__subtitle">Mensagem Instantânea</p>
+							</div>
+						</div>
+						<span class="contact-card__value">+55 (62) 99312-3343 &rarr;</span>
+					</a>
+				</div>
+
+				<!-- CV Download Card -->
+				<div class="resume-banner">
+					<div class="resume-banner__info">
+						<h3>Currículo Atualizado (PDF)</h3>
+						<p>Faça o download do currículo com histórico detalhado, certificações e competências técnicas.</p>
+					</div>
+					<a href="Matheus_Alves_Curriculo.pdf" download="Matheus_Alves_Curriculo.pdf" class="btn btn--primary">
+						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+						Baixar Currículo PDF
+					</a>
+				</div>
+
+				<img class="content__img spacer" src="img/5.png" alt="3D Geometry Accent" />
 			</div>
+
+			<!-- Footer -->
 			<footer class="frame frame--footer">
-				<p class="frame__credits"><a href="https://www.vecteezy.com/members/annazdsgn">Images by Annas Muslimin</a> on Vecteezy</p>
-				<p class="frame__author"><span>Made by <a href="https://www.twitter.com/codrops">@codrops</a></span> <span><a href="mailto:crnacura@gmail.com">Hire us</a></span></p>
+				<div class="footer-credits">
+					<p>&copy; 2026 <strong>Matheus Alves da Costa</strong> &bull; Engenharia de Software &bull; Goiânia, GO</p>
+				</div>
+				<div class="footer-nav">
+					<a href="#hero">Voltar ao Topo &uarr;</a>
+					<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+				</div>
 			</footer>
 		</main>
+
+		<!-- Script Dependencies -->
 		<script src="js/gsap.min.js"></script>
 		<script src="js/ScrollTrigger.min.js"></script>
 		<script src="js/lenis.min.js"></script>

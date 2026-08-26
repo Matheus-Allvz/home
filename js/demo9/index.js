@@ -1,42 +1,55 @@
 import { preloadImages } from '../utils.js';
 
-// Variable to store the Lenis smooth scrolling object
 let lenis;
-
-// Selecting DOM elements
-
 const contentElements = [...document.querySelectorAll('.content--sticky')];
 const totalContentElements = contentElements.length;
 
-// Initializes Lenis for smooth scrolling with specific properties
 const initSmoothScrolling = () => {
-	// Instantiate the Lenis object with specified properties
 	lenis = new Lenis({
-		lerp: 0.2, // Lower values create a smoother scroll effect
-		smoothWheel: true // Enables smooth scrolling for mouse wheel events
+		lerp: 0.15,
+		smoothWheel: true
 	});
 
-	// Update ScrollTrigger each time the user scrolls
 	lenis.on('scroll', () => ScrollTrigger.update());
 
-	// Define a function to run at each animation frame
 	const scrollFn = (time) => {
-		lenis.raf(time); // Run Lenis' requestAnimationFrame method
-		requestAnimationFrame(scrollFn); // Recursively call scrollFn on each frame
+		lenis.raf(time);
+		requestAnimationFrame(scrollFn);
 	};
-	// Start the animation frame loop
 	requestAnimationFrame(scrollFn);
+
+	// Setup smooth scrolling for anchor links & nav items
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			const targetId = this.getAttribute('href');
+			if (!targetId || targetId === '#') return;
+			
+			e.preventDefault();
+			if (targetId === '#hero' || targetId === '#top') {
+				lenis.scrollTo(0, {
+					duration: 1.4,
+					easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+				});
+			} else {
+				const targetEl = document.querySelector(targetId);
+				if (targetEl) {
+					lenis.scrollTo(targetEl, {
+						offset: 0,
+						duration: 1.4,
+						easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+					});
+				}
+			}
+		});
+	});
 };
 
-// Function to handle scroll-triggered animations
 const scroll = () => {
-
     contentElements.forEach((el, position) => {
-        
-		const isLast = position === totalContentElements-1;
-		const isPreLast = position === totalContentElements-2;
+		const isLast = position === totalContentElements - 1;
+		const isPreLast = position === totalContentElements - 2;
 
-        gsap.timeline({
+        const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: el,
                 start: () => {
@@ -57,39 +70,38 @@ const scroll = () => {
         .to(el, {
 			ease: 'none',
             yPercent: -100
-        }, 0)
-		// Animate the content inner image
-        .fromTo(el.querySelector('.content__img'), {
-			yPercent: 20,
-            rotation: 40,
-			scale: 0.8,
-			filter: 'contrast(400%)'
-		}, {
-            ease: 'none',
-            yPercent: -100,
-            rotation: 0,
-			scale: 1,
-			filter: 'contrast(100%)',
-			scrollTrigger: {
-                trigger: el,
-                start: 'top bottom',
-                end: 'max',
-                scrub: true
-            }
         }, 0);
 
+		const img = el.querySelector('.content__img');
+		if (img) {
+			tl.fromTo(img, {
+				yPercent: 20,
+				rotation: 40,
+				scale: 0.8,
+				filter: 'contrast(300%)'
+			}, {
+				ease: 'none',
+				yPercent: -100,
+				rotation: 0,
+				scale: 1,
+				filter: 'contrast(100%)',
+				scrollTrigger: {
+					trigger: el,
+					start: 'top bottom',
+					end: 'max',
+					scrub: true
+				}
+			}, 0);
+		}
     });
-
 };
 
-// Initialization function
 const init = () => {
-    initSmoothScrolling(); // Initialize Lenis for smooth scrolling
-    scroll(); // Apply scroll-triggered animations
+    initSmoothScrolling();
+    scroll();
 };
 
-preloadImages('.content__img').then(() => {
-    // Once images are preloaded, remove the 'loading' indicator/class from the body
+preloadImages('.content__img, img').then(() => {
     document.body.classList.remove('loading');
     init();
 });
