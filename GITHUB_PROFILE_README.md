@@ -74,7 +74,7 @@ Sou o criador do **Meppo** (suíte de produtividade que otimizou rotinas operaci
 - Integração de APIs REST com plataformas de atendimento, ClickUp e WhatsApp Web.
 - Busca unificada dinâmica, geração instantânea de payloads e templates contextuais para times de N1, N2 e Customer Success.
 
-#### 3. 🔄 [NextFit Zero-Gap Migration Engine](https://github.com/Matheus-Allvz)
+#### 3. 🔄 [Data Pipelines & Ingestion Engine Engine](https://github.com/Matheus-Allvz)
 > **Pipeline de Extração, Engenharia Reversa e Carga Massiva**
 - Extração segura de entidades cadastrais e financeiras entre plataformas ERP de academias.
 - Chunking inteligente, controle de rate limiting e batch import de milhares de registros sem perda de histórico.
