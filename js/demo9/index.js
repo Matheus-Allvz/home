@@ -33,9 +33,14 @@ const initThemeSwitcher = () => {
 };
 
 const initSmoothScrolling = () => {
+	// Detect touch device
+	const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 	lenis = new Lenis({
-		lerp: 0.15,
-		smoothWheel: true
+		lerp: isTouch ? 0.2 : 0.12,
+		smoothWheel: true,
+		syncTouch: true,
+		touchMultiplier: 1.5
 	});
 
 	lenis.on('scroll', () => ScrollTrigger.update());
@@ -55,7 +60,7 @@ const initSmoothScrolling = () => {
 			e.preventDefault();
 			if (targetId === '#hero' || targetId === '#top') {
 				lenis.scrollTo(0, {
-					duration: 1.4,
+					duration: 1.2,
 					easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
 				});
 			} else {
@@ -63,12 +68,19 @@ const initSmoothScrolling = () => {
 				if (targetEl) {
 					lenis.scrollTo(targetEl, {
 						offset: 0,
-						duration: 1.4,
+						duration: 1.2,
 						easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
 					});
 				}
 			}
 		});
+	});
+
+	// Refresh ScrollTrigger on resize / orientationchange
+	window.addEventListener('resize', () => {
+		if (typeof ScrollTrigger !== 'undefined') {
+			ScrollTrigger.refresh();
+		}
 	});
 };
 
@@ -104,14 +116,14 @@ const scroll = () => {
 		if (img) {
 			tl.fromTo(img, {
 				yPercent: 20,
-				rotation: 30,
-				scale: 0.85,
-				filter: 'brightness(150%)'
+				rotation: 20,
+				scale: 0.9,
+				filter: 'brightness(140%)'
 			}, {
 				ease: 'none',
 				yPercent: -100,
 				rotation: 0,
-				scale: 1.05,
+				scale: 1.02,
 				filter: 'brightness(100%)',
 				scrollTrigger: {
 					trigger: el,
