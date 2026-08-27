@@ -4,9 +4,9 @@ let lenis;
 const contentElements = [...document.querySelectorAll('.content--sticky')];
 const totalContentElements = contentElements.length;
 
-// Setup Theme Switcher
+// Setup Theme Switcher (Defaulting to Gold)
 const initThemeSwitcher = () => {
-	const savedTheme = localStorage.getItem('matheus_portfolio_theme') || 'cyber';
+	const savedTheme = localStorage.getItem('matheus_portfolio_theme') || 'gold';
 	document.documentElement.setAttribute('data-theme', savedTheme);
 	
 	const themeBtns = document.querySelectorAll('.theme-btn');
@@ -33,7 +33,6 @@ const initThemeSwitcher = () => {
 };
 
 const initSmoothScrolling = () => {
-	// Detect touch device
 	const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 	lenis = new Lenis({
@@ -67,7 +66,7 @@ const initSmoothScrolling = () => {
 				const targetEl = document.querySelector(targetId);
 				if (targetEl) {
 					lenis.scrollTo(targetEl, {
-						offset: 0,
+						offset: -70,
 						duration: 1.2,
 						easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
 					});
@@ -76,7 +75,6 @@ const initSmoothScrolling = () => {
 		});
 	});
 
-	// Refresh ScrollTrigger on resize / orientationchange
 	window.addEventListener('resize', () => {
 		if (typeof ScrollTrigger !== 'undefined') {
 			ScrollTrigger.refresh();

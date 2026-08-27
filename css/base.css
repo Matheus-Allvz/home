@@ -7,8 +7,57 @@
 :root {
 	font-size: 16px;
 	--page-padding: 1.5rem;
+	--nav-height: 66px;
 	
-	/* Default Theme: Cyber .NET & Indigo */
+	/* =========================================================================
+	   DEFAULT THEME: LUXURY AURUM GOLD (ORIGINAL CODROPS DEMO 9)
+	   ========================================================================= */
+	--color-bg: #0c0b09;
+	--color-bg-grid: rgba(212, 175, 55, 0.05);
+	--color-text: #f5f0e6;
+	--color-text-muted: #c5b8a5;
+	--color-link: rgba(245, 240, 230, 0.75);
+	--color-link-hover: #e5c05b;
+	
+	--color-accent: #d4af37;
+	--color-accent-alt: #f5c542;
+	--color-accent-dim: rgba(212, 175, 55, 0.12);
+	--color-accent-border: rgba(212, 175, 55, 0.35);
+	--color-card-border: rgba(212, 175, 55, 0.18);
+	
+	--color-bg-1: #18150f;
+	--color-bg-2: #201a12;
+	--color-bg-3: #1a150e;
+	--color-bg-4: #231c13;
+	--color-bg-5: #1d170f;
+	--color-bg-6: #15120a;
+}
+
+/* THEME: Aurum Gold Explicit */
+[data-theme="gold"] {
+	--color-bg: #0c0b09;
+	--color-bg-grid: rgba(212, 175, 55, 0.05);
+	--color-text: #f5f0e6;
+	--color-text-muted: #c5b8a5;
+	--color-link: rgba(245, 240, 230, 0.75);
+	--color-link-hover: #e5c05b;
+	
+	--color-accent: #d4af37;
+	--color-accent-alt: #f5c542;
+	--color-accent-dim: rgba(212, 175, 55, 0.12);
+	--color-accent-border: rgba(212, 175, 55, 0.35);
+	--color-card-border: rgba(212, 175, 55, 0.18);
+	
+	--color-bg-1: #18150f;
+	--color-bg-2: #201a12;
+	--color-bg-3: #1a150e;
+	--color-bg-4: #231c13;
+	--color-bg-5: #1d170f;
+	--color-bg-6: #15120a;
+}
+
+/* THEME: Cyber .NET 8 Cyan */
+[data-theme="cyber"] {
 	--color-bg: #080a10;
 	--color-bg-grid: rgba(0, 242, 254, 0.05);
 	--color-text: #f1f5f9;
@@ -76,19 +125,19 @@
 	--color-bg-6: #131d30;
 }
 
-/* THEME: Minimal Stealth / Cobalt */
+/* THEME: Titanium Stealth */
 [data-theme="stealth"] {
 	--color-bg: #080808;
 	--color-bg-grid: rgba(255, 255, 255, 0.03);
 	--color-text: #f8fafc;
 	--color-text-muted: #94a3b8;
 	--color-link: rgba(248, 250, 252, 0.7);
-	--color-link-hover: #60a5fa;
+	--color-link-hover: #e2e8f0;
 	
-	--color-accent: #60a5fa;
-	--color-accent-alt: #cbd5e1;
-	--color-accent-dim: rgba(96, 165, 250, 0.12);
-	--color-accent-border: rgba(96, 165, 250, 0.3);
+	--color-accent: #e2e8f0;
+	--color-accent-alt: #94a3b8;
+	--color-accent-dim: rgba(255, 255, 255, 0.1);
+	--color-accent-border: rgba(255, 255, 255, 0.25);
 	--color-card-border: rgba(255, 255, 255, 0.1);
 	
 	--color-bg-1: #121214;
@@ -115,7 +164,7 @@ body {
 }
 
 .demo-9 {
-	/* Uses CSS variable root bindings */
+	/* Uses CSS variable bindings */
 }
 
 /* Page Loader */
@@ -172,7 +221,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* =========================================================================
-   TOP NAVIGATION BAR & THEME SWITCHER
+   TOP NAVIGATION BAR
    ========================================================================= */
 
 .top-nav {
@@ -180,12 +229,13 @@ a:focus-visible, button:focus-visible {
 	top: 0;
 	left: 0;
 	width: 100%;
+	height: var(--nav-height);
 	z-index: 4000;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.75rem 2rem;
-	background: rgba(8, 10, 16, 0.85);
+	padding: 0.5rem 2rem;
+	background: rgba(12, 11, 9, 0.88);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
 	border-bottom: 1px solid var(--color-accent-border);
@@ -251,7 +301,7 @@ a:focus-visible, button:focus-visible {
 	display: flex;
 	align-items: center;
 	gap: 0.25rem;
-	background: rgba(255, 255, 255, 0.05);
+	background: rgba(255, 255, 255, 0.04);
 	border: 1px solid var(--color-accent-border);
 	padding: 0.2rem;
 	border-radius: 9999px;
@@ -261,7 +311,7 @@ a:focus-visible, button:focus-visible {
 	background: transparent;
 	border: none;
 	color: var(--color-text-muted);
-	padding: 0.3rem 0.6rem;
+	padding: 0.3rem 0.65rem;
 	border-radius: 9999px;
 	font-size: 11px;
 	font-family: inherit;
@@ -269,7 +319,7 @@ a:focus-visible, button:focus-visible {
 	cursor: pointer;
 	display: inline-flex;
 	align-items: center;
-	gap: 0.3rem;
+	gap: 0.35rem;
 	transition: all 0.2s ease;
 }
 
@@ -284,10 +334,11 @@ a:focus-visible, button:focus-visible {
 	border-radius: 50%;
 }
 
+.theme-btn__dot--gold { background: #d4af37; box-shadow: 0 0 6px #d4af37; }
 .theme-btn__dot--cyber { background: #00f2fe; box-shadow: 0 0 6px #00f2fe; }
 .theme-btn__dot--matrix { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
 .theme-btn__dot--tokyo { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
-.theme-btn__dot--stealth { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
+.theme-btn__dot--stealth { background: #e2e8f0; box-shadow: 0 0 6px #e2e8f0; }
 
 /* Buttons */
 .btn {
@@ -307,7 +358,7 @@ a:focus-visible, button:focus-visible {
 
 .btn--primary {
 	background: var(--color-accent);
-	color: #06090e !important;
+	color: #0c0b09 !important;
 	border: 1px solid var(--color-accent);
 	box-shadow: 0 0 15px var(--color-accent-dim);
 }
@@ -385,7 +436,7 @@ a:focus-visible, button:focus-visible {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-top: 7rem;
+	padding-top: calc(var(--nav-height) + 3rem);
 	padding-bottom: 4rem;
 }
 
@@ -427,7 +478,7 @@ a:focus-visible, button:focus-visible {
 
 .frame__heading h2 {
 	margin: 0;
-	line-height: 0.9;
+	line-height: 0.92;
 	text-transform: uppercase;
 	margin-left: -0.065em;
 	font-size: clamp(2.6rem, 9vw, 6.5rem);
@@ -559,7 +610,7 @@ i {
 }
 
 /* =========================================================================
-   STICKY SECTIONS STACK (SIDE-BY-SIDE ON DESKTOP - DEMO 9)
+   STICKY SECTIONS STACK (WITH NAVBAR OFFSET TO PREVENT OVERLAP)
    ========================================================================= */
 
 .wrap {
@@ -570,16 +621,16 @@ i {
 .content--sticky {
 	width: 100vw;
 	position: sticky;
-	top: 0;
-	--offset: 0px;
-	top: var(--offset);
-	height: calc(100vh - var(--offset));
+	--offset: var(--nav-height, 66px);
+	top: var(--offset) !important;
+	height: calc(100vh - var(--offset)) !important;
+	max-height: calc(100vh - var(--offset));
 }
 
 .content--half {
 	display: flex;
 	flex-direction: column;
-	gap: 2.2vh;
+	gap: 2vh;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
@@ -653,8 +704,8 @@ i {
 }
 
 .content__img--small {
-	height: 30%;
-	max-height: 160px;
+	height: 28%;
+	max-height: 150px;
 	width: auto;
 }
 
@@ -669,13 +720,13 @@ i {
 	gap: 0.4rem;
 	justify-content: center;
 	max-width: 440px;
-	margin: 0.5rem 0;
+	margin: 0.4rem 0;
 }
 
 .tech-pill {
 	display: inline-flex;
 	align-items: center;
-	background: rgba(0, 0, 0, 0.45);
+	background: rgba(0, 0, 0, 0.5);
 	border: 1px solid var(--color-accent-border);
 	color: var(--color-text);
 	padding: 0.25rem 0.6rem;
@@ -697,7 +748,7 @@ i {
 .card-action-group {
 	display: flex;
 	gap: 0.75rem;
-	margin-top: 0.5rem;
+	margin-top: 0.4rem;
 }
 
 /* Dynamic Section Colors */
@@ -710,7 +761,7 @@ i {
 
 /* Outro Section */
 .content--outro {
-	padding-top: 40vh;
+	padding-top: 35vh;
 	padding-bottom: 20vh;
 	text-align: center;
 	background: radial-gradient(circle at 50% 30%, var(--color-accent-dim), transparent 70%), var(--color-bg);
@@ -718,10 +769,10 @@ i {
 
 .contact-cards-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	gap: 1.5rem;
 	width: 100%;
-	max-width: 1000px;
+	max-width: 950px;
 	margin: 3rem 0;
 	text-align: left;
 }
@@ -857,7 +908,6 @@ i {
 	color: var(--color-accent);
 }
 
-
 /* =========================================================================
    COMPREHENSIVE MOBILE RESPONSIVE TWEAKS & TOUCH OPTIMIZATIONS
    ========================================================================= */
@@ -865,11 +915,13 @@ i {
 @media screen and (max-width: 48em) {
 	:root {
 		--page-padding: 1rem;
+		--nav-height: 54px;
 	}
 
 	/* Top Navigation Bar on Mobile */
 	.top-nav {
-		padding: 0.5rem 0.85rem;
+		padding: 0.4rem 0.85rem;
+		height: var(--nav-height);
 	}
 
 	.top-nav__brand {
@@ -906,24 +958,19 @@ i {
 		gap: 0.4rem;
 	}
 
-	.top-nav__actions .btn--sm {
-		padding: 0.3rem 0.65rem;
-		font-size: 10px;
-	}
-
 	.social-icon-btn {
-		width: 30px;
-		height: 30px;
+		width: 32px;
+		height: 32px;
 	}
 
 	.social-icon-btn svg {
-		width: 14px;
-		height: 14px;
+		width: 15px;
+		height: 15px;
 	}
 
 	/* Hero Header on Mobile */
 	.frame--header {
-		padding-top: 4.5rem;
+		padding-top: calc(var(--nav-height) + 1.5rem);
 		padding-bottom: 2rem;
 		min-height: auto;
 	}
@@ -1056,24 +1103,26 @@ i {
 @media screen and (max-width: 63em) {
 	.content--sticky {
 		width: 100vw !important;
-		height: 100vh !important;
-		height: 100dvh !important;
-		min-height: 520px;
-		max-height: 100vh;
-		padding: 1rem 0.85rem !important;
+		--offset: var(--nav-height, 54px) !important;
+		top: var(--offset) !important;
+		height: calc(100vh - var(--offset)) !important;
+		height: calc(100dvh - var(--offset)) !important;
+		min-height: 480px;
+		max-height: calc(100dvh - var(--offset)) !important;
+		padding: 0.75rem 0.85rem !important;
 		margin-left: 0 !important;
 	}
 
 	.content--half {
 		width: 100% !important;
 		gap: 1.2vh !important;
-		padding: 1.25rem 1rem !important;
+		padding: 1rem 0.85rem !important;
 		justify-content: center !important;
 	}
 
 	.content__img--small {
-		max-height: 75px !important;
-		max-width: 110px !important;
+		max-height: 70px !important;
+		max-width: 100px !important;
 		height: auto !important;
 	}
 
@@ -1084,14 +1133,14 @@ i {
 	}
 
 	.content__title {
-		font-size: clamp(1.35rem, 5.5vw, 2.1rem) !important;
+		font-size: clamp(1.3rem, 5.2vw, 2rem) !important;
 		line-height: 1.05 !important;
 		margin: 0 !important;
 	}
 
 	.content__text {
-		font-size: 0.82rem !important;
-		line-height: 1.45 !important;
+		font-size: 0.8rem !important;
+		line-height: 1.4 !important;
 		max-width: 95% !important;
 	}
 
