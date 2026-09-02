@@ -1,5 +1,11 @@
 # Matheus Alves — Portfolio (Editorial & Brutalist Architecture)
 
+<p align="left">
+  <a href="https://github.com/Matheus-Allvz/home/actions/workflows/ci.yml"><img src="https://github.com/Matheus-Allvz/home/actions/workflows/ci.yml/badge.svg" alt="CI & Quality Gate"/></a>
+  <a href="https://matheus-alves.dev"><img src="https://img.shields.io/badge/Production-Live-D63A2F?style=flat-square&logo=google-chrome&logoColor=white" alt="Live Site"/></a>
+  <img src="https://img.shields.io/badge/Stack-C%23_.NET_8_%2F_Docker_%2F_Nginx-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt="Stack"/>
+</p>
+
 Interactive portfolio and presentation hub for **Matheus Alves da Costa**, Backend Software Engineer specializing in C# (.NET 8), Microservices, High-Throughput Distributed Systems, RabbitMQ, PostgreSQL, and Clean Architecture.
 
 Live: [https://matheus-alves.dev/](https://matheus-alves.dev/)
