@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     renderCursor();
 
-    const hoverables = document.querySelectorAll('a, button, .work-item, .cmd-card, .spec-card, .cd-jewel-case');
+    const hoverables = document.querySelectorAll('a, button, .work-item, .cmd-card, .spec-card, .cd-jewel-case, .kinetic-stamp, .slanted-badge');
     hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => {
             document.body.classList.add('cursor-hovering');
@@ -266,6 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el.classList.contains('work-item')) label.textContent = 'SWITCH CH';
                 else if (el.classList.contains('cd-jewel-case')) label.textContent = 'PLAY';
                 else if (el.classList.contains('contact-card--copy')) label.textContent = 'COPY';
+                else if (el.classList.contains('kinetic-stamp') || el.closest('.kinetic-stamp')) label.textContent = 'MAC // 2026';
+                else if (el.dataset.cursor) label.textContent = el.dataset.cursor;
                 else label.textContent = 'VIEW';
             }
         });
@@ -273,6 +275,17 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('cursor-hovering');
         });
     });
+
+    const kineticStampEl = document.getElementById('kineticStamp');
+    if (kineticStampEl) {
+        kineticStampEl.addEventListener('click', () => {
+            sound.playGlitchChirp();
+            kineticStampEl.style.animationDuration = '3s';
+            setTimeout(() => {
+                kineticStampEl.style.animationDuration = '20s';
+            }, 3000);
+        });
+    }
 
 
     // -------------------------------------------------------------

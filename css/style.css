@@ -754,6 +754,13 @@ body.cursor-hovering .cursor-label {
     position: relative;
     animation: spinStamp 20s linear infinite;
     cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s var(--ease-out-expo), filter 0.3s ease;
+}
+
+.kinetic-stamp:hover {
+    filter: drop-shadow(0 0 14px rgba(214, 58, 47, 0.55));
+    transform: scale(1.08);
 }
 
 .hero-col-right {
