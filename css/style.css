@@ -701,7 +701,8 @@ body.cursor-hovering .cursor-label {
     transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
 }
 
-.char-block:hover {
+.char-block:hover,
+.char-block.active-key {
     color: var(--accent-red);
     transform: translateY(-8px) scale(1.04);
 }

@@ -430,7 +430,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. KINETIC PARALLAX ON SCROLL
     // -------------------------------------------------------------
     const letterStream = document.getElementById('letterStream');
-    const kineticStamp = document.getElementById('kineticStamp');
 
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
@@ -438,5 +437,54 @@ document.addEventListener('DOMContentLoaded', () => {
             letterStream.style.transform = `translateY(${scrolled * 0.15}px)`;
         }
     }, { passive: true });
+
+
+    // -------------------------------------------------------------
+    // 9. INTERACTIVE HERO TITLE KEYBOARD TRIGGER ENGINE
+    // -------------------------------------------------------------
+    const noteMap = {
+        'M': 261.63, // C4
+        'A': 293.66, // D4
+        'T': 329.63, // E4
+        'H': 349.23, // F4
+        'E': 392.00, // G4
+        'U': 440.00, // A4
+        'S': 493.88, // B4
+        'L': 523.25, // C5
+        'V': 587.33  // D5
+    };
+
+    window.addEventListener('keydown', (e) => {
+        // Suppress when typing in form inputs or using system shortcuts
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+        const rawKey = e.key;
+        if (!rawKey || rawKey.length !== 1) return;
+        const key = rawKey.toUpperCase();
+
+        const matchingChars = Array.from(document.querySelectorAll(`.hero-monumental-title .char-block[data-char="${key}"]`));
+        if (matchingChars.length === 0) return;
+
+        const baseFreq = noteMap[key] || 440;
+
+        // Animate each occurrence sequentially with a smooth staggered ripple
+        matchingChars.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.remove('active-key');
+                void el.offsetWidth; // Force DOM reflow to retrigger CSS transition
+                el.classList.add('active-key');
+
+                // Play synth tone with slight harmonic shift per match
+                const freq = baseFreq * (1 + (index * 0.15));
+                sound.playClick(freq, 0.05);
+
+                // Return to normal resting state
+                setTimeout(() => {
+                    el.classList.remove('active-key');
+                }, 450);
+            }, index * 90);
+        });
+    });
 
 });
