@@ -674,9 +674,11 @@ body.cursor-hovering .cursor-label {
 
 .hero-meta-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-top: 1rem;
     border-top: 1px solid var(--border-line);
     padding-top: 1.5rem;
@@ -688,6 +690,11 @@ body.cursor-hovering .cursor-label {
     padding: 1.2rem;
     border-radius: 4px;
     backdrop-filter: blur(8px);
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .meta-label {
@@ -2096,11 +2103,20 @@ body.cursor-hovering .cursor-label {
         grid-template-columns: 1fr;
         gap: 10px;
         margin-top: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .meta-card {
         padding: 12px 14px;
         background: rgba(15, 17, 23, 0.85);
         backdrop-filter: blur(8px);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
     .hero-stamp-wrapper {
         position: static;
@@ -2125,23 +2141,54 @@ body.cursor-hovering .cursor-label {
     .works-layout-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .works-list {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
     .crt-tv-showcase {
         position: relative;
         top: 0;
         width: 100%;
+        max-width: 100%;
         order: -1;
     }
     .crt-tv-frame {
         max-height: 260px;
         padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     .work-item {
-        padding: 1.2rem 0.5rem;
+        padding: 1.2rem 0.8rem;
         min-height: 56px;
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+    .work-item__left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.8rem;
+    }
+    .work-item__right {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .work-item__title {
-        font-size: clamp(1.3rem, 5vw, 2rem);
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        word-break: break-word;
     }
 
     /* Architecture Blueprint & Terminal Mobile */
