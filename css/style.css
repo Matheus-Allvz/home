@@ -1831,6 +1831,146 @@ body.cursor-hovering .cursor-label {
 
 
 /* ==========================================================================
+   MOBILE MENU DRAWER & HUD RESPONSIVE CONTROLS
+   ========================================================================== */
+
+.hud-mobile-btn {
+    display: none;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 6px 12px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.hud-mobile-btn:hover {
+    background: var(--accent-vermilion);
+    color: #ffffff;
+}
+
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(8, 9, 12, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-drawer.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-line);
+    padding-bottom: 1rem;
+}
+
+.drawer-brand .drawer-code {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-vermilion);
+    margin-right: 8px;
+}
+
+.drawer-brand .drawer-name {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+}
+
+.drawer-close-btn {
+    background: transparent;
+    border: 1px solid var(--border-line-heavy);
+    color: #ffffff;
+    padding: 6px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.drawer-link {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    line-height: 1.1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-link .d-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-vermilion);
+    font-weight: 700;
+}
+
+.drawer-link:hover, .drawer-link:active {
+    color: var(--accent-vermilion);
+    transform: translateX(8px);
+}
+
+.drawer-link--cta {
+    color: var(--accent-amber);
+}
+
+.drawer-footer {
+    border-top: 1px solid var(--border-line);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.drawer-sub-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-status-pill {
+    color: var(--accent-green);
+    font-weight: 700;
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (TABLETS & MOBILE BREAKPOINTS)
    ========================================================================== */
 
@@ -1842,43 +1982,143 @@ body.cursor-hovering .cursor-label {
         grid-template-columns: repeat(2, 1fr);
     }
     .monolith-footer-bar {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.5fr 1.5fr 1fr;
     }
 }
 
 @media (max-width: 900px) {
+    .hud-geo {
+        display: none;
+    }
+    .hud-nav {
+        display: none;
+    }
+    .hud-mobile-btn {
+        display: inline-flex;
+    }
+    .hud-audio-btn {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    /* Hero Section Mobile */
+    .hero-stage {
+        padding-top: 70px;
+        min-height: 100vh;
+    }
     .hero-content-grid {
         grid-template-columns: 1fr;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
     }
     .hero-col-left, .hero-col-right {
         display: none;
     }
+    .hero-col-center {
+        width: 100%;
+    }
+    .hero-monumental-title {
+        font-size: clamp(3.2rem, 15vw, 6.2rem);
+        line-height: 0.9em;
+        margin: 1rem 0;
+    }
+    .hero-badge-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .slanted-badge {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
     .hero-meta-row {
         grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 1.5rem;
+    }
+    .meta-card {
+        padding: 12px 14px;
+        background: rgba(15, 17, 23, 0.85);
+        backdrop-filter: blur(8px);
+    }
+    .hero-stamp-wrapper {
+        position: static;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .kinetic-stamp {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Works Section Mobile (CRT TV + Stack) */
+    .works-highway-stage {
+        padding: 4rem 1rem;
     }
     .works-layout-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .crt-tv-showcase {
+        position: relative;
+        top: 0;
+        width: 100%;
+        order: -1;
+    }
+    .crt-tv-frame {
+        max-height: 260px;
+    }
+    .work-item {
+        padding: 1.2rem 1rem;
+        min-height: 56px;
+    }
+    .work-item__title {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+    }
+
+    /* Architecture Blueprint & Terminal Mobile */
+    .metrics-stage, .process-stage, .manifesto-stage, .lab-stage {
+        padding: 4rem 1rem;
+    }
+    .metrics-terminal-window, .arch-blueprint-box {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .blueprint-ascii {
+        font-size: 11px;
+        white-space: pre;
     }
     .commandments-grid {
         grid-template-columns: 1fr;
     }
     .outro-actions-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     .monolith-footer-bar {
         grid-template-columns: 1fr;
     }
-    .hud-geo {
-        display: none;
-    }
 }
 
 @media (max-width: 600px) {
-    .hud-nav {
-        display: none;
-    }
-    .metrics-table-grid, .lab-spec-grid, .outro-actions-grid {
+    .metrics-table-grid, .lab-spec-grid {
         grid-template-columns: 1fr;
+    }
+    .outro-display-title {
+        font-size: clamp(2.4rem, 13vw, 4.5rem);
+    }
+    .footer-segment {
+        padding: 1rem;
+    }
+}
+
+/* Touch device cursor reset */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor, .cursor-dot, .cursor-circle, .cursor-label {
+        display: none !important;
+    }
+    body.editorial-body, a, button, input, .work-item, .cmd-card, .spec-card, .contact-card {
+        cursor: auto !important;
     }
 }

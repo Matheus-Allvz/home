@@ -83,13 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -------------------------------------------------------------
-    // 2. LIVE UTC-3 MILLISECOND CLOCK
+    // 2. LIVE UTC-3 MILLISECOND CLOCK & MOBILE DRAWER
     // -------------------------------------------------------------
     const clockEl = document.getElementById('liveClock');
+    const drawerClockEl = document.getElementById('drawerClock');
     const updateClock = () => {
-        if (!clockEl) return;
         const now = new Date();
-        // Format for America/Sao_Paulo (UTC-3)
         const options = {
             timeZone: 'America/Sao_Paulo',
             hour: '2-digit',
@@ -99,10 +98,40 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         const timeStr = now.toLocaleTimeString('pt-BR', options);
         const ms = String(now.getMilliseconds()).padStart(3, '0').slice(0, 2);
-        clockEl.textContent = `${timeStr}.${ms} UTC-3`;
+        const formatted = `${timeStr}.${ms} UTC-3`;
+        if (clockEl) clockEl.textContent = formatted;
+        if (drawerClockEl) drawerClockEl.textContent = formatted;
     };
     setInterval(updateClock, 50);
     updateClock();
+
+    // Mobile Menu Drawer Handler
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    if (mobileMenuBtn && mobileNavDrawer) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNavDrawer.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    const closeDrawer = () => {
+        if (mobileNavDrawer) {
+            mobileNavDrawer.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', closeDrawer);
+    }
+
+    drawerLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
 
 
     // -------------------------------------------------------------

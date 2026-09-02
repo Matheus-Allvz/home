@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css?v=20260902d">
+    <link rel="stylesheet" href="css/style.css?v=20260902e">
 </head>
 <body class="editorial-body" data-audio="off">
 
@@ -151,8 +151,40 @@
                 <a href="#lab" class="nav-link magnetic-item"><span class="num">05.</span>LAB</a>
                 <a href="#contact" class="nav-link magnetic-item nav-link--cta"><span class="num">06.</span>CONTACT</a>
             </nav>
+            <button class="hud-mobile-btn" id="mobileMenuBtn" aria-label="Abrir Menu">
+                <span class="mobile-btn-text">MENU [ ≡ ]</span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Editorial Nav Drawer Overlay -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <span class="drawer-code">MAC//04.0</span>
+                <span class="drawer-name">MATHEUS ALVES</span>
+            </div>
+            <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Fechar Menu">[ ✕ ] CLOSE</button>
+        </div>
+        <nav class="drawer-links">
+            <a href="#hero" class="drawer-link"><span class="d-num">00.</span>INTRO</a>
+            <a href="#works" class="drawer-link"><span class="d-num">01.</span>WORKS</a>
+            <a href="#metrics" class="drawer-link"><span class="d-num">02.</span>METRICS</a>
+            <a href="#process" class="drawer-link"><span class="d-num">03.</span>PROCESS</a>
+            <a href="#manifesto" class="drawer-link"><span class="d-num">04.</span>MANIFESTO</a>
+            <a href="#lab" class="drawer-link"><span class="d-num">05.</span>LAB</a>
+            <a href="#contact" class="drawer-link drawer-link--cta"><span class="d-num">06.</span>CONTACT HUB ↗</a>
+        </nav>
+        <div class="drawer-footer">
+            <div class="drawer-geo-row">
+                <span>LAT 16.6869° S / LON 49.2648° W</span>
+            </div>
+            <div class="drawer-sub-row">
+                <span class="drawer-status-pill">ACTUAR // C# .NET 8 DEV</span>
+                <span class="drawer-clock-text" id="drawerClock">--:--:-- UTC-3</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content Flow -->
     <main class="editorial-main">
@@ -838,6 +870,6 @@
     </div>
 
     <!-- Main JavaScript Engine -->
-    <script src="js/main.js?v=20260902d"></script>
+    <script src="js/main.js?v=20260902e"></script>
 </body>
 </html>
