@@ -269,8 +269,19 @@ body.editorial-body {
 
 
 /* ==========================================================================
-   CUSTOM MAGNETIC CURSOR
+   CUSTOM MAGNETIC CURSOR & SYSTEM POINTER SUPPRESSION
    ========================================================================== */
+
+html, body {
+    cursor: none;
+}
+
+/* Hide OS default cursor completely on all interactive elements so only custom magnetic cursor renders */
+*, *::before, *::after,
+a, button, input, textarea, select, label, svg, 
+.work-item, .tv-knob, .btn-knob, .kinetic-stamp, .magnetic-item, .meta-card, .spec-card, .cmd-card, .cd-jewel-case, .audio-toggle, .hud-audio-btn, .hud-mobile-btn, .theme-toggle {
+    cursor: none !important;
+}
 
 .custom-cursor {
     position: fixed;
@@ -2509,7 +2520,9 @@ body.cursor-hovering .cursor-label {
     .custom-cursor, .cursor-dot, .cursor-circle, .cursor-label {
         display: none !important;
     }
-    body.editorial-body, a, button, input, .work-item, .cmd-card, .spec-card, .contact-card {
+    html, body, *, *::before, *::after,
+    a, button, input, textarea, select, label, svg,
+    .work-item, .tv-knob, .btn-knob, .kinetic-stamp, .magnetic-item, .meta-card, .spec-card, .cmd-card, .cd-jewel-case {
         cursor: auto !important;
     }
 }
