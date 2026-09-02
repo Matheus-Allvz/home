@@ -345,8 +345,9 @@ body.cursor-hovering .cursor-label {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
     pointer-events: none;
     z-index: 1;
 }
@@ -519,13 +520,16 @@ body.cursor-hovering .cursor-label {
    ========================================================================== */
 
 .hero-stage {
+    height: 100vh;
     min-height: 100vh;
-    padding-top: calc(var(--hud-height) + 2rem);
+    max-height: 100vh;
+    padding-top: var(--hud-height);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .hero-art-backdrop {
@@ -557,6 +561,7 @@ body.cursor-hovering .cursor-label {
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 1;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .geo-vectors {
@@ -588,11 +593,13 @@ body.cursor-hovering .cursor-label {
     max-width: 1700px;
     width: 100%;
     margin: 0 auto;
-    padding: 2rem 3rem;
+    padding: 0.5rem 3rem 0;
     display: grid;
     grid-template-columns: 80px 1fr 60px;
-    gap: 3rem;
+    gap: 2rem;
     align-items: center;
+    flex: 1;
+    box-sizing: border-box;
 }
 
 .hero-col-left {
@@ -602,9 +609,9 @@ body.cursor-hovering .cursor-label {
 
 .vertical-manifesto {
     color: var(--text-dim);
-    font-size: 9px;
+    font-size: 8.5px;
     letter-spacing: 2px;
-    line-height: 2;
+    line-height: 1.9;
     text-transform: uppercase;
 }
 
@@ -612,19 +619,21 @@ body.cursor-hovering .cursor-label {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    width: 100%;
 }
 
 .hero-badge-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
     flex-wrap: wrap;
 }
 
 .slanted-badge {
-    padding: 6px 14px;
-    font-size: 11px;
+    padding: 5px 12px;
+    font-size: 10.5px;
     font-weight: 700;
     letter-spacing: 1.5px;
     border-radius: 2px;
@@ -651,12 +660,12 @@ body.cursor-hovering .cursor-label {
 
 .hero-monumental-title {
     font-family: var(--font-display);
-    font-size: clamp(3.8rem, 9.5vw, 11rem);
+    font-size: clamp(3.2rem, 7.5vw, 8rem);
     font-weight: 900;
-    line-height: 0.88;
+    line-height: 0.85;
     letter-spacing: -3px;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 0.6rem;
 }
 
 .title-row {
@@ -677,19 +686,19 @@ body.cursor-hovering .cursor-label {
 .hero-meta-row {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1.2rem;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     border-top: 1px solid var(--border-line);
-    padding-top: 1.5rem;
+    padding-top: 0.8rem;
 }
 
 .meta-card {
     background: rgba(21, 24, 33, 0.6);
     border: 1px solid var(--border-line);
-    padding: 1.2rem;
+    padding: 0.8rem 1rem;
     border-radius: 4px;
     backdrop-filter: blur(8px);
     min-width: 0;
@@ -700,35 +709,36 @@ body.cursor-hovering .cursor-label {
 }
 
 .meta-label {
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--accent-amber);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     letter-spacing: 1px;
 }
 
 .meta-value {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--text-main);
     display: block;
     margin-bottom: 2px;
+    font-weight: 600;
 }
 
 .meta-note {
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--text-muted);
 }
 
 .hero-stamp-wrapper {
     position: absolute;
-    right: 4%;
-    top: 15%;
+    right: 0%;
+    top: 5%;
     pointer-events: auto;
 }
 
 .kinetic-stamp {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     position: relative;
     animation: spinStamp 20s linear infinite;
     cursor: pointer;
@@ -1356,6 +1366,7 @@ body.cursor-hovering .cursor-label {
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .cd-jewel-case:hover {
@@ -2003,9 +2014,21 @@ body.cursor-hovering .cursor-label {
 }
 
 @media (max-width: 900px) {
+    *, *::before, *::after {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+        position: relative;
+    }
+
     .editorial-hud {
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
         padding: 0 1rem;
         box-sizing: border-box;
     }
@@ -2027,9 +2050,9 @@ body.cursor-hovering .cursor-label {
     }
 
     /* Container constraints */
-    .hero-stage, .works-highway-stage, .metrics-stage, .process-stage, .manifesto-stage, .lab-stage, .contact-stage {
+    .hero-stage, .works-highway-stage, .metrics-stage, .process-vermilion-stage, .manifesto-stage, .lab-stage, .outro-stage {
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
         overflow-x: hidden;
         box-sizing: border-box;
         padding-left: 1rem;
@@ -2040,22 +2063,23 @@ body.cursor-hovering .cursor-label {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        overflow: hidden;
     }
 
     /* Preloader Mobile Adjustments */
     .initloading-container {
-        width: 100vw;
-        max-width: 100vw;
-        height: 100vh;
-        max-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100%;
         overflow: hidden;
     }
     .introloading-wordIV {
-        font-size: clamp(16vw, 24vw, 28vw);
+        font-size: clamp(14vw, 22vw, 26vw);
         white-space: nowrap;
     }
     .introloading-word {
-        font-size: clamp(2rem, 8.5vw, 9.5vw);
+        font-size: clamp(2rem, 8vw, 9vw);
         max-width: 88vw;
         text-align: center;
     }
@@ -2073,6 +2097,8 @@ body.cursor-hovering .cursor-label {
     .hero-stage {
         padding-top: 70px;
         min-height: 100vh;
+        height: auto;
+        max-height: none;
     }
     .hero-content-grid {
         grid-template-columns: 1fr;
@@ -2193,18 +2219,20 @@ body.cursor-hovering .cursor-label {
     }
 
     /* Architecture Blueprint & Terminal Mobile */
-    .metrics-stage, .process-stage, .manifesto-stage, .lab-stage {
+    .metrics-stage, .process-vermilion-stage, .manifesto-stage, .lab-stage {
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
-    .process-heading, .manifesto-heading, .lab-heading {
+    .process-title, .manifesto-title, .lab-title {
         font-size: clamp(1.8rem, 7vw, 3.2rem);
         word-break: break-word;
     }
-    .metrics-terminal-window, .arch-blueprint-box {
+    .metrics-terminal-window, .arch-blueprint-box, .cd-gallery-wrapper {
         width: 100%;
+        max-width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
     }
     .blueprint-ascii {
         font-size: 10px;
@@ -2213,15 +2241,17 @@ body.cursor-hovering .cursor-label {
     .commandments-grid {
         grid-template-columns: 1fr;
     }
-    .outro-display-title {
+    .outro-huge-heading {
         font-size: clamp(2rem, 9vw, 3.8rem);
         word-break: break-word;
     }
     .outro-actions-grid {
         grid-template-columns: 1fr;
+        width: 100%;
     }
     .monolith-footer-bar {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 }
 
