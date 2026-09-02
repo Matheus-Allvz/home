@@ -520,8 +520,8 @@ body.cursor-hovering .cursor-label {
    ========================================================================== */
 
 .hero-stage {
-    height: 100vh;
     min-height: 100vh;
+    height: 100vh;
     max-height: 100vh;
     padding-top: var(--hud-height);
     position: relative;
@@ -593,26 +593,33 @@ body.cursor-hovering .cursor-label {
     max-width: 1700px;
     width: 100%;
     margin: 0 auto;
-    padding: 0.5rem 3rem 0;
+    padding: 0 3rem;
     display: grid;
-    grid-template-columns: 80px 1fr 60px;
+    grid-template-columns: 50px 1fr 40px;
     gap: 2rem;
     align-items: center;
     flex: 1;
     box-sizing: border-box;
+    overflow: visible;
 }
 
 .hero-col-left {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    max-height: 480px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .vertical-manifesto {
     color: var(--text-dim);
-    font-size: 8.5px;
-    letter-spacing: 2px;
-    line-height: 1.9;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
     text-transform: uppercase;
+    max-height: 480px;
+    overflow: hidden;
 }
 
 .hero-col-center {
@@ -621,6 +628,7 @@ body.cursor-hovering .cursor-label {
     align-items: flex-start;
     position: relative;
     width: 100%;
+    z-index: 5;
 }
 
 .hero-badge-row {
@@ -662,19 +670,23 @@ body.cursor-hovering .cursor-label {
     font-family: var(--font-display);
     font-size: clamp(3.2rem, 7.5vw, 8rem);
     font-weight: 900;
-    line-height: 0.85;
+    line-height: 0.92;
     letter-spacing: -3px;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
+    color: #ffffff;
+    display: block;
 }
 
 .title-row {
     display: flex;
-    overflow: hidden;
+    overflow: visible;
+    line-height: 1;
 }
 
 .char-block {
     display: inline-block;
+    color: #ffffff;
     transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
 }
 
@@ -742,6 +754,14 @@ body.cursor-hovering .cursor-label {
     position: relative;
     animation: spinStamp 20s linear infinite;
     cursor: pointer;
+}
+
+.hero-col-right {
+    max-height: 480px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes spinStamp {
