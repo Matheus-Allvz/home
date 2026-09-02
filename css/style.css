@@ -1872,14 +1872,24 @@ body.cursor-hovering .cursor-label {
     background: #ffffff;
     color: #000000;
     border: none;
-    padding: 6px 12px;
+    padding: 6px 10px;
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 11px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     border-radius: 2px;
     cursor: pointer;
+    white-space: nowrap;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     transition: background 0.2s ease;
+}
+
+.mobile-btn-text {
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .hud-mobile-btn:hover {
@@ -1891,8 +1901,9 @@ body.cursor-hovering .cursor-label {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
     background: rgba(8, 9, 12, 0.98);
     backdrop-filter: blur(20px);
     z-index: 99999;
