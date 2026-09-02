@@ -20,11 +20,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css?v=20260902">
+    <link rel="stylesheet" href="css/style.css?v=20260902b">
 </head>
 <body class="editorial-body" data-audio="off">
 
-    <!-- Preloader (00:00 - 00:01 in video) -->
+    <!-- Preloader -->
     <div class="site-preloader" id="sitePreloader">
         <div class="preloader-inner">
             <div class="preloader-glyph-box">
@@ -32,12 +32,16 @@
                     <path class="preloader-path" d="M120 20 L40 20 L20 70 L140 110 L20 170 L80 200 L140 150" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
                 </svg>
                 <div class="preloader-word-rotator">
-                    <span class="preloader-word active" id="preloaderWord">OF</span>
+                    <span class="preloader-word active" id="preloaderWord">ARCHITECT</span>
                 </div>
             </div>
             <div class="preloader-status">
-                <p class="preloader-caption">LOADING TELEMETRY // MATHEUS ALVES</p>
-                <p class="preloader-subtext">Initializing High-Throughput Distributed Architecture // 2026</p>
+                <p class="preloader-caption" id="preloaderCaption">ZERO SILENT FAILURES // RIGOR ARCHITECTURE</p>
+                <p class="preloader-subtext" id="preloaderSubtext">"Turning 6-minute database bottlenecks into sub-second distributed execution."</p>
+                <div class="preloader-progress-wrap">
+                    <div class="preloader-progress-bar" id="preloaderProgress"></div>
+                    <span class="preloader-progress-pct" id="preloaderPct">000%</span>
+                </div>
             </div>
         </div>
     </div>
@@ -796,6 +800,6 @@
     </div>
 
     <!-- Main JavaScript Engine -->
-    <script src="js/main.js?v=20260902"></script>
+    <script src="js/main.js?v=20260902b"></script>
 </body>
 </html>

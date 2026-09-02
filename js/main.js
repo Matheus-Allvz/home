@@ -6,41 +6,114 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // -------------------------------------------------------------
-    // 1. SITE PRELOADER ROTATOR & DISMISSAL
+    // 1. SITE PRELOADER ROTATOR, PUNCHY PHRASES & PROGRESS
     // -------------------------------------------------------------
     const preloader = document.getElementById('sitePreloader');
     const preloaderWord = document.getElementById('preloaderWord');
-    const words = ['OF', 'TO', 'THE', 'DEV', 'MAC', 'SYSTEMS'];
-    let wordIdx = 0;
+    const preloaderCaption = document.getElementById('preloaderCaption');
+    const preloaderSubtext = document.getElementById('preloaderSubtext');
+    const preloaderProgress = document.getElementById('preloaderProgress');
+    const preloaderPct = document.getElementById('preloaderPct');
 
-    const wordInterval = setInterval(() => {
-        if (!preloaderWord) return;
-        wordIdx = (wordIdx + 1) % words.length;
-        preloaderWord.style.opacity = '0';
-        preloaderWord.style.transform = 'translateY(10px) scale(0.9)';
-        
-        setTimeout(() => {
-            preloaderWord.textContent = words[wordIdx];
-            preloaderWord.style.opacity = '1';
-            preloaderWord.style.transform = 'translateY(0) scale(1)';
-        }, 120);
-    }, 280);
+    const phases = [
+        {
+            word: 'ARCHITECT',
+            caption: 'ZERO SILENT FAILURES // ARCHITECTURAL RIGOR',
+            subtext: '"Boundaries must remain sacred. Telemetry must be absolute."'
+        },
+        {
+            word: 'RESILIENCE',
+            caption: 'FAULT-TOLERANT DISTRIBUTED QUEUES // RABBITMQ',
+            subtext: '"Design for sudden failure. Build for automatic sub-second recovery."'
+        },
+        {
+            word: 'THROUGHPUT',
+            caption: 'PERFORMANCE & LATENCY OPTIMIZATION // C# .NET 8',
+            subtext: '"Turning 6-minute database bottlenecks into 1.8-second pipelines."'
+        },
+        {
+            word: 'PRECISION',
+            caption: 'CLEAN ARCHITECTURE // CQRS & POSTGRESQL',
+            subtext: '"Measure allocations before optimization. Treat RCA as an exact science."'
+        },
+        {
+            word: 'MATHEUS',
+            caption: 'MATHEUS ALVES // BACKEND SOFTWARE ENGINEER',
+            subtext: '"Production telemetry initialized. Entering architecture stage..."'
+        }
+    ];
 
-    const dismissPreloader = () => {
-        clearInterval(wordInterval);
-        if (preloader) {
-            preloader.classList.add('loaded');
+    const TOTAL_DURATION = 3600; // 3.6s total preloader duration
+    const startTime = performance.now();
+    let currentPhaseIdx = 0;
+
+    const setPhase = (idx) => {
+        if (!phases[idx]) return;
+        const p = phases[idx];
+        if (preloaderWord) {
+            preloaderWord.style.opacity = '0';
+            preloaderWord.style.transform = 'translateY(12px) scale(0.92)';
             setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 800);
+                preloaderWord.textContent = p.word;
+                preloaderWord.style.opacity = '1';
+                preloaderWord.style.transform = 'translateY(0) scale(1)';
+            }, 140);
+        }
+        if (preloaderCaption) {
+            preloaderCaption.style.opacity = '0';
+            setTimeout(() => {
+                preloaderCaption.textContent = p.caption;
+                preloaderCaption.style.opacity = '1';
+            }, 140);
+        }
+        if (preloaderSubtext) {
+            preloaderSubtext.style.opacity = '0';
+            setTimeout(() => {
+                preloaderSubtext.textContent = p.subtext;
+                preloaderSubtext.style.opacity = '1';
+            }, 140);
         }
     };
 
-    window.addEventListener('load', () => {
-        setTimeout(dismissPreloader, 700);
-    });
-    // Fallback safety dismissal
-    setTimeout(dismissPreloader, 2500);
+    // Initial phase
+    setPhase(0);
+
+    const updatePreloader = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(1, elapsed / TOTAL_DURATION);
+        const pct = Math.floor(progress * 100);
+
+        if (preloaderProgress) {
+            preloaderProgress.style.setProperty('--progress', `${pct}%`);
+        }
+        if (preloaderPct) {
+            preloaderPct.textContent = `${String(pct).padStart(2, '0')}%`;
+        }
+
+        // Phase switching based on progress segments
+        const targetPhase = Math.min(phases.length - 1, Math.floor(progress * phases.length));
+        if (targetPhase !== currentPhaseIdx) {
+            currentPhaseIdx = targetPhase;
+            setPhase(currentPhaseIdx);
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(updatePreloader);
+        } else {
+            setTimeout(dismissPreloader, 250);
+        }
+    };
+
+    requestAnimationFrame(updatePreloader);
+
+    const dismissPreloader = () => {
+        if (preloader && !preloader.classList.contains('loaded')) {
+            preloader.classList.add('loaded');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 850);
+        }
+    };
 
 
     // -------------------------------------------------------------

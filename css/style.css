@@ -133,35 +133,95 @@ body.editorial-body {
 .preloader-word-rotator {
     position: relative;
     z-index: 2;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .preloader-word {
     font-family: var(--font-serif);
-    font-size: 5.5rem;
+    font-size: clamp(2.8rem, 6.5vw, 5.2rem);
     font-weight: 700;
     color: #050505;
     text-transform: uppercase;
     letter-spacing: -2px;
     display: inline-block;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
 }
 
 .preloader-status {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.95);
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .preloader-caption {
     font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 13px;
+    margin-bottom: 6px;
+    letter-spacing: 2.5px;
+    color: #ffffff;
+    transition: opacity 0.2s ease;
 }
 
 .preloader-subtext {
-    opacity: 0.75;
-    font-size: 9px;
+    opacity: 0.90;
+    font-size: 12px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    min-height: 24px;
+    transition: opacity 0.2s ease;
+}
+
+.preloader-progress-wrap {
+    position: relative;
+    width: 240px;
+    max-width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.preloader-progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.preloader-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: width 0.1s linear;
+}
+
+.preloader-progress-pct {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #050505;
+    min-width: 38px;
+    text-align: right;
 }
 
 
