@@ -1,345 +1,801 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="no-js" data-theme="gold">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Matheus Alves | Software Developer — Backend C# & .NET</title>
-		<meta name="description" content="Portfólio de Matheus Alves da Costa - Desenvolvedor Backend C# (.NET 8), Microsserviços, Clean Architecture e Automação." />
-		<meta name="keywords" content="Matheus Alves, C#, .NET 8, Backend, Microsserviços, Clean Architecture, RabbitMQ, PostgreSQL, DataClean, Meppo" />
-		<meta name="author" content="Matheus Alves da Costa" />
-		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="stylesheet" href="https://use.typekit.net/cjh8ame.css">
-		<link rel="stylesheet" type="text/css" href="css/base.css?v=3" />
-		<script>document.documentElement.className="js";</script>
-	</head>
-	<body class="loading demo-9">
-		
-		<!-- Fixed Navigation Header -->
-		<nav class="top-nav">
-			<a href="#hero" class="top-nav__brand">
-				<img src="img/avatar.png" alt="Matheus Alves" />
-				<span>Matheus Alves</span>
-			</a>
-			
-			<!-- Interactive Theme Switcher Palette -->
-			<div class="theme-selector" role="group" aria-label="Seletor de Tema">
-				<button class="theme-btn active" data-set-theme="gold" title="Aurum Gold (Original)">
-					<span class="theme-btn__dot theme-btn__dot--gold"></span>
-					<span>Gold</span>
-				</button>
-				<button class="theme-btn" data-set-theme="cyber" title="Cyber Cyan (.NET 8)">
-					<span class="theme-btn__dot theme-btn__dot--cyber"></span>
-					<span>Cyber</span>
-				</button>
-				<button class="theme-btn" data-set-theme="matrix" title="Terminal Matrix">
-					<span class="theme-btn__dot theme-btn__dot--matrix"></span>
-					<span>Matrix</span>
-				</button>
-				<button class="theme-btn" data-set-theme="tokyo" title="Tokyo Midnight">
-					<span class="theme-btn__dot theme-btn__dot--tokyo"></span>
-					<span>Tokyo</span>
-				</button>
-				<button class="theme-btn" data-set-theme="stealth" title="Titanium Stealth">
-					<span class="theme-btn__dot theme-btn__dot--stealth"></span>
-					<span>Stealth</span>
-				</button>
-			</div>
+<html lang="pt-BR" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Alves — Backend Engineer & C# .NET 8 Architect</title>
+    <meta name="description" content="Portfolio de Matheus Alves da Costa: Desenvolvedor Backend C# (.NET 8), Microsserviços, Clean Architecture e Sistemas Distribuídos de Alta Performance.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matheus Alves — Backend Architect & C# Engineer">
+    <meta property="og:description" content="Sistemas resilientes em C# (.NET 8), RabbitMQ, PostgreSQL e Clean Architecture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matheus-alves.dev/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts: Syne, Instrument Serif, JetBrains Mono & Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="editorial-body" data-audio="off">
 
-			<ul class="top-nav__links">
-				<li><a href="#hero" class="top-nav__link">Início</a></li>
-				<li><a href="#about" class="top-nav__link">Sobre</a></li>
-				<li><a href="#stack" class="top-nav__link">Arquitetura</a></li>
-				<li><a href="#projects" class="top-nav__link">Projetos</a></li>
-				<li><a href="#experience" class="top-nav__link">Trajetória</a></li>
-				<li><a href="#contact" class="top-nav__link">Contato</a></li>
-			</ul>
-			
-			<div class="top-nav__actions">
-				<a href="spatzek/" class="btn btn--sm" style="border: 1px solid var(--color-accent); color: var(--color-accent); font-family: monospace; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-decoration: none;" title="Ver Edição Brutalista Editorial (Daniel Spatzek IV)">SPATZEK IV ↗</a>
-				<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
-					<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-				</a>
-				<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
-					<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-				</a>
-			</div>
-		</nav>
+    <!-- Preloader (00:00 - 00:01 in video) -->
+    <div class="site-preloader" id="sitePreloader">
+        <div class="preloader-inner">
+            <div class="preloader-glyph-box">
+                <svg class="preloader-svg" viewBox="0 0 160 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="preloader-path" d="M120 20 L40 20 L20 70 L140 110 L20 170 L80 200 L140 150" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
+                </svg>
+                <div class="preloader-word-rotator">
+                    <span class="preloader-word active" id="preloaderWord">OF</span>
+                </div>
+            </div>
+            <div class="preloader-status">
+                <p class="preloader-caption">LOADING TELEMETRY // MATHEUS ALVES</p>
+                <p class="preloader-subtext">Initializing High-Throughput Distributed Architecture // 2026</p>
+            </div>
+        </div>
+    </div>
 
-		<main id="hero">
-			<!-- Header / Hero Section -->
-			<header class="frame frame--header">
-				
-				<div class="status-badge">
-					<span class="status-badge__dot"></span>
-					<span>Dev Júnior C# @ Actuar &bull; Ciência da Computação (PUC-GO)</span>
-				</div>
+    <!-- Custom Magnetic Cursor with Physics -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-circle"></div>
+        <div class="cursor-label" id="cursorLabel">EXPLORE</div>
+    </div>
 
-				<div class="frame__heading">
-					<h2><i>Matheus</i> Alves</h2>
-					<h2>Backend <i>C# & .NET</i> Engineer</h2>
-					<p class="hero-tagline">
-						Desenvolvedor focado no ecossistema <strong>C# (.NET 8)</strong>, arquitetura de <strong>microsserviços</strong>, mensageria com <strong>RabbitMQ</strong>, modelagem relacional com <strong>PostgreSQL</strong> e diagnóstico de causa raiz (RCA) para incidentes de alta complexidade. Criador do <strong>Meppo</strong> e do <strong>DataClean</strong>.
-					</p>
-				</div>
+    <!-- Architectural Background Grid & Coordinates Overlay -->
+    <div class="grid-backdrop">
+        <div class="grid-line grid-line--v1"></div>
+        <div class="grid-line grid-line--v2"></div>
+        <div class="grid-line grid-line--v3"></div>
+        <div class="grid-noise"></div>
+    </div>
 
-				<div class="hero-actions">
-					<a href="#stack" class="btn btn--primary">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-						Explorar Arquitetura & Projetos
-					</a>
-					<a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.17 8.17 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.1l-.29-.17-3.04.8 1.05-2.96-.19-.31a8.216 8.216 0 01-1.26-4.5c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
-						Conversar no WhatsApp
-					</a>
-					<div class="hero-socials">
-						<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
-							<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-						</a>
-						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub">
-							<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-						</a>
-					</div>
-				</div>
+    <!-- Floating Project Hover Reveal Element (for list items) -->
+    <div class="project-hover-preview" id="hoverPreview">
+        <div class="preview-inner">
+            <div class="preview-header">
+                <span class="preview-tag" id="previewCategory">MICROSERVICES</span>
+                <span class="preview-status">ONLINE</span>
+            </div>
+            <div class="preview-visual" id="previewVisual"></div>
+            <div class="preview-footer">
+                <span class="preview-title" id="previewTitle">DataClean Suite</span>
+                <span class="preview-metric" id="previewMetric">6m ➔ &lt;2s</span>
+            </div>
+        </div>
+    </div>
 
-				<!-- Key Metrics Strip -->
-				<div class="metric-strip">
-					<div class="metric-card">
-						<span class="metric-card__value">N1 ➔ N2 ➔ Dev</span>
-						<span class="metric-card__label">Evolução acelerada na Actuar por impacto e domínio de código</span>
-					</div>
-					<div class="metric-card">
-						<span class="metric-card__value">6m ➔ &lt;2s</span>
-						<span class="metric-card__label">Otimização de processos críticos com o ecossistema Meppo</span>
-					</div>
-					<div class="metric-card">
-						<span class="metric-card__value">14.75 / 15.0</span>
-						<span class="metric-card__label">Nota técnica em arquitetura e regras de negócio corporativas</span>
-					</div>
-					<div class="metric-card">
-						<span class="metric-card__value">CR 8.6</span>
-						<span class="metric-card__label">Ciência da Computação (PUC-GO) com sólido rigor analítico</span>
-					</div>
-				</div>
+    <!-- Top HUD Navigation Bar -->
+    <header class="editorial-hud">
+        <div class="hud-left">
+            <a href="#hero" class="hud-brand magnetic-item">
+                <span class="brand-code">MAC//04.0</span>
+                <span class="brand-name">MATHEUS ALVES</span>
+            </a>
+            <div class="hud-status">
+                <span class="status-pulse"></span>
+                <span class="status-text">ACTUAR // C# DEV</span>
+            </div>
+        </div>
 
-			</header>
+        <div class="hud-center">
+            <div class="hud-geo">
+                <span>LAT 16.6869° S</span>
+                <span class="slash">/</span>
+                <span>LON 49.2648° W</span>
+                <span class="slash">/</span>
+                <span id="liveClock">--:--:-- UTC-3</span>
+            </div>
+        </div>
 
-			<!-- Intro Highlight Statement -->
-			<div id="about" class="content content--highlight content--intro">
-				<p class="text-large">Transformando <em>gargalos operacionais</em> em <em>microsserviços escaláveis</em>, pipelines resilientes e automações inteligentes.</p>
-				<p class="intro-subtext">
-					Com experiência em investigação de causa raiz (RCA) na esteira de produção e construção de ferramentas de alto rendimento, uno fundamentos de Ciência da Computação a práticas modernas de engenharia de software em C#/.NET.
-				</p>
-			</div>
+        <div class="hud-right">
+            <button class="hud-audio-btn magnetic-item" id="audioToggle" title="Toggle Synthesizer Sound FX">
+                <span class="audio-icon">◈</span>
+                <span class="audio-text">SOUND: <strong id="audioStateText">OFF</strong></span>
+            </button>
+            <nav class="hud-nav">
+                <a href="#hero" class="nav-link magnetic-item"><span class="num">00.</span>INTRO</a>
+                <a href="#works" class="nav-link magnetic-item"><span class="num">01.</span>WORKS</a>
+                <a href="#metrics" class="nav-link magnetic-item"><span class="num">02.</span>METRICS</a>
+                <a href="#process" class="nav-link magnetic-item"><span class="num">03.</span>PROCESS</a>
+                <a href="#manifesto" class="nav-link magnetic-item"><span class="num">04.</span>MANIFESTO</a>
+                <a href="#lab" class="nav-link magnetic-item"><span class="num">05.</span>LAB</a>
+                <a href="#contact" class="nav-link magnetic-item nav-link--cta"><span class="num">06.</span>CONTACT</a>
+            </nav>
+        </div>
+    </header>
 
-			<!-- Sticky Sections Interactive Stack (Side-by-Side on Desktop) -->
-			<div id="stack" class="wrap">
-				
-				<!-- SECTION 1: Backend Architecture (Right side) -->
-				<div class="content content--sticky content--half bg-1">
-					<img class="content__img content__img--small" src="img/dev-csharp.svg" alt="Core C# .NET Engine" />
-					<span class="section-tag">01 / ARQUITETURA &amp; ECOSSISTEMA</span>
-					<h2 class="content__title"><i>Core</i> .NET Engine</h2>
-					<p class="content__text content__text--narrow">
-						Desenvolvimento de APIs e microsserviços em <strong>C# 12 e .NET 8</strong> estruturados em <strong>Clean Architecture</strong>, CQRS, Repository Pattern, PostgreSQL, RabbitMQ e Docker.
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">C# 12</span>
-						<span class="tech-pill">.NET 8</span>
-						<span class="tech-pill">ASP.NET WebAPI</span>
-						<span class="tech-pill">EF Core</span>
-						<span class="tech-pill">Dapper</span>
-						<span class="tech-pill">xUnit</span>
-					</div>
-					<div class="card-action-group">
-						<a href="#projects" class="btn btn--primary btn--sm">Ver Projetos &darr;</a>
-					</div>
-				</div>
+    <!-- Main Content Flow -->
+    <main class="editorial-main">
 
-				<!-- SECTION 2: DataClean Project (Left side) -->
-				<div id="projects" class="content content--sticky content--half bg-2">
-					<img class="content__img content__img--small" src="img/dev-dataclean.svg" alt="DataClean Web Suite" />
-					<span class="section-tag">02 / CASO DE PRODUÇÃO</span>
-					<h2 class="content__title"><i>DataClean</i> Suite</h2>
-					<p class="content__text">
-						Engine .NET 8 para <strong>parsing multi-formato</strong> (XLSX, XLS OLE2, XML 2003, CSV), scoring de cabeçalhos por densidade de texto e validação estrita de contratos de domínio.
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">.NET 8</span>
-						<span class="tech-pill">PostgreSQL 16</span>
-						<span class="tech-pill">RabbitMQ</span>
-						<span class="tech-pill">React</span>
-						<span class="tech-pill">TypeScript</span>
-					</div>
-					<div class="card-action-group">
-						<a href="https://dataclean.matheus-alves.dev" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Acessar Web App &rarr;</a>
-						<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">GitHub</a>
-					</div>
-				</div>
+        <!-- ============================================================
+             SECTION 00: HERO / LAUNCHPAD (00:02 - 00:14 in video)
+             ============================================================ -->
+        <section class="hero-stage" id="hero">
+            <!-- Classical Renaissance Bruegel-Style Art Canvas Background -->
+            <div class="hero-art-backdrop" id="heroArtBackdrop">
+                <div class="art-painting-layer"></div>
+                <div class="art-gradient-overlay"></div>
+            </div>
 
-				<!-- SECTION 3: Meppo Automation (Right side) -->
-				<div class="content content--sticky content--half bg-3">
-					<img class="content__img content__img--small" src="img/dev-meppo.svg" alt="Meppo Automation" />
-					<span class="section-tag">03 / PRODUTIVIDADE &amp; IMPACTO</span>
-					<h2 class="content__title"><i>Meppo</i> Suite</h2>
-					<p class="content__text content__text--narrow">
-						Suíte de produtividade que <strong>reduziu tempos operacionais de 6 minutos para meros segundos</strong> via orquestração de APIs REST com ClickUp e WhatsApp Web.
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">JavaScript ES6+</span>
-						<span class="tech-pill">REST APIs</span>
-						<span class="tech-pill">ClickUp API</span>
-						<span class="tech-pill">DOM Automation</span>
-						<span class="tech-pill">UX Engineering</span>
-					</div>
-					<div class="card-action-group">
-						<a href="https://www.linkedin.com/posts/matheusallvz_produtividade-customerexperience-desenvolvimento-activity-7432189024691404802-HZ0r" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Ver Demonstração &rarr;</a>
-					</div>
-				</div>
+            <!-- Kinetic Angular Geometric Framing Lines -->
+            <div class="hero-geo-overlay">
+                <svg class="geo-vectors" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+                    <polygon points="120,40 450,220 280,680 80,480" class="geo-poly geo-poly--1" />
+                    <polyline points="40,980 320,840 760,1020 1480,720 1880,940" class="geo-line geo-line--main" />
+                    <polygon points="1100,80 1620,180 1820,620 1340,490" class="geo-poly geo-poly--2" />
+                    <line x1="680" y1="0" x2="1120" y2="1080" class="geo-axis" />
+                    <line x1="0" y1="540" x2="1920" y2="540" class="geo-axis geo-axis--h" />
+                </svg>
+            </div>
 
-				<!-- SECTION 4: Ingestion & Pipelines (Left side) -->
-				<div class="content content--sticky content--half bg-4">
-					<img class="content__img content__img--small" src="img/dev-pipeline.svg" alt="Data Pipelines" />
-					<span class="section-tag">04 / PIPELINES &amp; ETL</span>
-					<h2 class="content__title"><i>Data</i> Ingestion</h2>
-					<p class="content__text">
-						Arquitetura de <strong>ingestão resiliente</strong> com tratamento de concorrência, filas assíncronas, normalização relacional e suporte a batches massivos de dados.
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">RabbitMQ</span>
-						<span class="tech-pill">PostgreSQL</span>
-						<span class="tech-pill">Docker</span>
-						<span class="tech-pill">Asynchronous I/O</span>
-						<span class="tech-pill">ETL Pipelines</span>
-					</div>
-					<div class="card-action-group">
-						<a href="#experience" class="btn btn--primary btn--sm">Ver Trajetória &darr;</a>
-					</div>
-				</div>
+            <div class="hero-content-grid">
+                <!-- Left Column: Manifesto / Rulebook Excerpt in Vertical Swiss Layout -->
+                <div class="hero-col-left">
+                    <div class="vertical-manifesto">
+                        <p class="v-text">THOU SHALT NOT WRITE SILENT CATCH BLOCKS. THOU SHALT HONOR CLEAN ARCHITECTURE BOUNDARIES. THOU SHALT TREAT ROOT CAUSE ANALYSIS AS AN EXACT SCIENCE. THOU SHALT REDUCE HUMAN LATENCY INTO SUB-SECOND PIPELINES. THOU SHALT DESIGN RESILIENT QUEUES WITH IDEMPOTENCY.</p>
+                        <p class="v-text">THOU SHALT NOT OVERLOAD YOUR DOMAIN LOGIC. THOU SHALT MEASURE ALLOCATIONS BEFORE OPTIMIZATION. THOU SHALT NEVER DEPLOY UNINDEXED FOREIGN KEYS.</p>
+                    </div>
+                </div>
 
-				<!-- SECTION 5: RCA & Diagnostics (Right side) -->
-				<div id="experience" class="content content--sticky content--half bg-5">
-					<img class="content__img content__img--small" src="img/dev-telemetry.svg" alt="Diagnostic & RCA" />
-					<span class="section-tag">05 / SUSTENTAÇÃO &amp; QUALIDADE</span>
-					<h2 class="content__title"><i>RCA</i> Diagnostics</h2>
-					<p class="content__text content__text--narrow">
-						Diagnóstico em código de <strong>causa raiz para incidentes críticos</strong> de produção. Experiência profunda consolidada em atuação N1 (5x Top 1), N2 e Engenharia C#.
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">RCA</span>
-						<span class="tech-pill">SQL Profiling</span>
-						<span class="tech-pill">APM Logs</span>
-						<span class="tech-pill">Distributed Tracing</span>
-						<span class="tech-pill">Microservices</span>
-					</div>
-					<div class="card-action-group">
-						<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Ver no LinkedIn &rarr;</a>
-					</div>
-				</div>
+                <!-- Center Content: Monumental Typography & Slanted Badges -->
+                <div class="hero-col-center">
+                    <div class="hero-badge-row">
+                        <div class="slanted-badge slanted-badge--primary">
+                            <span class="badge-dot">●</span>
+                            <span class="badge-text">PORTFOLIO // 2026</span>
+                            <span class="badge-sep">/</span>
+                            <span class="badge-sub">MATHEUS ALVES</span>
+                        </div>
+                        <div class="slanted-badge slanted-badge--dark">
+                            <span>[BACKEND ARCHITECT &amp; C# .NET 8 ENGINEER]</span>
+                        </div>
+                    </div>
 
-				<!-- SECTION 6: Embedded Systems & CS Rigor (Left side) -->
-				<div class="content content--sticky content--half bg-6">
-					<img class="content__img content__img--small" src="img/dev-iot.svg" alt="Systems & Computer Science" />
-					<span class="section-tag">06 / FUNDAMENTOS &amp; HARDWARE</span>
-					<h2 class="content__title"><i>Systems</i> &amp; IoT</h2>
-					<p class="content__text">
-						Sólida base em <strong>Linguagem C</strong>, microcontroladores (Arduino/RP2040 Pico), protocolos seriais (UART, I2C, SPI) e fundamentos formais de Ciência da Computação na PUC-GO (CR 8.6).
-					</p>
-					<div class="tech-pill-container">
-						<span class="tech-pill">C</span>
-						<span class="tech-pill">Embedded C++</span>
-						<span class="tech-pill">RP2040</span>
-						<span class="tech-pill">Linux / Bash</span>
-						<span class="tech-pill">Data Structures</span>
-					</div>
-					<div class="card-action-group">
-						<a href="#contact" class="btn btn--primary btn--sm">Entrar em Contato &darr;</a>
-					</div>
-				</div>
+                    <!-- Monumental Display Title with Editorial Stagger -->
+                    <div class="hero-monumental-title" id="heroTitle">
+                        <div class="title-row title-row--1">
+                            <span class="char-block" data-char="M">M</span>
+                            <span class="char-block" data-char="A">A</span>
+                            <span class="char-block" data-char="T">T</span>
+                            <span class="char-block" data-char="H">H</span>
+                            <span class="char-block" data-char="E">E</span>
+                            <span class="char-block" data-char="U">U</span>
+                            <span class="char-block" data-char="S">S</span>
+                        </div>
+                        <div class="title-row title-row--2">
+                            <span class="char-block" data-char="A">A</span>
+                            <span class="char-block" data-char="L">L</span>
+                            <span class="char-block" data-char="V">V</span>
+                            <span class="char-block" data-char="E">E</span>
+                            <span class="char-block" data-char="S">S</span>
+                        </div>
+                    </div>
 
-			</div>
+                    <!-- Hero Subtitle & Core Metrics Row -->
+                    <div class="hero-meta-row">
+                        <div class="meta-card">
+                            <span class="meta-label">// ROLE</span>
+                            <strong class="meta-value">Backend Software Dev @ Actuar</strong>
+                            <span class="meta-note">Promoted N1 ➔ N2 ➔ Dev C#</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">// ACADEMIC</span>
+                            <strong class="meta-value">PUC Goiás (CR: 8.6)</strong>
+                            <span class="meta-note">Computer Science (2024-2029)</span>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">// SPECIALIZATION</span>
+                            <strong class="meta-value">C# .NET 8 / Clean Arch / RabbitMQ</strong>
+                            <span class="meta-note">High-throughput distributed systems</span>
+                        </div>
+                    </div>
 
-			<!-- Outro & Contact Hub -->
-			<div id="contact" class="content content--highlight content--outro">
-				<p class="text-large">Pronto para elevar o nível da sua <em>engenharia de software</em>?</p>
-				<p class="intro-subtext">
-					Disponível para projetos desafiadores em C#/.NET, arquitetura de microsserviços, mensageria e automação de processos.
-				</p>
+                    <!-- Rotating Kinetic Stamp Badge -->
+                    <div class="hero-stamp-wrapper">
+                        <div class="kinetic-stamp" id="kineticStamp">
+                            <svg viewBox="0 0 200 200">
+                                <path id="stampPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
+                                <text>
+                                    <textPath href="#stampPath" startOffset="0%">
+                                        ● MATHEUS ALVES ● C# .NET 8 ARCHITECT ● ACTUAR ● CR 8.6 PUC-GO
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="stamp-center-symbol">MAC</div>
+                        </div>
+                    </div>
+                </div>
 
-				<!-- Contact Cards Grid (WhatsApp, LinkedIn, GitHub) -->
-				<div class="contact-cards-grid">
-					<a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="contact-card">
-						<div class="contact-card__header">
-							<div class="contact-card__icon">
-								<svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.17 8.17 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.1l-.29-.17-3.04.8 1.05-2.96-.19-.31a8.216 8.216 0 01-1.26-4.5c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
-							</div>
-							<div>
-								<h4 class="contact-card__title">WhatsApp</h4>
-								<p class="contact-card__subtitle">Mensagem Instantânea</p>
-							</div>
-						</div>
-						<span class="contact-card__value">+55 (62) 99312-3343 &rarr;</span>
-					</a>
+                <!-- Right Column: Kinetic Letter Stream -->
+                <div class="hero-col-right">
+                    <div class="kinetic-letter-stream" id="letterStream">
+                        <span class="stream-letter">M</span>
+                        <span class="stream-letter">A</span>
+                        <span class="stream-letter">T</span>
+                        <span class="stream-letter">H</span>
+                        <span class="stream-letter">E</span>
+                        <span class="stream-letter">U</span>
+                        <span class="stream-letter">S</span>
+                        <span class="stream-divider">/</span>
+                        <span class="stream-letter">A</span>
+                        <span class="stream-letter">L</span>
+                        <span class="stream-letter">V</span>
+                        <span class="stream-letter">E</span>
+                        <span class="stream-letter">S</span>
+                    </div>
+                </div>
+            </div>
 
-					<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="contact-card">
-						<div class="contact-card__header">
-							<div class="contact-card__icon">
-								<svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-							</div>
-							<div>
-								<h4 class="contact-card__title">LinkedIn</h4>
-								<p class="contact-card__subtitle">Perfil Profissional & Conexões</p>
-							</div>
-						</div>
-						<span class="contact-card__value">linkedin.com/in/matheusallvz &rarr;</span>
-					</a>
+            <!-- Kinetic Ticker Strip -->
+            <div class="hero-ticker-wrap">
+                <div class="ticker-track">
+                    <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
+                    <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
+                </div>
+            </div>
+        </section>
 
-					<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="contact-card">
-						<div class="contact-card__header">
-							<div class="contact-card__icon">
-								<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-							</div>
-							<div>
-								<h4 class="contact-card__title">GitHub</h4>
-								<p class="contact-card__subtitle">Código, Repositórios & Labs</p>
-							</div>
-						</div>
-						<span class="contact-card__value">github.com/Matheus-Allvz &rarr;</span>
-					</a>
-				</div>
 
-				<!-- CV Download Card -->
-				<div class="resume-banner">
-					<div class="resume-banner__info">
-						<h3>Currículo Atualizado (PDF)</h3>
-						<p>Faça o download do currículo com histórico detalhado, certificações e competências técnicas.</p>
-					</div>
-					<a href="Matheus_Alves_Curriculo.pdf" download="Matheus_Alves_Curriculo.pdf" class="btn btn--primary">
-						<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-						Baixar Currículo PDF
-					</a>
-				</div>
+        <!-- ============================================================
+             SECTION 01: SELECTED WORKS (THE CRT TV HIGHWAY SHOWCASE)
+             (00:15 - 00:17 & 00:27 - 00:31 in video)
+             ============================================================ -->
+        <section class="works-highway-stage" id="works">
+            <!-- Road vanishing in autumn landscape backdrop -->
+            <div class="highway-backdrop">
+                <div class="highway-road-art"></div>
+                <div class="highway-vignette"></div>
+            </div>
 
-				<img class="content__img spacer" src="img/dev-telemetry.svg" alt="Diagnostic Telemetry" />
-			</div>
+            <div class="works-container">
+                <div class="works-header">
+                    <span class="works-counter">[01.0 // SELECTED WORKS 2024 — 2026]</span>
+                    <h2 class="works-heading">ENGINEERING REPERTORY</h2>
+                </div>
 
-			<!-- Footer -->
-			<footer class="frame frame--footer">
-				<div class="footer-credits">
-					<p>&copy; 2026 <strong>Matheus Alves da Costa</strong> &bull; Engenharia de Software Backend C# &bull; Goiânia, GO</p>
-				</div>
-				<div class="footer-nav">
-					<a href="#hero">Voltar ao Topo &uarr;</a>
-					<a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://www.linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-				</div>
-			</footer>
-		</main>
+                <div class="works-layout-grid">
+                    <!-- Left: Monumental Work Items List -->
+                    <div class="works-list">
+                        <!-- Project 1: DataClean Suite -->
+                        <article class="work-item active" data-work="dataclean" data-category="DATA PLATFORM" data-metric="6min ➔ <2s" data-channel="CH-01">
+                            <div class="work-item__left">
+                                <span class="work-item__index">01.0</span>
+                                <h3 class="work-item__title">DATACLEAN SUITE</h3>
+                            </div>
+                            <div class="work-item__right">
+                                <span class="work-item__badge">C# .NET 8 // 99.4% GAIN</span>
+                                <span class="work-item__arrow">↗</span>
+                            </div>
+                        </article>
 
-		<!-- Script Dependencies -->
-		<script src="js/gsap.min.js"></script>
-		<script src="js/ScrollTrigger.min.js"></script>
-		<script src="js/lenis.min.js"></script>
-		<script src="js/imagesloaded.pkgd.min.js"></script>
-		<script type="module" src="js/demo9/index.js?v=3"></script>
-	</body>
+                        <!-- Project 2: Meppo Focus Engine -->
+                        <article class="work-item" data-work="meppo" data-category="AUTOMATION & SUITE" data-metric="100% In-House" data-channel="CH-02">
+                            <div class="work-item__left">
+                                <span class="work-item__index">02.0</span>
+                                <h3 class="work-item__title">MEPPO FOCUS ENGINE</h3>
+                            </div>
+                            <div class="work-item__right">
+                                <span class="work-item__badge">C# / JS // ZERO LATENCY</span>
+                                <span class="work-item__arrow">↗</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 3: Actuar Core & RCA Framework -->
+                        <article class="work-item" data-work="actuar" data-category="DIAGNOSTICS & RCA" data-metric="14.75 / 15.0 Score" data-channel="CH-03">
+                            <div class="work-item__left">
+                                <span class="work-item__index">03.0</span>
+                                <h3 class="work-item__title">ACTUAR CORE &amp; RCA</h3>
+                            </div>
+                            <div class="work-item__right">
+                                <span class="work-item__badge">RABBITMQ / POSTGRES</span>
+                                <span class="work-item__arrow">↗</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 4: Async Data Ingestion Pipeline -->
+                        <article class="work-item" data-work="pipeline" data-category="HIGH-THROUGHPUT QUEUES" data-metric="10k+ msgs/sec" data-channel="CH-04">
+                            <div class="work-item__left">
+                                <span class="work-item__index">04.0</span>
+                                <h3 class="work-item__title">ASYNC DATA PIPELINE</h3>
+                            </div>
+                            <div class="work-item__right">
+                                <span class="work-item__badge">CHUNKING &amp; STREAMING</span>
+                                <span class="work-item__arrow">↗</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 5: Embedded Sensor Telemetry -->
+                        <article class="work-item" data-work="telemetry" data-category="HARDWARE & IOT" data-metric="1000 Hz Sampling" data-channel="CH-05">
+                            <div class="work-item__left">
+                                <span class="work-item__index">05.0</span>
+                                <h3 class="work-item__title">EMBEDDED TELEMETRY</h3>
+                            </div>
+                            <div class="work-item__right">
+                                <span class="work-item__badge">RP2040 / FREERTOS C++</span>
+                                <span class="work-item__arrow">↗</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Center/Right: The Vintage CRT Television Interactive Showcase -->
+                    <div class="crt-tv-showcase">
+                        <div class="crt-tv-frame" id="crtTvFrame">
+                            <div class="crt-case-top">
+                                <div class="crt-brand-badge">SONY TRINITRON // ACTUAR TELEMETRY</div>
+                                <div class="crt-vent-grill"></div>
+                            </div>
+
+                            <div class="crt-screen-bezel">
+                                <div class="crt-screen-glass" id="crtScreen">
+                                    <!-- Screen Scanlines & Flicker -->
+                                    <div class="crt-scanlines"></div>
+                                    <div class="crt-glitch-static" id="crtGlitch"></div>
+
+                                    <!-- CRT Channel Content Area (dynamically updated on hover) -->
+                                    <div class="crt-channel-display" id="crtChannelContent">
+                                        <div class="crt-hud-top">
+                                            <span class="crt-ch-id" id="crtChId">CH-01 // DATACLEAN</span>
+                                            <span class="crt-rec-dot">● REC</span>
+                                        </div>
+
+                                        <div class="crt-main-visual" id="crtVisual">
+                                            <!-- Interactive ASCII/SVG terminal telemetry graphic -->
+                                            <div class="crt-terminal-box">
+                                                <div class="term-line">&gt; SYSTEM.INIT: DATACLEAN.MICROSERVICE</div>
+                                                <div class="term-line">&gt; INPUT BATCH: 48,200 RECORDS</div>
+                                                <div class="term-line">&gt; BENCHMARK: 6m02s ➔ 0m01.84s (99.4% GAIN)</div>
+                                                <div class="term-line">&gt; STATUS: 200 OK // ALL CHUNKS COMMITTED</div>
+                                                <div class="term-benchmark-bar">
+                                                    <div class="bench-fill" style="width: 99.4%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="crt-hud-bottom">
+                                            <span id="crtStatusSub">ASYNC_STREAM // EF CORE + DAPPER</span>
+                                            <span id="crtFpsCount">60.0 FPS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Physical TV Controls Bar -->
+                            <div class="crt-controls-panel">
+                                <div class="crt-dials">
+                                    <div class="crt-knob" title="Channel Knob"></div>
+                                    <div class="crt-knob" title="Volume Knob"></div>
+                                </div>
+                                <div class="crt-speaker-mesh"></div>
+                                <div class="crt-power-led" id="crtPowerLed"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 02: AWARDS & METRICS (00:18 in video)
+             ============================================================ -->
+        <section class="metrics-stage" id="metrics">
+            <div class="metrics-container">
+                <div class="metrics-title-row">
+                    <span class="editorial-tag">// 02.0 RECOGNITIONS &amp; BENCHMARKS</span>
+                    <h2 class="metrics-monumental-heading">AWARDS &amp; TELEMETRY</h2>
+                </div>
+
+                <div class="metrics-table-grid">
+                    <!-- Column 1: Actuar Performance & Ranking -->
+                    <div class="metrics-card">
+                        <span class="card-badge">ACTUAR RANKINGS</span>
+                        <div class="big-metric-val">5x <span class="metric-unit">TOP 1</span></div>
+                        <p class="metric-desc">Eleito 5 vezes Analista Top 1 e 1 vez Top 2 no ranking geral interno de performance técnica e resolução em apenas 8 meses.</p>
+                        <div class="metric-footer-tag">HIGH COMPLEXITY INCIDENT RESOLUTION</div>
+                    </div>
+
+                    <!-- Column 2: Internal Architecture Certification -->
+                    <div class="metrics-card metrics-card--highlight">
+                        <span class="card-badge">CERTIFICATION SCORE</span>
+                        <div class="big-metric-val">14.75<span class="metric-slash">/</span>15.0</div>
+                        <p class="metric-desc">Pontuação quase perfeita na rigorosa certificação técnica interna de arquitetura do ecossistema, regras de negócio e fluxo de dados.</p>
+                        <div class="metric-footer-tag">PROMOTED N1 ➔ N2 ➔ DEV C#</div>
+                    </div>
+
+                    <!-- Column 3: Academic Excellence @ PUC Goiás -->
+                    <div class="metrics-card">
+                        <span class="card-badge">ACADEMIC HONORS</span>
+                        <div class="big-metric-val">8.6 <span class="metric-unit">CR</span></div>
+                        <p class="metric-desc">Coeficiente de Rendimento destacado no Bacharelado em Ciência da Computação pela PUC Goiás. Domínio de Estruturas de Dados, Algoritmos e SOs.</p>
+                        <div class="metric-footer-tag">PUC GOIÁS // 2024 — 2029</div>
+                    </div>
+
+                    <!-- Column 4: System Latency Optimization -->
+                    <div class="metrics-card">
+                        <span class="card-badge">LATENCY DROP</span>
+                        <div class="big-metric-val">99.4<span class="metric-unit">%</span></div>
+                        <p class="metric-desc">Otimização drástica do pipeline de dados de 6 minutos de processamento síncrono para menos de 2 segundos via paralelismo assíncrono em C#.</p>
+                        <div class="metric-footer-tag">SUB-SECOND THROUGHPUT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 03: MY PROCESS (CD JEWEL CASES GALLERY)
+             (00:19 - 00:20 & 00:25 - 00:26 in video)
+             ============================================================ -->
+        <section class="process-vermilion-stage" id="process">
+            <div class="process-stage-inner">
+                <div class="process-header">
+                    <div class="process-header-left">
+                        <span class="process-pill">GALLERY // ARCHITECTURAL SESSIONS</span>
+                        <h2 class="process-title">MY PROCESS</h2>
+                    </div>
+                    <div class="process-header-right">
+                        <p class="process-sub">A 6-phase battle-tested engineering cycle for zero-defect backend systems, from initial RCA discovery to production telemetry.</p>
+                    </div>
+                </div>
+
+                <!-- CD Jewel Cases Horizontal Scrollable Gallery -->
+                <div class="cd-gallery-wrapper">
+                    <div class="cd-gallery-track" id="cdGalleryTrack">
+
+                        <!-- CD 1: Briefing & RCA -->
+                        <div class="cd-jewel-case" data-track="01">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 01 — BRIEFING &amp; RCA</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--1">
+                                    <div class="album-tag">VOL. 01</div>
+                                    <div class="album-title">COME TOGETHER</div>
+                                    <div class="album-subtitle">ROOT CAUSE ANALYSIS</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">1</div>
+                                <h4 class="cd-step-title">Briefing &amp; RCA</h4>
+                                <p class="cd-step-desc">Investigação profunda de gargalos operacionais e levantamento minucioso dos requisitos de negócio e latência alvo.</p>
+                            </div>
+                        </div>
+
+                        <!-- CD 2: Evaluation & DDD -->
+                        <div class="cd-jewel-case" data-track="02">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 02 — DOMAIN MODELING</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--2">
+                                    <div class="album-tag">VOL. 02</div>
+                                    <div class="album-title">WITH OR WITHOUT YOU</div>
+                                    <div class="album-subtitle">BOUNDED CONTEXTS</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">2</div>
+                                <h4 class="cd-step-title">Domain Modeling</h4>
+                                <p class="cd-step-desc">Mapeamento de agregados, entidades ricas e isolamento dos limites de contexto para prevenir acoplamentos indesejados.</p>
+                            </div>
+                        </div>
+
+                        <!-- CD 3: Async Architecture -->
+                        <div class="cd-jewel-case" data-track="03">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 03 — DISTRIBUTED QUEUES</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--3">
+                                    <div class="album-tag">VOL. 03</div>
+                                    <div class="album-title">FEUER FREI!</div>
+                                    <div class="album-subtitle">RABBITMQ &amp; CQRS</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">3</div>
+                                <h4 class="cd-step-title">KickOff &amp; Queues</h4>
+                                <p class="cd-step-desc">Estruturação de tópicos, filas resilientes e mensageria assíncrona desacoplada para suportar picos de tráfego.</p>
+                            </div>
+                        </div>
+
+                        <!-- CD 4: C# .NET 8 Implementation -->
+                        <div class="cd-jewel-case" data-track="04">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 04 — CORE IMPLEMENTATION</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--4">
+                                    <div class="album-tag">VOL. 04</div>
+                                    <div class="album-title">HIGH FIDELITY</div>
+                                    <div class="album-subtitle">CLEAN CODE &amp; DAPPER</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">4</div>
+                                <h4 class="cd-step-title">Development</h4>
+                                <p class="cd-step-desc">Construção em C# (.NET 8) com Clean Architecture, CQRS, queries otimizadas em Dapper/EF Core e injeção de dependência.</p>
+                            </div>
+                        </div>
+
+                        <!-- CD 5: Benchmark & Stress Testing -->
+                        <div class="cd-jewel-case" data-track="05">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 05 — PROFILING &amp; LOAD</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--5">
+                                    <div class="album-tag">VOL. 05</div>
+                                    <div class="album-title">BUILD ME UP</div>
+                                    <div class="album-subtitle">ALLOCATION TUNING</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">5</div>
+                                <h4 class="cd-step-title">Benchmark &amp; Tuning</h4>
+                                <p class="cd-step-desc">Testes de carga com BenchmarkDotNet, análise de coletas de Garbage Collection e eliminação de gargalos de I/O.</p>
+                            </div>
+                        </div>
+
+                        <!-- CD 6: Deployment & Observability -->
+                        <div class="cd-jewel-case" data-track="06">
+                            <div class="jewel-plastic-shine"></div>
+                            <div class="jewel-case-inner">
+                                <div class="jewel-spine">
+                                    <span>MAC//REC 06 — TELEMETRY IN PROD</span>
+                                </div>
+                                <div class="jewel-artwork jewel-artwork--6">
+                                    <div class="album-tag">VOL. 06</div>
+                                    <div class="album-title">SMOOTH OPERATOR</div>
+                                    <div class="album-subtitle">DOCKER &amp; METRICS</div>
+                                    <div class="jewel-disc-preview"></div>
+                                </div>
+                            </div>
+                            <div class="cd-caption">
+                                <div class="cd-num-badge">6</div>
+                                <h4 class="cd-step-title">Quality &amp; Deploy</h4>
+                                <p class="cd-step-desc">Deploy conteinerizado via Docker em Linux VPS, instrumentação de logs estruturados e monitoramento contínuo em tempo real.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 04: THE 10 COMMANDMENTS (MANIFESTO)
+             ============================================================ -->
+        <section class="manifesto-stage" id="manifesto">
+            <div class="manifesto-container">
+                <div class="manifesto-header">
+                    <span class="editorial-tag">// 04.0 CODE OF ETHICS &amp; DISCIPLINE</span>
+                    <h2 class="manifesto-title">THE 10 COMMANDMENTS OF BACKEND CRAFTSMANSHIP</h2>
+                </div>
+
+                <div class="commandments-grid">
+                    <div class="cmd-card">
+                        <span class="cmd-num">I.</span>
+                        <h4 class="cmd-title">Thou shalt not write silent catch blocks</h4>
+                        <p class="cmd-text">Engolir exceções oculta corrupção de estado. Toda falha deve ser registrada com rastreamento de pilha completo ou tratada com idempotência.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">II.</span>
+                        <h4 class="cmd-title">Thou shalt honor Clean Architecture</h4>
+                        <p class="cmd-text">A camada de Domínio deve permanecer pura e desacoplada de frameworks, bancos de dados e protocolos externos.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">III.</span>
+                        <h4 class="cmd-title">Thou shalt treat RCA as an exact science</h4>
+                        <p class="cmd-text">Não aplique correções superficiais em sintomas; investigue a causa-raiz nos logs estruturados até isolar o vetor da falha.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">IV.</span>
+                        <h4 class="cmd-title">Thou shalt crush human latency</h4>
+                        <p class="cmd-text">Se uma rotina manual custa 6 minutos à equipe de atendimento, automatize o fluxo para milissegundos com C# assíncrono.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">V.</span>
+                        <h4 class="cmd-title">Thou shalt design resilient queues</h4>
+                        <p class="cmd-text">Mensageria distribuída com RabbitMQ deve prever dead-letter queues, retentativas exponenciais e consumidores idempotentes.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">VI.</span>
+                        <h4 class="cmd-title">Thou shalt benchmark memory allocations</h4>
+                        <p class="cmd-text">Alocações excessivas no heap desencadeiam pausas de Garbage Collector. Utilize `Span<T>`, `ReadOnlyMemory<T>` e streams sempre que aplicável.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">VII.</span>
+                        <h4 class="cmd-title">Thou shalt index foreign keys</h4>
+                        <p class="cmd-text">Queries sem índices causam table scans em tabelas massivas. Otimize o plano de execução antes de culpar o banco de dados.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">VIII.</span>
+                        <h4 class="cmd-title">Thou shalt decouple read from write</h4>
+                        <p class="cmd-text">Empregue CQRS com Dapper para leituras de ultra-alta velocidade e EF Core com regras de agregação para mutações críticas.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">IX.</span>
+                        <h4 class="cmd-title">Thou shalt emit structured observability</h4>
+                        <p class="cmd-text">Logs em texto puro dificultam diagnósticos distribuídos. Emita JSON com CorrelationId e métricas de telemetria integradas.</p>
+                    </div>
+
+                    <div class="cmd-card">
+                        <span class="cmd-num">X.</span>
+                        <h4 class="cmd-title">Thou shalt build software that outlasts hype</h4>
+                        <p class="cmd-text">Priorize robustez, testabilidade e clareza de engenharia sobre tendências passageiras do ecossistema.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 05: THE ENGINEERING LAB
+             ============================================================ -->
+        <section class="lab-stage" id="lab">
+            <div class="lab-container">
+                <div class="lab-header">
+                    <span class="editorial-tag">// 05.0 TECH ARSENAL</span>
+                    <h2 class="lab-title">ENGINEERING SPECIFICATIONS</h2>
+                </div>
+
+                <div class="lab-spec-grid">
+                    <div class="spec-card">
+                        <div class="spec-icon">01</div>
+                        <h3 class="spec-name">C# .NET 8</h3>
+                        <p class="spec-desc">Desenvolvimento de APIs robustas, Workers assíncronos em background, Tasks concorrentes, Channels e LINQ de alta performance.</p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-icon">02</div>
+                        <h3 class="spec-name">Clean Architecture &amp; CQRS</h3>
+                        <p class="spec-desc">Domain-Driven Design, MediatR, desacoplamento por camadas, interfaces coesas e segregação estrita de comandos e consultas.</p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-icon">03</div>
+                        <h3 class="spec-name">RabbitMQ &amp; MassTransit</h3>
+                        <p class="spec-desc">Arquitetura orientada a eventos, tópicos, fanouts, controle de concorrência e processamento assíncrono distribuído.</p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-icon">04</div>
+                        <h3 class="spec-name">PostgreSQL &amp; SQL Server</h3>
+                        <p class="spec-desc">Modelagem relacional, otimização de índices B-Tree, CTEs complexas, isolamento de transações ACID e Dapper ORM.</p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-icon">05</div>
+                        <h3 class="spec-name">Docker &amp; Linux VPS</h3>
+                        <p class="spec-desc">Conteinerização multi-stage leve com Alpine, reverse proxy com Nginx, certificados SSL automatizados e deploy contínuo.</p>
+                    </div>
+
+                    <div class="spec-card">
+                        <div class="spec-icon">06</div>
+                        <h3 class="spec-name">Embedded C++ &amp; IoT</h3>
+                        <p class="spec-desc">Sistemas embarcados em microcontroladores RP2040 e ESP32 com FreeRTOS, telemetria serial via UART/SPI e controle em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             SECTION 06: CONTACT & MONOLITHIC OUTRO
+             (00:21 - 00:24 in video)
+             ============================================================ -->
+        <section class="outro-stage" id="contact">
+            <div class="outro-container">
+                <div class="outro-pop-art">
+                    <div class="pop-banana-symbol"></div>
+                </div>
+
+                <div class="outro-huge-heading">
+                    WE NEED TO BUILD<br>RESILIENT SYSTEMS.
+                </div>
+
+                <p class="outro-sub">Disponível para desafios de alta complexidade técnica, engenharia de backend C# (.NET 8) e sistemas distribuídos.</p>
+
+                <div class="outro-actions-grid">
+                    <a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
+                        <span class="c-label">WHATSAPP DIRECT</span>
+                        <span class="c-val">+55 (62) 99312-3343</span>
+                        <span class="c-arrow">↗</span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
+                        <span class="c-label">LINKEDIN PROFILE</span>
+                        <span class="c-val">/in/matheusallvz</span>
+                        <span class="c-arrow">↗</span>
+                    </a>
+
+                    <a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
+                        <span class="c-label">GITHUB REPOSITORIES</span>
+                        <span class="c-val">@Matheus-Allvz</span>
+                        <span class="c-arrow">↗</span>
+                    </a>
+
+                    <button class="contact-card contact-card--copy magnetic-item" id="copyEmailBtn" data-email="workingaccount.matheus@gmail.com">
+                        <span class="c-label">ELECTRONIC MAIL</span>
+                        <span class="c-val">workingaccount.matheus@gmail.com</span>
+                        <span class="c-arrow">📋</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segmented Pop-Art Footer Bar (00:22 in video) -->
+            <footer class="monolith-footer-bar">
+                <div class="footer-segment footer-segment--copyright">
+                    <div class="footer-sigil">MAC</div>
+                    <div class="footer-copy-text">
+                        <strong>© 2026 MATHEUS ALVES DA COSTA</strong><br>
+                        <span>All rights reserved. Backend Engineering.</span>
+                    </div>
+                </div>
+
+                <div class="footer-segment footer-segment--magenta">
+                    <span class="f-title">Direct Inquiries:</span>
+                    <a href="mailto:workingaccount.matheus@gmail.com" class="f-email-link">workingaccount.matheus@gmail.com</a>
+                </div>
+
+                <div class="footer-segment footer-segment--dark">
+                    <span class="f-title">Follow Architecture:</span>
+                    <div class="f-links">
+                        <a href="https://github.com/Matheus-Allvz" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/matheusallvz" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="footer-segment footer-segment--orange">
+                    <span class="f-title">Academic:</span>
+                    <strong>PUC Goiás</strong>
+                </div>
+
+                <div class="footer-segment footer-segment--top">
+                    <a href="#hero" class="back-to-top-btn magnetic-item" id="backToTop">
+                        <span>BACK TO TOP ↑</span>
+                    </a>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification for Email Copy -->
+    <div class="editorial-toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-msg">Email copiado para a área de transferência!</span>
+    </div>
+
+    <!-- Main JavaScript Engine -->
+    <script src="js/main.js"></script>
+</body>
 </html>

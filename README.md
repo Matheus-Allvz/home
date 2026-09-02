@@ -1,33 +1,53 @@
-# Animations for Sticky Sections
+# Matheus Alves — Portfolio (Editorial & Brutalist Architecture)
 
-Some ideas of how sticky sections can be animated while exiting the viewport.
+Interactive portfolio and presentation hub for **Matheus Alves da Costa**, Backend Software Engineer specializing in C# (.NET 8), Microservices, High-Throughput Distributed Systems, RabbitMQ, PostgreSQL, and Clean Architecture.
 
-![Sticky Sections](https://codrops-1f606.kxcdn.com/codrops/wp-content/uploads/2024/01/stickycardnewfeatured.gif?x36933)
+Live: [https://matheus-alves.dev/](https://matheus-alves.dev/)
 
-[Article on Codrops](https://tympanus.net/codrops/?p=75532)
+---
 
-[Demo](http://tympanus.net/Development/StickySections/)
+## 🛠️ Tech Stack & Engineering Highlights
 
-## Installation
+- **Languages & Frameworks:** C# (.NET 8), ASP.NET Core, EF Core, Dapper
+- **Messaging & Queues:** RabbitMQ, Background Workers, Outbox Pattern
+- **Databases:** PostgreSQL, SQL Server, Redis
+- **Architecture:** Clean Architecture, DDD, CQRS, Idempotency & Fault-Tolerant Pipelines
+- **Design & Experience:** Brutalist Swiss Typography, GSAP Kinetic Physics, Web Audio Synthesizer Engine, Custom Cursor & CRT Retro Channel Visuals
 
-Run this demo on a [local server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server).
+---
 
-## Credits
+## 📁 Project Structure
 
-- Images by [Annas Muslimin](https://www.vecteezy.com/members/annazdsgn)
+`
+├── css/
+│   └── style.css          # Editorial Swiss & Brutalist design system
+├── js/
+│   └── main.js            # Preloader, magnetic cursor, Web Audio synth, HUD
+├── img/                   # Engineering badges, SVG architecture diagrams & icons
+├── favicon.ico            # Site favicon
+├── Matheus_Alves_Curriculo.pdf
+├── index.html             # Main entrypoint
+├── nginx.conf             # Production Nginx reverse-proxy configuration
+├── Dockerfile             # Production container
+└── docker-compose.yml     # Multi-container orchestration
+`
 
-## Misc
+---
 
-Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
+## 🚀 Running Locally
 
-[Support us](https://www.buymeacoffee.com/codrops)
+You can serve the static files with any HTTP server:
 
-## License
-[MIT](LICENSE)
+`ash
+# Python
+python -m http.server 8080
 
-Made with :blue_heart:  by [Codrops](http://www.codrops.com)
+# Or with Docker
+docker compose up -d
+`
 
+---
 
+## 📜 License
 
-
-
+MIT License &copy; 2026 Matheus Alves.
