@@ -25,7 +25,6 @@ Live: [https://matheus-alves.dev/](https://matheus-alves.dev/)
 │   └── main.js            # Preloader, magnetic cursor, Web Audio synth, HUD
 ├── img/                   # Engineering badges, SVG architecture diagrams & icons
 ├── favicon.ico            # Site favicon
-├── Matheus_Alves_Curriculo.pdf
 ├── index.html             # Main entrypoint
 ├── nginx.conf             # Production Nginx reverse-proxy configuration
 ├── Dockerfile             # Production container
