@@ -37,12 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const dismissPreloader = () => {
-        if (preloader && !preloader.classList.contains('loaded')) {
-            preloader.classList.add('loaded');
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 900);
+        if (!preloader || preloader.dataset.dismissed === 'true') return;
+        preloader.dataset.dismissed = 'true';
+
+        const wordsBox = document.getElementById('introloadingWordsBox');
+        const lines = document.querySelectorAll('.initloading-line');
+
+        // 1. Fade out words box
+        if (wordsBox) {
+            wordsBox.style.opacity = '0';
         }
+
+        // 2. Staggered scaleY(0) curtain lines exit (matching Daniel Spatzek GSAP hide timeline)
+        setTimeout(() => {
+            lines.forEach((line, idx) => {
+                setTimeout(() => {
+                    line.style.transform = 'scaleY(0)';
+                }, idx * 14);
+            });
+        }, 200);
+
+        // 3. Remove container display
+        setTimeout(() => {
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+        }, 200 + (lines.length * 14) + 450);
     };
 
     // Sequential timing calibrated for exact pacing & impact (Total ~4.5s)
@@ -57,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sentence) sentence.classList.add('active');
         if (subBox) subBox.classList.add('active');
     }, 3350);
-    setTimeout(dismissPreloader, 4600);
+    setTimeout(dismissPreloader, 4700);
     // Fallback safety dismissal
-    setTimeout(dismissPreloader, 6000);
+    setTimeout(dismissPreloader, 6500);
 
 
     // -------------------------------------------------------------

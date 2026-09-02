@@ -3,6 +3,22 @@
    Backend Engineering & C# .NET 8 Architecture Mastery
    ========================================================================== */
 
+@font-face {
+    font-family: 'sang-bleu';
+    src: url('../fonts/SangBleuOGSerif-Regular-WebS.woff2') format('woff2');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'suisse-book';
+    src: url('../fonts/SuisseIntl-Book-WebM.woff2') format('woff2');
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --bg-core: #08090c;
     --bg-surface: #0f1117;
@@ -10,7 +26,8 @@
     --bg-card-hover: #1c212d;
     
     --accent-red: #e6392a;
-    --accent-vermilion: #d63a2f;
+    --accent-vermilion: #e6392a;
+    --brand-color: #e6392a;
     --accent-amber: #e5a968;
     --accent-gold: #d4af37;
     --accent-magenta: #d80093;
@@ -29,8 +46,9 @@
     --border-amber: rgba(229, 169, 104, 0.35);
 
     --font-display: 'Syne', -apple-system, sans-serif;
-    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-serif: 'sang-bleu', 'Instrument Serif', Georgia, serif;
     --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+    --font-sans: 'suisse-book', -apple-system, sans-serif;
 
     --hud-height: 56px;
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -75,29 +93,31 @@ body.editorial-body {
    ========================================================================== */
 
 /* ==========================================================================
-   0. ORIGINAL 1:1 ARCHITECTURE PRELOADER (EXACT STRUCTURE, FONT & SIZES)
+   0. ORIGINAL 1:1 DANIEL SPATZEK PORTFOLIO IV INITIAL LOADING
    ========================================================================== */
 
 .initloading-container {
-    display: flex;
-    z-index: 999999;
+    display: block;
+    z-index: 90000;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-vermilion);
+    background-color: var(--accent-vermilion, #e6392a);
     overflow: hidden;
-    transition: transform 0.85s var(--ease-out-expo), opacity 0.85s ease;
+    pointer-events: all;
 }
 
-.initloading-container.loaded {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-100%);
+.initloading-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .initloading-lines-container {
@@ -116,10 +136,11 @@ body.editorial-body {
     position: relative;
     display: block;
     width: 100vw;
-    height: 10%;
+    height: 100%;
     margin-bottom: -1px;
-    background-color: var(--accent-vermilion);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    background-color: var(--accent-vermilion, #e6392a);
+    transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .introloading-words-box {
@@ -134,94 +155,73 @@ body.editorial-body {
     color: #000000;
     z-index: 2;
     overflow: hidden;
+    transition: opacity 0.3s ease;
 }
 
 .introloading-wordIV {
-    font-family: var(--font-serif);
+    font-family: 'sang-bleu', 'Instrument Serif', Georgia, serif;
     font-style: normal;
-    font-weight: 700;
     display: block;
     position: absolute;
-    font-size: clamp(35vw, 65vw, 85vw);
+    font-size: 70vw;
     line-height: 1em;
     margin-bottom: -.09em;
-    opacity: 0.12;
+    opacity: 0.10;
     color: #ffffff;
-    user-select: none;
     pointer-events: none;
+    user-select: none;
     z-index: 0;
 }
 
-.introloading-words-box .logo-glyph {
-    position: absolute;
-    max-width: 45vw;
-    max-height: 65vh;
-    transform: translate(5%);
-    z-index: 1;
-    opacity: 0.16;
-}
-
-.introloading-words-box .logo-path {
-    stroke: #000000;
-    stroke-width: 4;
-}
-
 .introloading-word {
-    font-family: var(--font-serif);
+    font-family: 'sang-bleu', 'Instrument Serif', Georgia, serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     display: block;
     position: absolute;
     line-height: 1em;
-    font-size: clamp(3.5rem, 11.458vw, 11rem);
+    font-size: 11.4583333333vw;
     opacity: 0;
     color: #000000;
     text-transform: uppercase;
-    letter-spacing: -2px;
     z-index: 5;
-    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     text-align: center;
-    max-width: 95vw;
-    transform: scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.15s ease;
 }
 
 .introloading-word.active {
     opacity: 1;
-    transform: scale(1);
 }
 
 .introloading-sentence {
     display: block;
     position: absolute;
-    line-height: 1.15;
-    max-width: 75vw;
-    font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4.2vw, 4.2rem);
-    font-weight: 700;
-    color: #000000;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    line-height: 1em;
+    max-width: 60vw;
     opacity: 0;
-    z-index: 6;
+    font-family: 'sang-bleu', 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.8rem, 3.8vw, 4rem);
+    text-transform: uppercase;
+    color: #000000;
     text-align: center;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    transform: translateY(10px);
+    z-index: 6;
+    transition: opacity 0.35s ease;
 }
 
 .introloading-sentence.active {
     opacity: 1;
-    transform: translateY(0);
 }
 
 .introloading-sub-box {
     position: absolute;
     flex-direction: column;
     display: flex;
+    bottom: 3vw;
+    max-width: 60vw;
     align-items: center;
     justify-content: center;
-    bottom: 3vw;
-    max-width: 75vw;
     opacity: 0;
     z-index: 7;
     transition: opacity 0.35s ease;
@@ -232,28 +232,30 @@ body.editorial-body {
 }
 
 .introloading-loading-ticker {
-    font-family: var(--font-mono);
+    font-family: 'sang-bleu', Georgia, serif;
     font-style: normal;
-    font-weight: 700;
     display: block;
     position: relative;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #000000;
-    margin-bottom: 8px;
+    height: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 200px;
     opacity: 1;
 }
 
+.introloading-loading-ticker path {
+    fill: #000000;
+}
+
 .introloading-note {
-    font-family: var(--font-mono);
     display: block;
-    line-height: 1.4;
-    font-size: 10px;
-    letter-spacing: 1px;
+    line-height: 1.4em;
+    font-size: 12px;
+    font-family: 'suisse-book', 'JetBrains Mono', -apple-system, sans-serif;
     text-align: center;
-    color: rgba(0, 0, 0, 0.75);
-    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
 }
 
 
