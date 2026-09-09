@@ -427,12 +427,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // -------------------------------------------------------------
-    // 8. GSAP SCROLLTRIGGER ENGINE: HERO PARALLAX & STREET TV ZOOM
+    // 8. ELEGANT NAVBAR HIDE ON SCROLL & REVEAL AT TOP
+    // -------------------------------------------------------------
+    const hud = document.getElementById('editorialHud') || document.querySelector('.editorial-hud');
+    window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (hud) {
+            if (y > 35) {
+                hud.classList.add('hud--hidden');
+            } else {
+                hud.classList.remove('hud--hidden');
+            }
+        }
+    }, { passive: true });
+
+
+    // -------------------------------------------------------------
+    // 9. GSAP SCROLLTRIGGER ENGINE: IMMEDIATE HERO PARALLAX & STREET TV ZOOM
     // -------------------------------------------------------------
     if (window.gsap && window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
 
-        // A. HERO PARALLAX TIMELINE (BRUEGEL MASTERPIECE & CONVERGING ELEMENTS)
+        // A. HERO PARALLAX TIMELINE (IMMEDIATE, HIGH-IMPACT VELOCITY)
         const heroTrack = document.getElementById('heroScrollTrack');
         const heroPainting = document.getElementById('heroBgPainting');
         const heroColLeft = document.getElementById('heroColLeft');
@@ -440,93 +456,122 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroTitle = document.getElementById('heroTitle');
         const heroTopManifesto = document.getElementById('heroTopManifesto');
         const heroMetaRow = document.getElementById('heroMetaRow');
+        const heroStage = document.getElementById('hero');
 
-        if (heroTrack) {
+        if (heroTrack && heroPainting) {
             const heroTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: heroTrack,
                     start: 'top top',
                     end: 'bottom bottom',
-                    scrub: 0.5
+                    scrub: 0.15 // Instantaneous, zero-lag scrub
                 }
             });
 
-            // 1. Pieter Bruegel masterpiece slow majestic upward drift
-            if (heroPainting) {
-                heroTl.to(heroPainting, {
-                    y: '-18%',
-                    ease: 'none',
-                    duration: 1
-                }, 0);
-            }
+            // 1. Classical Masterpiece background moves with clear upward parallax
+            heroTl.to(heroPainting, {
+                y: '-25%',
+                ease: 'none',
+                duration: 1
+            }, 0);
 
-            // 2. Left column (commandments) moves downwards
+            // 2. Left column (commandments) moves downwards with high velocity
             if (heroColLeft) {
                 heroTl.to(heroColLeft, {
-                    y: '38vh',
+                    y: '65vh',
                     ease: 'none',
                     duration: 1
                 }, 0);
             }
 
-            // 3. Right column (kinetic stream) moves upwards
+            // 3. Right column (kinetic stream) moves upwards with high velocity
             if (heroColRight) {
                 heroTl.to(heroColRight, {
-                    y: '-32vh',
+                    y: '-55vh',
                     ease: 'none',
                     duration: 1
                 }, 0);
             }
 
-            // 4. Top manifesto moves up and fades out
+            // 4. Top manifesto summary floats upwards and fades out early (by 30% scroll)
             if (heroTopManifesto) {
                 heroTl.to(heroTopManifesto, {
-                    y: '-25vh',
-                    opacity: 0.15,
+                    y: '-35vh',
+                    opacity: 0,
+                    ease: 'none',
+                    duration: 0.35
+                }, 0);
+            }
+
+            // 5. Center monumental title expands and diverges
+            if (heroTitle) {
+                heroTl.to(heroTitle, {
+                    scale: 1.12,
+                    letterSpacing: '+=3px',
+                    opacity: 0.3,
+                    ease: 'power1.in',
+                    duration: 1
+                }, 0);
+            }
+
+            // 6. Meta cards row descends gently
+            if (heroMetaRow) {
+                heroTl.to(heroMetaRow, {
+                    y: '20vh',
+                    opacity: 0.1,
                     ease: 'none',
                     duration: 0.8
                 }, 0);
             }
 
-            // 5. Center Title converges and subtly scales
-            if (heroTitle) {
-                heroTl.fromTo(heroTitle, 
-                    { scale: 0.96, opacity: 0.9 },
-                    { scale: 1.04, opacity: 1, ease: 'power1.out', duration: 0.7 },
-                    0
-                );
-            }
-
-            // 6. Meta cards row
-            if (heroMetaRow) {
-                heroTl.to(heroMetaRow, {
-                    y: '8vh',
-                    opacity: 0.6,
-                    ease: 'none',
-                    duration: 1
-                }, 0);
+            // 7. Smoothly fade out Hero as user approaches the street pavement
+            if (heroStage) {
+                heroTl.to(heroStage, {
+                    opacity: 0,
+                    ease: 'power2.in',
+                    duration: 0.3
+                }, 0.7);
             }
         }
 
-        // B. STREET & TV ZOOM-IN TIMELINE (FAITHFUL DANIEL SPATZEK ARCHITECTURE)
+        // B. INTERACTIVE HERO ARTWORK SELECTOR SWITCHER
+        const artPills = document.querySelectorAll('.art-pill');
+        if (artPills.length > 0 && heroPainting) {
+            artPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    artPills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    const newSrc = pill.dataset.art;
+                    sound.playClick(640, 0.04);
+
+                    heroPainting.style.opacity = '0.2';
+                    setTimeout(() => {
+                        heroPainting.src = newSrc;
+                        heroPainting.onload = () => {
+                            heroPainting.style.opacity = '1';
+                        };
+                    }, 180);
+                });
+            });
+        }
+
+        // C. STREET & VINTAGE TV ZOOM-IN TIMELINE (CENTERED TV WITH PURE SCRUB)
         const worksTrack = document.getElementById('works');
-        const streetViewport = document.getElementById('streetViewport');
         const streetStage = document.getElementById('streetStage');
         const tvGlass = document.getElementById('tvGlassOverlay');
         const tvInside = document.getElementById('tvInsideUniverse');
 
-        if (worksTrack && streetStage && streetViewport) {
+        if (worksTrack && streetStage) {
             const zoomTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: worksTrack,
                     start: 'top top',
                     end: 'bottom bottom',
-                    pin: streetViewport,
-                    scrub: 0.6,
+                    scrub: 0.3,
                     onUpdate: (self) => {
                         const prog = self.progress;
-                        // When zoom surpasses 65%, smoothly reveal the inside universe
-                        if (prog >= 0.65) {
+                        // When camera reaches inside the TV tube, reveal the inside universe
+                        if (prog >= 0.68) {
                             if (tvInside) tvInside.classList.add('visible');
                         } else {
                             if (tvInside) tvInside.classList.remove('visible');
@@ -535,19 +580,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Scale from 1.0 to 6.8x directly into the TV screen center (50% 68.73%)
+            // Scale from 1.0 to 6.6x directly into the TV screen center (50% 68.73%)
             zoomTl.to(streetStage, {
-                scale: 6.8,
+                scale: 6.6,
                 ease: 'power2.inOut',
                 duration: 1
             }, 0);
 
-            // Fade curved glass reflection as camera plunges into the screen phosphors
+            // Fade curved glass reflection as camera dives into phosphors
             if (tvGlass) {
                 zoomTl.to(tvGlass, {
                     opacity: 0,
                     ease: 'none',
-                    duration: 0.35
+                    duration: 0.25
                 }, 0.55);
             }
         }

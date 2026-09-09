@@ -116,7 +116,7 @@
     </div>
 
     <!-- Top HUD Navigation Bar -->
-    <header class="editorial-hud">
+    <header class="editorial-hud" id="editorialHud">
         <div class="hud-left">
             <a href="#hero" class="hud-brand magnetic-item">
                 <span class="brand-code">MAC//04.0</span>
@@ -191,17 +191,22 @@
     <main class="editorial-main">
 
         <!-- ============================================================
-             SECTION 00: HERO / LAUNCHPAD (00:02 - 00:14 in video)
-             ============================================================ -->
-        <!-- ============================================================
-             SECTION 00: HERO / LAUNCHPAD (BRUEGEL ARTWORK & PARALLAX)
+             SECTION 00: HERO / LAUNCHPAD (SUBLIME ARTWORK & KINETIC PARALLAX)
              ============================================================ -->
         <div class="hero-scroll-track" id="heroScrollTrack">
             <section class="hero-stage" id="hero">
-                <!-- Classical Renaissance Bruegel Masterpiece Background -->
+                <!-- Classical Masterpiece Artwork Background (Switchable) -->
                 <div class="hero-art-backdrop" id="heroArtBackdrop">
-                    <img src="img/bruegel-masterpiece.jpg" alt="Pieter Bruegel Masterpiece - Background Art" class="hero-bg-painting" id="heroBgPainting">
+                    <img src="img/friedrich-wanderer.jpg" alt="Caspar David Friedrich - Wanderer above the Sea of Fog" class="hero-bg-painting" id="heroBgPainting">
                     <div class="art-gradient-overlay"></div>
+                </div>
+
+                <!-- Interactive Hero Artwork Selector Controls -->
+                <div class="hero-art-switcher" id="heroArtSwitcher">
+                    <span class="switcher-label">// ARTWORK:</span>
+                    <button class="art-pill active" data-art="img/friedrich-wanderer.jpg" data-name="Friedrich // Wanderer above the Sea of Fog">01. FRIEDRICH</button>
+                    <button class="art-pill" data-art="img/bruegel-babel.jpg" data-name="Bruegel // The Tower of Babel">02. BABEL</button>
+                    <button class="art-pill" data-art="img/bruegel-masterpiece.jpg" data-name="Daniel Spatzek // Original Masterpiece">03. CLASSIC</button>
                 </div>
 
                 <!-- Kinetic Angular Geometric Framing Lines -->
