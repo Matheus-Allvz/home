@@ -959,8 +959,8 @@ body.cursor-hovering .cursor-label {
 .works-highway-track {
     position: relative;
     width: 100vw;
-    height: 260vh; /* Scrub track for smooth camera zoom into the TV */
-    background-color: #06070a;
+    height: 380vh; /* Scrub track: Enter -> Pinned Center TV & Lateral Projects -> Camera Zoom into TV */
+    background: radial-gradient(ellipse at 50% 0%, #171b26 0%, #0d0f16 35%, #06070a 80%);
 }
 
 .street-sticky-viewport {
@@ -979,9 +979,9 @@ body.cursor-hovering .cursor-label {
     width: 100vw;
     height: 124.27vw; /* Aspect ratio of 1920 x 2386 */
     left: 50%;
-    top: calc(50vh - 85.41vw); /* Centers TV tube vertically at 50vh */
+    top: calc(50vh - 85.415vw); /* Exact TV tube vertical centering at 50vh */
     transform: translateX(-50%);
-    transform-origin: 50% 68.73%; /* Exact TV tube coordinates on pavement */
+    transform-origin: 50% 68.734%; /* Exact TV tube center on pavement */
     will-change: transform;
 }
 
@@ -989,7 +989,7 @@ body.cursor-hovering .cursor-label {
     .street-stage {
         width: 130vw;
         height: calc(130vw * 1.2427);
-        top: calc(50vh - (130vw * 0.8541));
+        top: calc(50vh - (130vw * 0.85415));
     }
 }
 
@@ -997,7 +997,7 @@ body.cursor-hovering .cursor-label {
     .street-stage {
         width: 175vw;
         height: calc(175vw * 1.2427);
-        top: calc(50vh - (175vw * 0.8541));
+        top: calc(50vh - (175vw * 0.85415));
     }
 }
 
@@ -1009,6 +1009,8 @@ body.cursor-hovering .cursor-label {
     height: 100%;
     object-fit: cover;
     display: block;
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0,0,0,0.5) 30%, black 44%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0,0,0,0.5) 30%, black 44%, black 100%);
 }
 
 .tv-screen-portal {
@@ -1019,9 +1021,20 @@ body.cursor-hovering .cursor-label {
     height: 9.89%;
     overflow: hidden;
     border-radius: 4px;
-    background: #000000;
-    box-shadow: inset 0 0 25px rgba(0,0,0,0.95), 0 0 20px rgba(214, 58, 47, 0.25);
+    background: #020304;
+    box-shadow: inset 0 0 18px rgba(0,0,0,0.98), 0 0 18px rgba(214, 58, 47, 0.22);
     pointer-events: all;
+    transition: box-shadow 0.2s ease;
+}
+
+.tv-screen-portal.glitching {
+    animation: crtGlitchFlicker 0.14s ease-out;
+}
+
+@keyframes crtGlitchFlicker {
+    0% { filter: brightness(1.8) contrast(1.6) hue-rotate(20deg); transform: translate(1px, -1px); }
+    50% { filter: brightness(0.6) invert(0.15); transform: translate(-2px, 1px); }
+    100% { filter: brightness(1) contrast(1); transform: translate(0, 0); }
 }
 
 .tv-live-screen {
@@ -1029,7 +1042,7 @@ body.cursor-hovering .cursor-label {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: #050608;
+    background: radial-gradient(ellipse at center, #05080c 0%, #010203 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1044,7 +1057,7 @@ body.cursor-hovering .cursor-label {
     object-fit: fill;
     z-index: 10;
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 0.22; /* Faint, authentic glass sheen without gray washing */
     mix-blend-mode: screen;
     will-change: opacity;
 }
@@ -1169,25 +1182,182 @@ body.cursor-hovering .cursor-label {
     color: var(--text-dim);
 }
 
-.tv-inside-universe {
+/* ==========================================================================
+   SUBTLE TRANSLUCENT LATERAL PROJECTS SHOWCASE (PINNED TV COMPANION)
+   ========================================================================== */
+
+.works-lateral-showcase {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 6rem 3rem 4rem;
-    background: radial-gradient(circle at center, #0a0c10 0%, #06070a 100%);
-    opacity: 0;
-    pointer-events: none;
-    overflow-y: auto;
-    z-index: 20;
-    transition: opacity 0.4s ease;
+    left: clamp(1.5rem, 3.5vw, 4.5rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(310px, 28vw, 440px);
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(7, 9, 13, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    z-index: 15;
+    pointer-events: all;
+    will-change: transform, opacity;
 }
 
-.tv-inside-universe.visible {
-    opacity: 1;
-    pointer-events: all;
+.lateral-header {
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.7rem;
+}
+
+.lateral-counter {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    color: var(--accent-amber);
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.lateral-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.7vw, 1.8rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    line-height: 1.05;
+    margin: 0 0 6px 0;
+}
+
+.lateral-broadcast-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--accent-red);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.broadcast-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    animation: recBlink 1.2s infinite alternate;
+}
+
+.lateral-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.lateral-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: 2px solid transparent;
+    border-radius: 4px;
+    padding: 9px 12px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-decoration: none;
+    position: relative;
+}
+
+.lateral-item:hover,
+.lateral-item.active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-left-color: var(--accent-vermilion);
+    transform: translateX(6px);
+}
+
+.lateral-item.active {
+    border-left-color: var(--accent-amber);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.lateral-item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+}
+
+.lateral-item__ch {
+    color: var(--accent-amber);
+    font-weight: 700;
+}
+
+.lateral-item__badge {
+    color: var(--text-muted);
+    font-size: 8.5px;
+}
+
+.lateral-item__title {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.lateral-item__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: #10b981;
+}
+
+.lateral-item__arrow {
+    color: var(--accent-vermilion);
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.lateral-item:hover .lateral-item__arrow {
+    transform: translate(2px, -2px);
+}
+
+.lateral-scroll-hint {
+    margin-top: 0.7rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.5px;
+}
+
+.hint-arrow {
+    color: var(--accent-amber);
+    animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+.tv-inside-universe {
+    display: none;
 }
 
 .works-container {
@@ -2551,6 +2721,49 @@ body.cursor-hovering .cursor-label {
     }
 
     /* Works Section Mobile (CRT TV + Stack) */
+    .works-highway-track {
+        height: 320vh;
+    }
+    .works-lateral-showcase {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 15px;
+        transform: none;
+        width: calc(100% - 20px);
+        max-height: 48vh;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .lateral-header {
+        margin-bottom: 4px;
+        padding-bottom: 4px;
+    }
+    .lateral-heading {
+        font-size: 13.5px;
+        margin-bottom: 2px;
+    }
+    .lateral-broadcast-indicator {
+        font-size: 7.5px;
+    }
+    .lateral-list {
+        gap: 4px;
+    }
+    .lateral-item {
+        padding: 6px 8px;
+    }
+    .lateral-item__title {
+        font-size: 11px;
+    }
+    .lateral-item__badge, .lateral-item__footer {
+        font-size: 8px;
+    }
+    .lateral-scroll-hint {
+        display: none;
+    }
     .works-highway-stage {
         padding: 3rem 12px;
         width: 100%;

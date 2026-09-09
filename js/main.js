@@ -291,102 +291,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     // 5. CRT TV CHANNEL SWITCHING ENGINE (SELECTED WORKS)
     // -------------------------------------------------------------
-    const workItems = document.querySelectorAll('.work-item');
-    const crtScreen = document.getElementById('crtScreen');
-    const crtChId = document.getElementById('crtChId');
-    const crtVisual = document.getElementById('crtVisual');
-    const crtStatusSub = document.getElementById('crtStatusSub');
+    const lateralItems = document.querySelectorAll('.lateral-item');
+    const portalSlides = document.querySelectorAll('.tv-channel-slide');
+    const tvScreenPortal = document.getElementById('tvScreenPortal');
+    let userHasManuallyTuned = false;
 
-    const channelData = {
-        dataclean: {
-            ch: 'CH-01 // DATACLEAN.SUITE',
-            sub: 'ASYNC_STREAM // EF CORE + DAPPER',
-            lines: [
-                '> SYSTEM.INIT: DATACLEAN.MICROSERVICE',
-                '> INPUT BATCH: 48,200 RECORDS',
-                '> BENCHMARK: 6m02s ➔ 0m01.84s (99.4% GAIN)',
-                '> STATUS: 200 OK // ALL CHUNKS COMMITTED'
-            ],
-            gain: '99.4%'
-        },
-        meppo: {
-            ch: 'CH-02 // MEPPO FOCUS ENGINE',
-            sub: 'C# .NET 8 // DESKTOP & WEB AUTOMATION',
-            lines: [
-                '> RUNNING: MEPPO.PROD.ENGINE',
-                '> LATENCY TARGET: < 100ms',
-                '> WORKFLOW AUTOMATION: 100% SUCCESS',
-                '> ACTIVE SESSIONS: 42 INTERNAL NODES'
-            ],
-            gain: '98.0%'
-        },
-        actuar: {
-            ch: 'CH-03 // ACTUAR CORE & RCA',
-            sub: 'RABBITMQ // INCIDENT RESOLUTION ENGINE',
-            lines: [
-                '> RCA ENGINE: ISOLATING VECTORS',
-                '> CERTIFICATION SCORE: 14.75 / 15.0',
-                '> RESOLVED: TIER-2 HIGH COMPLEXITY TASKS',
-                '> METRICS: 5x TOP 1 ANALYST OF THE MONTH'
-            ],
-            gain: '95.5%'
-        },
-        pipeline: {
-            ch: 'CH-04 // ASYNC DATA PIPELINE',
-            sub: 'DISTRIBUTED QUEUES // CHUNKED INGESTION',
-            lines: [
-                '> STREAM: IAsyncEnumerable<RecordChunk>',
-                '> RATE: 12,400 MSGS / SECOND',
-                '> MEMORY ALLOCATION: 0 B ON HEAP (Span<T>)',
-                '> HEALTH: IDEMPOTENT & ZERO LOSS'
-            ],
-            gain: '99.8%'
-        },
-        telemetry: {
-            ch: 'CH-05 // EMBEDDED TELEMETRY',
-            sub: 'RP2040 / FREERTOS C++ HARDWARE',
-            lines: [
-                '> MCU: DUAL ARM CORTEX-M0+ @ 133MHz',
-                '> PROTOCOL: UART / SPI HIGH-SPEED FIFO',
-                '> REAL-TIME SENSOR SAMPLING: 1000 Hz',
-                '> STATE: SYSTEM STABLE // NO JITTER'
-            ],
-            gain: '100%'
-        }
-    };
+    if (lateralItems.length > 0) {
+        lateralItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                userHasManuallyTuned = true;
+                lateralItems.forEach(w => w.classList.remove('active'));
+                item.classList.add('active');
 
-    workItems.forEach(item => {
-        const key = item.dataset.work;
-        item.addEventListener('mouseenter', () => {
-            workItems.forEach(w => w.classList.remove('active'));
-            item.classList.add('active');
+                const chId = item.dataset.channel;
 
-            if (crtScreen) {
-                crtScreen.classList.add('glitching');
-                sound.playCrtSwitch();
+                if (tvScreenPortal) {
+                    tvScreenPortal.classList.add('glitching');
+                    sound.playCrtSwitch();
 
-                setTimeout(() => {
-                    crtScreen.classList.remove('glitching');
-                }, 140);
-            }
+                    setTimeout(() => {
+                        tvScreenPortal.classList.remove('glitching');
+                    }, 140);
+                }
 
-            const data = channelData[key];
-            if (data && crtVisual && crtChId && crtStatusSub) {
-                crtChId.textContent = data.ch;
-                crtStatusSub.textContent = data.sub;
-
-                let linesHtml = data.lines.map(l => `<div class="term-line">${l}</div>`).join('');
-                crtVisual.innerHTML = `
-                    <div class="crt-terminal-box">
-                        ${linesHtml}
-                        <div class="term-benchmark-bar">
-                            <div class="bench-fill" style="width: ${data.gain};"></div>
-                        </div>
-                    </div>
-                `;
-            }
+                portalSlides.forEach(slide => {
+                    if (slide.dataset.channel === chId) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            });
         });
-    });
+    }
 
 
     // -------------------------------------------------------------
@@ -524,13 +461,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 0);
             }
 
-            // 7. Smoothly fade out Hero as user approaches the street pavement
-            if (heroStage) {
-                heroTl.to(heroStage, {
+            // 7. Fade kinetic typography & ticker so background artwork seamlessly dissolves into street
+            const heroTicker = document.querySelector('.hero-ticker-wrap');
+            if (heroTicker) {
+                heroTl.to(heroTicker, {
                     opacity: 0,
-                    ease: 'power2.in',
-                    duration: 0.3
-                }, 0.7);
+                    ease: 'power1.in',
+                    duration: 0.4
+                }, 0.5);
             }
         }
 
@@ -555,63 +493,144 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // C. STREET & VINTAGE TV ZOOM-IN TIMELINE (CENTERED TV WITH PURE SCRUB)
+        // C. STREET & VINTAGE TV: MULTI-STAGE PINNED CENTER + LATERAL SHOWCASE + ZOOM TIMELINE
         const worksTrack = document.getElementById('works');
         const streetStage = document.getElementById('streetStage');
         const tvGlass = document.getElementById('tvGlassOverlay');
-        const tvInside = document.getElementById('tvInsideUniverse');
+        const lateralShowcase = document.getElementById('lateralShowcase');
+        const portalChNext = document.getElementById('portalChNext');
 
         if (worksTrack && streetStage) {
+            // Initial positioning: TV starts slightly below center and glides to center
+            gsap.set(streetStage, { y: '16vh', scale: 1 });
+            if (lateralShowcase) {
+                gsap.set(lateralShowcase, { opacity: 0, x: -30 });
+            }
+
+            let nextChannelTriggered = false;
+
             const zoomTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: worksTrack,
                     start: 'top top',
                     end: 'bottom bottom',
-                    scrub: 0.3,
+                    scrub: 0.25,
                     onUpdate: (self) => {
                         const prog = self.progress;
-                        // When camera reaches inside the TV tube, reveal the inside universe
-                        if (prog >= 0.68) {
-                            if (tvInside) tvInside.classList.add('visible');
+
+                        // When user scrolls past the pinned zone (prog >= 0.65), switch TV channel to NEXT
+                        if (prog >= 0.65) {
+                            if (!nextChannelTriggered) {
+                                nextChannelTriggered = true;
+                                sound.playCrtSwitch();
+                                if (tvScreenPortal) {
+                                    tvScreenPortal.classList.add('glitching');
+                                    setTimeout(() => tvScreenPortal.classList.remove('glitching'), 140);
+                                }
+                            }
+                            portalSlides.forEach(slide => {
+                                if (slide.dataset.channel === 'NEXT') {
+                                    slide.classList.add('active');
+                                } else {
+                                    slide.classList.remove('active');
+                                }
+                            });
                         } else {
-                            if (tvInside) tvInside.classList.remove('visible');
+                            if (nextChannelTriggered) {
+                                nextChannelTriggered = false;
+                                // Restore currently active lateral item channel
+                                const activeItem = document.querySelector('.lateral-item.active') || lateralItems[0];
+                                const activeCh = activeItem ? activeItem.dataset.channel : '01';
+                                portalSlides.forEach(slide => {
+                                    if (slide.dataset.channel === activeCh) {
+                                        slide.classList.add('active');
+                                    } else {
+                                        slide.classList.remove('active');
+                                    }
+                                });
+                            }
                         }
                     }
                 }
             });
 
-            // Scale from 1.0 to 6.6x directly into the TV screen center (50% 68.73%)
+            // Phase 1 (0.00 -> 0.16): TV rises smoothly into the exact viewport center and LOCKS!
             zoomTl.to(streetStage, {
-                scale: 6.6,
-                ease: 'power2.inOut',
-                duration: 1
+                y: 0,
+                ease: 'power1.out',
+                duration: 0.16
             }, 0);
 
-            // Fade curved glass reflection as camera dives into phosphors
+            if (lateralShowcase) {
+                zoomTl.to(lateralShowcase, {
+                    opacity: 1,
+                    x: 0,
+                    ease: 'power1.out',
+                    duration: 0.14
+                }, 0.04);
+            }
+
+            // Phase 2 (0.16 -> 0.64): THE PINNED / FROZEN TV PHASE
+            // The TV is 100% frozen dead-center (y: 0, scale: 1). It does NOT move up!
+            // Lateral showcase is fully interactive for reading and hovering channels.
+
+            // Phase 3 (0.64 -> 0.72): Lateral showcase smoothly fades out as plunge begins
+            if (lateralShowcase) {
+                zoomTl.to(lateralShowcase, {
+                    opacity: 0,
+                    x: -40,
+                    ease: 'power2.in',
+                    duration: 0.08
+                }, 0.64);
+            }
+
+            // Phase 4 (0.68 -> 1.00): Camera zooms deep into the centered TV tube!
+            zoomTl.to(streetStage, {
+                scale: 7.2,
+                ease: 'power2.inOut',
+                duration: 0.32
+            }, 0.68);
+
+            // Curved glass reflection fades away as we plunge inside the CRT phosphors
             if (tvGlass) {
                 zoomTl.to(tvGlass, {
                     opacity: 0,
                     ease: 'none',
-                    duration: 0.25
-                }, 0.55);
+                    duration: 0.15
+                }, 0.75);
             }
         }
     }
 
-    // Auto cycle portal TV channels every 3.8s on the street
+    // Auto cycle portal TV channels gently every 4.5s until user hovers manually
     let currentPortalCh = 1;
-    const portalSlides = document.querySelectorAll('.tv-channel-slide');
     if (portalSlides.length > 0) {
         setInterval(() => {
-            currentPortalCh = (currentPortalCh % portalSlides.length) + 1;
+            if (userHasManuallyTuned) return;
+            // Only cycle if user is not in the zoom-in zone
+            const worksEl = document.getElementById('works');
+            if (worksEl) {
+                const rect = worksEl.getBoundingClientRect();
+                if (rect.top > 0 || rect.bottom < 0) return; // not currently visible
+            }
+
+            currentPortalCh = (currentPortalCh % 5) + 1;
+            const chStr = `0${currentPortalCh}`;
             portalSlides.forEach(slide => {
-                if (slide.dataset.channel === `0${currentPortalCh}`) {
+                if (slide.dataset.channel === chStr) {
                     slide.classList.add('active');
-                } else {
+                } else if (slide.dataset.channel !== 'NEXT') {
                     slide.classList.remove('active');
                 }
             });
-        }, 3800);
+            lateralItems.forEach(item => {
+                if (item.dataset.channel === chStr) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }, 4500);
     }
 
 
