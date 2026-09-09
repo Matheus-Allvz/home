@@ -193,263 +193,349 @@
         <!-- ============================================================
              SECTION 00: HERO / LAUNCHPAD (00:02 - 00:14 in video)
              ============================================================ -->
-        <section class="hero-stage" id="hero">
-            <!-- Classical Renaissance Bruegel-Style Art Canvas Background -->
-            <div class="hero-art-backdrop" id="heroArtBackdrop">
-                <div class="art-painting-layer"></div>
-                <div class="art-gradient-overlay"></div>
-            </div>
+        <!-- ============================================================
+             SECTION 00: HERO / LAUNCHPAD (BRUEGEL ARTWORK & PARALLAX)
+             ============================================================ -->
+        <div class="hero-scroll-track" id="heroScrollTrack">
+            <section class="hero-stage" id="hero">
+                <!-- Classical Renaissance Bruegel Masterpiece Background -->
+                <div class="hero-art-backdrop" id="heroArtBackdrop">
+                    <img src="img/bruegel-masterpiece.jpg" alt="Pieter Bruegel Masterpiece - Background Art" class="hero-bg-painting" id="heroBgPainting">
+                    <div class="art-gradient-overlay"></div>
+                </div>
 
-            <!-- Kinetic Angular Geometric Framing Lines -->
-            <div class="hero-geo-overlay">
-                <svg class="geo-vectors" viewBox="0 0 1920 1080" preserveAspectRatio="none">
-                    <polygon points="120,40 450,220 280,680 80,480" class="geo-poly geo-poly--1" />
-                    <polyline points="40,980 320,840 760,1020 1480,720 1880,940" class="geo-line geo-line--main" />
-                    <polygon points="1100,80 1620,180 1820,620 1340,490" class="geo-poly geo-poly--2" />
-                    <line x1="680" y1="0" x2="1120" y2="1080" class="geo-axis" />
-                    <line x1="0" y1="540" x2="1920" y2="540" class="geo-axis geo-axis--h" />
-                </svg>
-            </div>
+                <!-- Kinetic Angular Geometric Framing Lines -->
+                <div class="hero-geo-overlay">
+                    <svg class="geo-vectors" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+                        <polygon points="120,40 450,220 280,680 80,480" class="geo-poly geo-poly--1" />
+                        <polyline points="40,980 320,840 760,1020 1480,720 1880,940" class="geo-line geo-line--main" />
+                        <polygon points="1100,80 1620,180 1820,620 1340,490" class="geo-poly geo-poly--2" />
+                        <line x1="680" y1="0" x2="1120" y2="1080" class="geo-axis" />
+                        <line x1="0" y1="540" x2="1920" y2="540" class="geo-axis geo-axis--h" />
+                    </svg>
+                </div>
 
-            <div class="hero-content-grid">
-                <!-- Left Column: Manifesto / Rulebook Excerpt in Vertical Swiss Layout -->
-                <div class="hero-col-left">
-                    <div class="vertical-manifesto">
-                        <p class="v-text">THOU SHALT NOT WRITE SILENT CATCH BLOCKS. THOU SHALT HONOR CLEAN ARCHITECTURE BOUNDARIES. THOU SHALT TREAT ROOT CAUSE ANALYSIS AS AN EXACT SCIENCE. THOU SHALT REDUCE HUMAN LATENCY INTO SUB-SECOND PIPELINES. THOU SHALT DESIGN RESILIENT QUEUES WITH IDEMPOTENCY.</p>
-                        <p class="v-text">THOU SHALT NOT OVERLOAD YOUR DOMAIN LOGIC. THOU SHALT MEASURE ALLOCATIONS BEFORE OPTIMIZATION. THOU SHALT NEVER DEPLOY UNINDEXED FOREIGN KEYS.</p>
+                <!-- Top Floating Manifesto Summary -->
+                <div class="hero-top-manifesto" id="heroTopManifesto">
+                    <p class="top-manifesto-text">ARCHITECTURAL DISCIPLINE // C# .NET 8 BACKEND // ZERO SILENT FAILURES // CLEAN DOMAIN BOUNDARIES // HIGH-THROUGHPUT RELATIONAL PERSISTENCE</p>
+                </div>
+
+                <div class="hero-content-grid">
+                    <!-- Left Column: Manifesto / Rulebook Excerpt in Vertical Swiss Layout (Moves Down) -->
+                    <div class="hero-col-left" id="heroColLeft">
+                        <div class="vertical-manifesto">
+                            <p class="v-text">THOU SHALT NOT WRITE SILENT CATCH BLOCKS. THOU SHALT HONOR CLEAN ARCHITECTURE BOUNDARIES. THOU SHALT TREAT ROOT CAUSE ANALYSIS AS AN EXACT SCIENCE. THOU SHALT REDUCE HUMAN LATENCY INTO SUB-SECOND PIPELINES. THOU SHALT DESIGN RESILIENT QUEUES WITH IDEMPOTENCY.</p>
+                            <p class="v-text">THOU SHALT NOT OVERLOAD YOUR DOMAIN LOGIC. THOU SHALT MEASURE ALLOCATIONS BEFORE OPTIMIZATION. THOU SHALT NEVER DEPLOY UNINDEXED FOREIGN KEYS.</p>
+                        </div>
+                    </div>
+
+                    <!-- Center Content: Monumental Typography & Slanted Badges (Snaps to Center) -->
+                    <div class="hero-col-center" id="heroColCenter">
+                        <div class="hero-badge-row">
+                            <div class="slanted-badge slanted-badge--primary">
+                                <span class="badge-dot">●</span>
+                                <span class="badge-text">PORTFOLIO // 2026</span>
+                                <span class="badge-sep">/</span>
+                                <span class="badge-sub">MATHEUS ALVES</span>
+                            </div>
+                            <div class="slanted-badge slanted-badge--dark">
+                                <span>[BACKEND ARCHITECT &amp; C# .NET 8 ENGINEER]</span>
+                            </div>
+                        </div>
+
+                        <!-- Monumental Display Title with Editorial Stagger -->
+                        <div class="hero-monumental-title" id="heroTitle">
+                            <div class="title-row title-row--1">
+                                <span class="char-block" data-char="M">M</span>
+                                <span class="char-block" data-char="A">A</span>
+                                <span class="char-block" data-char="T">T</span>
+                                <span class="char-block" data-char="H">H</span>
+                                <span class="char-block" data-char="E">E</span>
+                                <span class="char-block" data-char="U">U</span>
+                                <span class="char-block" data-char="S">S</span>
+                            </div>
+                            <div class="title-row title-row--2">
+                                <span class="char-block" data-char="A">A</span>
+                                <span class="char-block" data-char="L">L</span>
+                                <span class="char-block" data-char="V">V</span>
+                                <span class="char-block" data-char="E">E</span>
+                                <span class="char-block" data-char="S">S</span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Subtitle & Core Metrics Row -->
+                        <div class="hero-meta-row" id="heroMetaRow">
+                            <div class="meta-card">
+                                <span class="meta-label">// ROLE</span>
+                                <strong class="meta-value">Backend Software Dev @ Actuar</strong>
+                                <span class="meta-note">Promoted N1 ➔ N2 ➔ Dev C#</span>
+                            </div>
+                            <div class="meta-card">
+                                <span class="meta-label">// ACADEMIC</span>
+                                <strong class="meta-value">PUC Goiás (CR: 8.6)</strong>
+                                <span class="meta-note">Computer Science (2024-2029)</span>
+                            </div>
+                            <div class="meta-card">
+                                <span class="meta-label">// SPECIALIZATION</span>
+                                <strong class="meta-value">C# .NET 8 / Clean Arch / RabbitMQ</strong>
+                                <span class="meta-note">High-throughput distributed systems</span>
+                            </div>
+                        </div>
+
+                        <!-- Rotating Kinetic Stamp Badge -->
+                        <div class="hero-stamp-wrapper">
+                            <div class="kinetic-stamp magnetic-item" id="kineticStamp" data-cursor="MAC // 2026" role="button" tabindex="0" aria-label="Selo Matheus Alves da Costa">
+                                <svg viewBox="0 0 200 200">
+                                    <path id="stampPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
+                                    <text>
+                                        <textPath href="#stampPath" startOffset="0%">
+                                            ● MATHEUS ALVES ● C# .NET 8 ARCHITECT ● ACTUAR ● CR 8.6 PUC-GO
+                                        </textPath>
+                                    </text>
+                                </svg>
+                                <div class="stamp-center-symbol">MAC</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Kinetic Letter Stream (Moves Up) -->
+                    <div class="hero-col-right" id="heroColRight">
+                        <div class="kinetic-letter-stream" id="letterStream">
+                            <span class="stream-letter">M</span>
+                            <span class="stream-letter">A</span>
+                            <span class="stream-letter">T</span>
+                            <span class="stream-letter">H</span>
+                            <span class="stream-letter">E</span>
+                            <span class="stream-letter">U</span>
+                            <span class="stream-letter">S</span>
+                            <span class="stream-divider">/</span>
+                            <span class="stream-letter">A</span>
+                            <span class="stream-letter">L</span>
+                            <span class="stream-letter">V</span>
+                            <span class="stream-letter">E</span>
+                            <span class="stream-letter">S</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Center Content: Monumental Typography & Slanted Badges -->
-                <div class="hero-col-center">
-                    <div class="hero-badge-row">
-                        <div class="slanted-badge slanted-badge--primary">
-                            <span class="badge-dot">●</span>
-                            <span class="badge-text">PORTFOLIO // 2026</span>
-                            <span class="badge-sep">/</span>
-                            <span class="badge-sub">MATHEUS ALVES</span>
-                        </div>
-                        <div class="slanted-badge slanted-badge--dark">
-                            <span>[BACKEND ARCHITECT &amp; C# .NET 8 ENGINEER]</span>
-                        </div>
-                    </div>
-
-                    <!-- Monumental Display Title with Editorial Stagger -->
-                    <div class="hero-monumental-title" id="heroTitle">
-                        <div class="title-row title-row--1">
-                            <span class="char-block" data-char="M">M</span>
-                            <span class="char-block" data-char="A">A</span>
-                            <span class="char-block" data-char="T">T</span>
-                            <span class="char-block" data-char="H">H</span>
-                            <span class="char-block" data-char="E">E</span>
-                            <span class="char-block" data-char="U">U</span>
-                            <span class="char-block" data-char="S">S</span>
-                        </div>
-                        <div class="title-row title-row--2">
-                            <span class="char-block" data-char="A">A</span>
-                            <span class="char-block" data-char="L">L</span>
-                            <span class="char-block" data-char="V">V</span>
-                            <span class="char-block" data-char="E">E</span>
-                            <span class="char-block" data-char="S">S</span>
-                        </div>
-                    </div>
-
-                    <!-- Hero Subtitle & Core Metrics Row -->
-                    <div class="hero-meta-row">
-                        <div class="meta-card">
-                            <span class="meta-label">// ROLE</span>
-                            <strong class="meta-value">Backend Software Dev @ Actuar</strong>
-                            <span class="meta-note">Promoted N1 ➔ N2 ➔ Dev C#</span>
-                        </div>
-                        <div class="meta-card">
-                            <span class="meta-label">// ACADEMIC</span>
-                            <strong class="meta-value">PUC Goiás (CR: 8.6)</strong>
-                            <span class="meta-note">Computer Science (2024-2029)</span>
-                        </div>
-                        <div class="meta-card">
-                            <span class="meta-label">// SPECIALIZATION</span>
-                            <strong class="meta-value">C# .NET 8 / Clean Arch / RabbitMQ</strong>
-                            <span class="meta-note">High-throughput distributed systems</span>
-                        </div>
-                    </div>
-
-                    <!-- Rotating Kinetic Stamp Badge -->
-                    <div class="hero-stamp-wrapper">
-                        <div class="kinetic-stamp magnetic-item" id="kineticStamp" data-cursor="MAC // 2026" role="button" tabindex="0" aria-label="Selo Matheus Alves da Costa">
-                            <svg viewBox="0 0 200 200">
-                                <path id="stampPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
-                                <text>
-                                    <textPath href="#stampPath" startOffset="0%">
-                                        ● MATHEUS ALVES ● C# .NET 8 ARCHITECT ● ACTUAR ● CR 8.6 PUC-GO
-                                    </textPath>
-                                </text>
-                            </svg>
-                            <div class="stamp-center-symbol">MAC</div>
-                        </div>
+                <!-- Kinetic Ticker Strip -->
+                <div class="hero-ticker-wrap">
+                    <div class="ticker-track">
+                        <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
+                        <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
                     </div>
                 </div>
-
-                <!-- Right Column: Kinetic Letter Stream -->
-                <div class="hero-col-right">
-                    <div class="kinetic-letter-stream" id="letterStream">
-                        <span class="stream-letter">M</span>
-                        <span class="stream-letter">A</span>
-                        <span class="stream-letter">T</span>
-                        <span class="stream-letter">H</span>
-                        <span class="stream-letter">E</span>
-                        <span class="stream-letter">U</span>
-                        <span class="stream-letter">S</span>
-                        <span class="stream-divider">/</span>
-                        <span class="stream-letter">A</span>
-                        <span class="stream-letter">L</span>
-                        <span class="stream-letter">V</span>
-                        <span class="stream-letter">E</span>
-                        <span class="stream-letter">S</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kinetic Ticker Strip -->
-            <div class="hero-ticker-wrap">
-                <div class="ticker-track">
-                    <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
-                    <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
 
         <!-- ============================================================
-             SECTION 01: SELECTED WORKS (THE CRT TV HIGHWAY SHOWCASE)
-             (00:15 - 00:17 & 00:27 - 00:31 in video)
+             SECTION 01: THE STREET, VINTAGE TV & ZOOM-IN EXPERIENCE
+             (Faithful 1:1 Daniel Spatzek Architecture)
              ============================================================ -->
-        <section class="works-highway-stage" id="works">
-            <!-- Road vanishing in autumn landscape backdrop -->
-            <div class="highway-backdrop">
-                <div class="highway-road-art"></div>
-                <div class="highway-vignette"></div>
-            </div>
+        <section class="works-highway-track" id="works">
+            <!-- Sticky Viewport for the Street Scene & TV Zoom Scrub -->
+            <div class="street-sticky-viewport" id="streetViewport">
+                
+                <!-- The Street Stage: Scaled up by 6.8x during scroll zoom -->
+                <div class="street-stage" id="streetStage">
+                    <!-- Realistic Street Scene with Vintage TV on Asphalt Pavement -->
+                    <img src="img/tv-on-street.png" alt="Vintage TV on Street Pavement" class="street-bg-img" id="streetBgImg">
 
-            <div class="works-container">
-                <div class="works-header">
-                    <span class="works-counter">[01.0 // SELECTED WORKS 2024 — 2026]</span>
-                    <h2 class="works-heading">ENGINEERING REPERTORY</h2>
-                </div>
-
-                <div class="works-layout-grid">
-                    <!-- Left: Monumental Work Items List -->
-                    <div class="works-list">
-                        <!-- Project 1: DataClean Suite -->
-                        <article class="work-item active" data-work="dataclean" data-category="DATA PLATFORM" data-metric="6min ➔ <2s" data-channel="CH-01">
-                            <div class="work-item__left">
-                                <span class="work-item__index">01.0</span>
-                                <h3 class="work-item__title">DATACLEAN SUITE</h3>
-                            </div>
-                            <div class="work-item__right">
-                                <span class="work-item__badge">C# .NET 8 // 99.4% GAIN</span>
-                                <span class="work-item__arrow">↗</span>
-                            </div>
-                        </article>
-
-                        <!-- Project 2: Meppo Focus Engine -->
-                        <article class="work-item" data-work="meppo" data-category="AUTOMATION & SUITE" data-metric="100% In-House" data-channel="CH-02">
-                            <div class="work-item__left">
-                                <span class="work-item__index">02.0</span>
-                                <h3 class="work-item__title">MEPPO FOCUS ENGINE</h3>
-                            </div>
-                            <div class="work-item__right">
-                                <span class="work-item__badge">C# / JS // ZERO LATENCY</span>
-                                <span class="work-item__arrow">↗</span>
-                            </div>
-                        </article>
-
-                        <!-- Project 3: Actuar Core & RCA Framework -->
-                        <article class="work-item" data-work="actuar" data-category="DIAGNOSTICS & RCA" data-metric="14.75 / 15.0 Score" data-channel="CH-03">
-                            <div class="work-item__left">
-                                <span class="work-item__index">03.0</span>
-                                <h3 class="work-item__title">ACTUAR CORE &amp; RCA</h3>
-                            </div>
-                            <div class="work-item__right">
-                                <span class="work-item__badge">RABBITMQ / POSTGRES</span>
-                                <span class="work-item__arrow">↗</span>
-                            </div>
-                        </article>
-
-                        <!-- Project 4: Async Data Ingestion Pipeline -->
-                        <article class="work-item" data-work="pipeline" data-category="HIGH-THROUGHPUT QUEUES" data-metric="10k+ msgs/sec" data-channel="CH-04">
-                            <div class="work-item__left">
-                                <span class="work-item__index">04.0</span>
-                                <h3 class="work-item__title">ASYNC DATA PIPELINE</h3>
-                            </div>
-                            <div class="work-item__right">
-                                <span class="work-item__badge">CHUNKING &amp; STREAMING</span>
-                                <span class="work-item__arrow">↗</span>
-                            </div>
-                        </article>
-
-                        <!-- Project 5: Embedded Sensor Telemetry -->
-                        <article class="work-item" data-work="telemetry" data-category="HARDWARE & IOT" data-metric="1000 Hz Sampling" data-channel="CH-05">
-                            <div class="work-item__left">
-                                <span class="work-item__index">05.0</span>
-                                <h3 class="work-item__title">EMBEDDED TELEMETRY</h3>
-                            </div>
-                            <div class="work-item__right">
-                                <span class="work-item__badge">RP2040 / FREERTOS C++</span>
-                                <span class="work-item__arrow">↗</span>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Center/Right: The Vintage CRT Television Interactive Showcase -->
-                    <div class="crt-tv-showcase">
-                        <div class="crt-tv-frame" id="crtTvFrame">
-                            <div class="crt-case-top">
-                                <div class="crt-brand-badge">SONY TRINITRON // ACTUAR TELEMETRY</div>
-                                <div class="crt-vent-grill"></div>
-                            </div>
-
-                            <div class="crt-screen-bezel">
-                                <div class="crt-screen-glass" id="crtScreen">
-                                    <!-- Screen Scanlines & Flicker -->
-                                    <div class="crt-scanlines"></div>
-                                    <div class="crt-glitch-static" id="crtGlitch"></div>
-
-                                    <!-- CRT Channel Content Area (dynamically updated on hover) -->
-                                    <div class="crt-channel-display" id="crtChannelContent">
-                                        <div class="crt-hud-top">
-                                            <span class="crt-ch-id" id="crtChId">CH-01 // DATACLEAN</span>
-                                            <span class="crt-rec-dot">● REC</span>
+                    <!-- The TV Screen Portal: Exact Coordinates on 1920x2386 Image (X=50%, Y=68.73%, 309x236px) -->
+                    <div class="tv-screen-portal" id="tvScreenPortal">
+                        <div class="tv-live-screen" id="tvLiveScreen">
+                            <!-- Authentic Curved Glass Reflection Overlay -->
+                            <img src="img/tv-display-glass.png" alt="CRT Curved Glass Bezel" class="tv-glass-overlay" id="tvGlassOverlay">
+                            <div class="tv-scanlines"></div>
+                            <div class="tv-static-flicker"></div>
+                            
+                            <!-- Real TV Channel Content Broadcasting Live -->
+                            <div class="tv-channel-container" id="tvChannelContainer">
+                                <!-- Channel 01: DataClean Suite -->
+                                <div class="tv-channel-slide active" id="portalCh1" data-channel="01">
+                                    <div class="tv-hud-header">
+                                        <span class="tv-ch-badge">CH-01 // DATACLEAN.ENGINE</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span>LIVE BENCHMARK</span>
+                                    </div>
+                                    <div class="tv-terminal-content">
+                                        <div class="term-row text-vermilion">&gt; ENGINE: C# .NET 8 / CLEAN ARCHITECTURE</div>
+                                        <div class="term-row">&gt; BATCH: 48,200 RECORDS INGESTION</div>
+                                        <div class="term-row highlight-green">&gt; LATENCY: 6m02s ➔ 1.84s (99.4% SPEED GAIN)</div>
+                                        <div class="term-row text-dim">&gt; MEMORY: ZERO GC STALLS // STREAMING PARSER</div>
+                                        <div class="term-progress-track">
+                                            <div class="term-progress-bar" style="width: 99.4%;"></div>
                                         </div>
+                                    </div>
+                                    <div class="tv-hud-footer">
+                                        <span>STATUS: 200 OK</span>
+                                        <span>RABBITMQ + POSTGRESQL</span>
+                                    </div>
+                                </div>
 
-                                        <div class="crt-main-visual" id="crtVisual">
-                                            <!-- Interactive ASCII/SVG terminal telemetry graphic -->
-                                            <div class="crt-terminal-box">
-                                                <div class="term-line">&gt; SYSTEM.INIT: DATACLEAN.MICROSERVICE</div>
-                                                <div class="term-line">&gt; INPUT BATCH: 48,200 RECORDS</div>
-                                                <div class="term-line">&gt; BENCHMARK: 6m02s ➔ 0m01.84s (99.4% GAIN)</div>
-                                                <div class="term-line">&gt; STATUS: 200 OK // ALL CHUNKS COMMITTED</div>
-                                                <div class="term-benchmark-bar">
-                                                    <div class="bench-fill" style="width: 99.4%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <!-- Channel 02: Meppo Focus Engine -->
+                                <div class="tv-channel-slide" id="portalCh2" data-channel="02">
+                                    <div class="tv-hud-header">
+                                        <span class="tv-ch-badge">CH-02 // MEPPO.FOCUS</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span>AUTOMATION</span>
+                                    </div>
+                                    <div class="tv-terminal-content">
+                                        <div class="term-row text-vermilion">&gt; ORCHESTRATION: CLICKUP &amp; WHATSAPP APIS</div>
+                                        <div class="term-row highlight-green">&gt; TIME SAVED: 6min MANUAL ➔ 4 SECONDS</div>
+                                        <div class="term-row">&gt; PROTOCOL: RESTful EVENT BUS</div>
+                                        <div class="term-row text-dim">&gt; REDUCED COGNITIVE LOAD BY 85%</div>
+                                    </div>
+                                    <div class="tv-hud-footer">
+                                        <span>STATUS: ACTIVE RUN</span>
+                                        <span>PRODUCTION READY</span>
+                                    </div>
+                                </div>
 
-                                        <div class="crt-hud-bottom">
-                                            <span id="crtStatusSub">ASYNC_STREAM // EF CORE + DAPPER</span>
-                                            <span id="crtFpsCount">60.0 FPS</span>
-                                        </div>
+                                <!-- Channel 03: Cache Simulator -->
+                                <div class="tv-channel-slide" id="portalCh3" data-channel="03">
+                                    <div class="tv-hud-header">
+                                        <span class="tv-ch-badge">CH-03 // CACHE.SIMULATOR</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span>CPU MEMORY</span>
+                                    </div>
+                                    <div class="tv-terminal-content">
+                                        <div class="term-row text-vermilion">&gt; MEMORY HIERARCHY: L1 / L2 / L3 CACHE</div>
+                                        <div class="term-row highlight-green">&gt; HIT RATIO: 94.2% L1 CACHE HIT</div>
+                                        <div class="term-row">&gt; POLICY: LRU / PSEUDO-LRU REPLACEMENT</div>
+                                        <div class="term-row text-dim">&gt; ACADEMIC LAB // PUC GOIÁS (CR 8.6)</div>
+                                    </div>
+                                    <div class="tv-hud-footer">
+                                        <span>CLOCK: 3.4 GHz</span>
+                                        <span>PIPELINE VERIFIED</span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
 
-                            <!-- Physical TV Controls Bar -->
-                            <div class="crt-controls-panel">
-                                <div class="crt-dials">
-                                    <div class="crt-knob" title="Channel Knob"></div>
-                                    <div class="crt-knob" title="Volume Knob"></div>
+                <!-- TV Inside Universe: Full Engineering Repertory Activated When Zoom Completes -->
+                <div class="tv-inside-universe" id="tvInsideUniverse">
+                    <div class="works-container">
+                        <div class="works-header">
+                            <span class="works-counter">[01.0 // SELECTED WORKS 2024 — 2026]</span>
+                            <h2 class="works-heading">ENGINEERING REPERTORY</h2>
+                        </div>
+
+                        <div class="works-layout-grid">
+                            <!-- Left: Monumental Work Items List -->
+                            <div class="works-list">
+                                <!-- Project 1: DataClean Suite -->
+                                <article class="work-item active" data-work="dataclean" data-category="DATA PLATFORM" data-metric="6min ➔ <2s" data-channel="CH-01">
+                                    <div class="work-item__left">
+                                        <span class="work-item__index">01.0</span>
+                                        <h3 class="work-item__title">DATACLEAN SUITE</h3>
+                                    </div>
+                                    <div class="work-item__right">
+                                        <span class="work-item__badge">C# .NET 8 // 99.4% GAIN</span>
+                                        <span class="work-item__arrow">↗</span>
+                                    </div>
+                                </article>
+
+                                <!-- Project 2: Meppo Focus Engine -->
+                                <article class="work-item" data-work="meppo" data-category="AUTOMATION &amp; SUITE" data-metric="100% In-House" data-channel="CH-02">
+                                    <div class="work-item__left">
+                                        <span class="work-item__index">02.0</span>
+                                        <h3 class="work-item__title">MEPPO FOCUS ENGINE</h3>
+                                    </div>
+                                    <div class="work-item__right">
+                                        <span class="work-item__badge">C# / JS // ZERO LATENCY</span>
+                                        <span class="work-item__arrow">↗</span>
+                                    </div>
+                                </article>
+
+                                <!-- Project 3: Actuar Core & RCA Framework -->
+                                <article class="work-item" data-work="actuar" data-category="DIAGNOSTICS &amp; RCA" data-metric="14.75 / 15.0 Score" data-channel="CH-03">
+                                    <div class="work-item__left">
+                                        <span class="work-item__index">03.0</span>
+                                        <h3 class="work-item__title">ACTUAR CORE &amp; RCA</h3>
+                                    </div>
+                                    <div class="work-item__right">
+                                        <span class="work-item__badge">RABBITMQ / POSTGRES</span>
+                                        <span class="work-item__arrow">↗</span>
+                                    </div>
+                                </article>
+
+                                <!-- Project 4: Async Data Ingestion Pipeline -->
+                                <article class="work-item" data-work="pipeline" data-category="HIGH-THROUGHPUT QUEUES" data-metric="10k+ msgs/sec" data-channel="CH-04">
+                                    <div class="work-item__left">
+                                        <span class="work-item__index">04.0</span>
+                                        <h3 class="work-item__title">ASYNC DATA PIPELINE</h3>
+                                    </div>
+                                    <div class="work-item__right">
+                                        <span class="work-item__badge">CHUNKING &amp; STREAMING</span>
+                                        <span class="work-item__arrow">↗</span>
+                                    </div>
+                                </article>
+
+                                <!-- Project 5: Embedded Sensor Telemetry -->
+                                <article class="work-item" data-work="telemetry" data-category="HARDWARE &amp; IOT" data-metric="1000 Hz Sampling" data-channel="CH-05">
+                                    <div class="work-item__left">
+                                        <span class="work-item__index">05.0</span>
+                                        <h3 class="work-item__title">EMBEDDED TELEMETRY</h3>
+                                    </div>
+                                    <div class="work-item__right">
+                                        <span class="work-item__badge">RP2040 / FREERTOS C++</span>
+                                        <span class="work-item__arrow">↗</span>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Right: The Vintage CRT Television Interactive Showcase -->
+                            <div class="crt-tv-showcase">
+                                <div class="crt-tv-frame" id="crtTvFrame">
+                                    <div class="crt-case-top">
+                                        <div class="crt-brand-badge">SONY TRINITRON // ACTUAR TELEMETRY</div>
+                                        <div class="crt-vent-grill"></div>
+                                    </div>
+
+                                    <div class="crt-screen-bezel">
+                                        <div class="crt-screen-glass" id="crtScreen">
+                                            <!-- Screen Scanlines & Flicker -->
+                                            <div class="crt-scanlines"></div>
+                                            <div class="crt-glitch-static" id="crtGlitch"></div>
+
+                                            <!-- CRT Channel Content Area -->
+                                            <div class="crt-channel-display" id="crtChannelContent">
+                                                <div class="crt-hud-top">
+                                                    <span class="crt-ch-id" id="crtChId">CH-01 // DATACLEAN</span>
+                                                    <span class="crt-rec-dot">● REC</span>
+                                                </div>
+
+                                                <div class="crt-main-visual" id="crtVisual">
+                                                    <div class="crt-terminal-box">
+                                                        <div class="term-line">&gt; SYSTEM.INIT: DATACLEAN.MICROSERVICE</div>
+                                                        <div class="term-line">&gt; INPUT BATCH: 48,200 RECORDS</div>
+                                                        <div class="term-line">&gt; BENCHMARK: 6m02s ➔ 0m01.84s (99.4% GAIN)</div>
+                                                        <div class="term-line">&gt; STATUS: 200 OK // ALL CHUNKS COMMITTED</div>
+                                                        <div class="term-benchmark-bar">
+                                                            <div class="bench-fill" style="width: 99.4%;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="crt-hud-bottom">
+                                                    <span id="crtStatusSub">ASYNC_STREAM // EF CORE + DAPPER</span>
+                                                    <span id="crtFpsCount">60.0 FPS</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Physical TV Controls Bar -->
+                                    <div class="crt-controls-panel">
+                                        <div class="crt-dials">
+                                            <div class="crt-knob" title="Channel Knob"></div>
+                                            <div class="crt-knob" title="Volume Knob"></div>
+                                        </div>
+                                        <div class="crt-speaker-mesh"></div>
+                                        <div class="crt-power-led" id="crtPowerLed"></div>
+                                    </div>
                                 </div>
-                                <div class="crt-speaker-mesh"></div>
-                                <div class="crt-power-led" id="crtPowerLed"></div>
                             </div>
                         </div>
                     </div>
@@ -870,7 +956,9 @@
         <span class="toast-msg">Email copiado para a área de transferência!</span>
     </div>
 
-    <!-- Main JavaScript Engine -->
-    <script src="js/main.js?v=20260902g"></script>
+    <!-- GSAP & ScrollTrigger Engine -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/main.js?v=20260909_tv_zoom"></script>
 </body>
 </html>

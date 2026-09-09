@@ -527,15 +527,22 @@ body.cursor-hovering .cursor-label {
 
 
 /* ==========================================================================
-   SECTION 00: HERO / LAUNCHPAD (00:02 - 00:14 in video)
+   SECTION 00: HERO / LAUNCHPAD (BRUEGEL MASTERPIECE & PARALLAX SCROLL)
    ========================================================================== */
 
+.hero-scroll-track {
+    position: relative;
+    width: 100vw;
+    height: 250vh;
+}
+
 .hero-stage {
-    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    width: 100vw;
     height: 100vh;
     max-height: 100vh;
     padding-top: var(--hud-height);
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -548,23 +555,47 @@ body.cursor-hovering .cursor-label {
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.35;
+    overflow: hidden;
 }
 
-.art-painting-layer {
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 70% 30%, rgba(214, 58, 47, 0.22), transparent 45%),
-        radial-gradient(circle at 30% 70%, rgba(212, 175, 55, 0.15), transparent 50%),
-        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 0, transparent 16px);
-    background-color: #0c0e14;
+.hero-bg-painting {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110%;
+    min-width: 100vw;
+    height: 150%;
+    object-fit: cover;
+    filter: brightness(0.78) contrast(1.15) saturate(1.1);
+    will-change: transform;
 }
 
 .art-gradient-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, rgba(8,9,12,0.6) 0%, rgba(8,9,12,0.92) 85%, var(--bg-core) 100%);
+    background: radial-gradient(circle at center, rgba(8,9,12,0.15) 0%, rgba(8,9,12,0.7) 65%, rgba(6,7,10,0.95) 100%),
+                linear-gradient(180deg, rgba(8,9,12,0.6) 0%, transparent 25%, transparent 75%, #06070a 100%);
+    pointer-events: none;
+}
+
+.hero-top-manifesto {
+    position: absolute;
+    top: calc(var(--hud-height) + 12px);
+    left: 3rem;
+    right: 3rem;
+    z-index: 2;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.top-manifesto-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--accent-amber);
+    opacity: 0.85;
+    margin: 0;
 }
 
 .hero-geo-overlay {
@@ -866,38 +897,225 @@ body.cursor-hovering .cursor-label {
 
 
 /* ==========================================================================
-   SECTION 01: SELECTED WORKS (THE CRT TV HIGHWAY SHOWCASE)
-   (00:15 - 00:17 & 00:27 - 00:31 in video)
+   SECTION 01: THE STREET, VINTAGE TV & ZOOM-IN EXPERIENCE
    ========================================================================== */
 
-.works-highway-stage {
-    min-height: 100vh;
-    padding: 7rem 3rem 5rem;
+.works-highway-track {
     position: relative;
+    width: 100vw;
+    height: 350vh; /* Scrub track for pinning and camera zoom into the TV */
     background-color: #06070a;
+}
+
+.street-sticky-viewport {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.street-stage {
+    position: absolute;
+    width: 100vw;
+    height: 124.27vw; /* Aspect ratio of 1920 x 2386 */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: 50% 68.73%; /* Exact TV tube coordinates on pavement */
+    will-change: transform;
+}
+
+.street-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tv-screen-portal {
+    position: absolute;
+    left: 41.95%;
+    top: 63.78%;
+    width: 16.094%;
+    height: 9.89%;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #000000;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.95), 0 0 20px rgba(214, 58, 47, 0.25);
+    pointer-events: all;
+}
+
+.tv-live-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #050608;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tv-glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    will-change: opacity;
+}
+
+.tv-scanlines {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.45) 0px, rgba(0,0,0,0.45) 1px, transparent 1px, transparent 2px);
+    z-index: 9;
+    pointer-events: none;
+}
+
+.tv-static-flicker {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 80%);
+    z-index: 8;
+    pointer-events: none;
+}
+
+.tv-channel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 5% 7%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    color: #ffffff;
+    font-size: clamp(6px, 0.85vw, 13px);
+    z-index: 5;
+}
+
+.tv-channel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tv-channel-slide.active {
+    display: flex;
+}
+
+.tv-hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 3px;
+    font-size: 0.85em;
+}
+
+.tv-ch-badge {
+    color: var(--accent-amber);
+    font-weight: 700;
+}
+
+.tv-rec-badge {
+    color: var(--accent-red);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rec-dot {
+    width: 6px; height: 6px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    display: inline-block;
+    animation: recBlink 1s infinite alternate;
+}
+
+@keyframes recBlink {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+.tv-terminal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: auto 0;
+    line-height: 1.35;
+}
+
+.term-row {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.highlight-green {
+    color: #10b981;
+    font-weight: 700;
+}
+
+.term-progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    margin-top: 4px;
+    border-radius: 2px;
     overflow: hidden;
 }
 
-.highway-backdrop {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.45;
-}
-
-.highway-road-art {
-    width: 100%;
+.term-progress-bar {
     height: 100%;
-    background: 
-        radial-gradient(ellipse at 50% 100%, #1e1b18 0%, #0d0e12 60%, #050608 100%),
-        linear-gradient(180deg, transparent 40%, rgba(229, 169, 104, 0.08) 70%, rgba(230, 57, 42, 0.12) 100%);
+    background: linear-gradient(90deg, var(--accent-amber), #10b981);
 }
 
-.highway-vignette {
+.tv-hud-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 3px;
+    font-size: 0.75em;
+    color: var(--text-dim);
+}
+
+.tv-inside-universe {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, transparent 30%, #06070a 90%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 6rem 3rem 4rem;
+    background: radial-gradient(circle at center, #0a0c10 0%, #06070a 100%);
+    opacity: 0;
+    pointer-events: none;
+    overflow-y: auto;
+    z-index: 20;
+    transition: opacity 0.4s ease;
+}
+
+.tv-inside-universe.visible {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .works-container {
