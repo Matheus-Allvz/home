@@ -189,7 +189,7 @@ body.editorial-body {
     display: block;
     position: absolute;
     line-height: 1em;
-    font-size: clamp(2.5rem, 10vw, 11.4583333333vw);
+    font-size: clamp(1.6rem, 6vw, 6.5vw);
     max-width: 90vw;
     opacity: 0;
     color: #000000;
@@ -2555,7 +2555,7 @@ body.cursor-hovering .cursor-label {
         white-space: nowrap;
     }
     .introloading-word {
-        font-size: clamp(2rem, 8vw, 9vw);
+        font-size: clamp(1.4rem, 5.5vw, 6vw);
         max-width: 88vw;
         text-align: center;
     }
