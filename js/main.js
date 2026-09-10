@@ -257,13 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     renderCursor();
 
-    const hoverables = document.querySelectorAll('a, button, .work-item, .cmd-card, .spec-card, .cd-jewel-case, .kinetic-stamp, .slanted-badge');
+    const hoverables = document.querySelectorAll('a, button, .work-item, .lateral-item, .cmd-card, .spec-card, .cd-jewel-case, .kinetic-stamp, .slanted-badge');
     hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => {
             document.body.classList.add('cursor-hovering');
             sound.playClick(320, 0.03);
             if (label) {
-                if (el.classList.contains('work-item')) label.textContent = 'SWITCH CH';
+                if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = 'SWITCH CH';
                 else if (el.classList.contains('cd-jewel-case')) label.textContent = 'PLAY';
                 else if (el.classList.contains('contact-card--copy')) label.textContent = 'COPY';
                 else if (el.classList.contains('kinetic-stamp') || el.closest('.kinetic-stamp')) label.textContent = 'MAC // 2026';
@@ -386,54 +386,58 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
 
         // A. HERO PARALLAX TIMELINE (IMMEDIATE, HIGH-IMPACT VELOCITY)
-        const heroTrack = document.getElementById('heroScrollTrack');
+        const heroStage = document.getElementById('hero');
         const heroPainting = document.getElementById('heroBgPainting');
         const heroColLeft = document.getElementById('heroColLeft');
         const heroColRight = document.getElementById('heroColRight');
         const heroTitle = document.getElementById('heroTitle');
         const heroTopManifesto = document.getElementById('heroTopManifesto');
         const heroMetaRow = document.getElementById('heroMetaRow');
-        const heroStage = document.getElementById('hero');
+        const heroTicker = document.querySelector('.hero-ticker-wrap');
 
-        if (heroTrack && heroPainting) {
+        if (heroStage && heroPainting) {
             const heroTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: heroTrack,
+                    trigger: heroStage,
                     start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: 0.15 // Instantaneous, zero-lag scrub
+                    end: () => '+=' + (window.innerHeight * 0.85),
+                    pin: true,
+                    scrub: 0.2,
+                    anticipatePin: 1
                 }
             });
 
-            // 1. Classical Masterpiece background moves with clear upward parallax
+            // 1. Classical Masterpiece background moves with gentle, majestic parallax
             heroTl.to(heroPainting, {
-                y: '-25%',
+                y: '-16%',
                 ease: 'none',
                 duration: 1
             }, 0);
 
-            // 2. Left column (commandments) moves downwards with high velocity
+            // 2. Left column (commandments) moves downwards
             if (heroColLeft) {
                 heroTl.to(heroColLeft, {
-                    y: '65vh',
-                    ease: 'none',
-                    duration: 1
+                    y: '45vh',
+                    opacity: 0,
+                    ease: 'power1.in',
+                    duration: 0.8
                 }, 0);
             }
 
-            // 3. Right column (kinetic stream) moves upwards with high velocity
+            // 3. Right column (kinetic stream) moves upwards
             if (heroColRight) {
                 heroTl.to(heroColRight, {
-                    y: '-55vh',
-                    ease: 'none',
-                    duration: 1
+                    y: '-45vh',
+                    opacity: 0,
+                    ease: 'power1.in',
+                    duration: 0.8
                 }, 0);
             }
 
-            // 4. Top manifesto summary floats upwards and fades out early (by 30% scroll)
+            // 4. Top manifesto summary floats upwards and fades out early
             if (heroTopManifesto) {
                 heroTl.to(heroTopManifesto, {
-                    y: '-35vh',
+                    y: '-25vh',
                     opacity: 0,
                     ease: 'none',
                     duration: 0.35
@@ -445,35 +449,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroTl.to(heroTitle, {
                     scale: 1.12,
                     letterSpacing: '+=3px',
-                    opacity: 0.3,
+                    opacity: 0,
                     ease: 'power1.in',
-                    duration: 1
+                    duration: 0.75
                 }, 0);
             }
 
             // 6. Meta cards row descends gently
             if (heroMetaRow) {
                 heroTl.to(heroMetaRow, {
-                    y: '20vh',
-                    opacity: 0.1,
+                    y: '18vh',
+                    opacity: 0,
                     ease: 'none',
-                    duration: 0.8
+                    duration: 0.7
                 }, 0);
             }
 
-            // 7. Fade kinetic typography & ticker so background artwork seamlessly dissolves into street
-            const heroTicker = document.querySelector('.hero-ticker-wrap');
+            // 7. Fade kinetic typography & ticker
             if (heroTicker) {
                 heroTl.to(heroTicker, {
                     opacity: 0,
-                    ease: 'power1.in',
+                    ease: 'power1.out',
                     duration: 0.4
-                }, 0.5);
+                }, 0);
             }
         }
 
-        // B. INTERACTIVE HERO ARTWORK SELECTOR SWITCHER
+        // B. INTERACTIVE HERO ARTWORK SELECTOR SWITCHER (SYNCS HERO & STREET SKY)
         const artPills = document.querySelectorAll('.art-pill');
+        const streetSky = document.getElementById('streetSkyImg');
+
         if (artPills.length > 0 && heroPainting) {
             artPills.forEach(pill => {
                 pill.addEventListener('click', () => {
@@ -483,11 +488,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     sound.playClick(640, 0.04);
 
                     heroPainting.style.opacity = '0.2';
+                    if (streetSky) streetSky.style.opacity = '0.2';
+
                     setTimeout(() => {
                         heroPainting.src = newSrc;
                         heroPainting.onload = () => {
                             heroPainting.style.opacity = '1';
                         };
+                        if (streetSky) {
+                            streetSky.src = newSrc;
+                            streetSky.onload = () => {
+                                streetSky.style.opacity = '1';
+                            };
+                        }
                     }, 180);
                 });
             });
@@ -495,14 +508,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // C. STREET & VINTAGE TV: MULTI-STAGE PINNED CENTER + LATERAL SHOWCASE + ZOOM TIMELINE
         const worksTrack = document.getElementById('works');
+        const streetViewport = document.getElementById('streetViewport');
         const streetStage = document.getElementById('streetStage');
         const tvGlass = document.getElementById('tvGlassOverlay');
         const lateralShowcase = document.getElementById('lateralShowcase');
         const portalChNext = document.getElementById('portalChNext');
 
-        if (worksTrack && streetStage) {
+        if (worksTrack && streetStage && streetViewport) {
             // Initial positioning: TV starts slightly below center and glides to center
-            gsap.set(streetStage, { y: '16vh', scale: 1 });
+            gsap.set(streetStage, { y: '20vh', scale: 1 });
             if (lateralShowcase) {
                 gsap.set(lateralShowcase, { opacity: 0, x: -30 });
             }
@@ -512,14 +526,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const zoomTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: worksTrack,
+                    pin: streetViewport,
                     start: 'top top',
-                    end: 'bottom bottom',
+                    end: () => '+=' + (window.innerHeight * 3.5),
                     scrub: 0.25,
+                    anticipatePin: 1,
                     onUpdate: (self) => {
                         const prog = self.progress;
 
-                        // When user scrolls past the pinned zone (prog >= 0.65), switch TV channel to NEXT
-                        if (prog >= 0.65) {
+                        // When user scrolls past the pinned zone (prog >= 0.64), switch TV channel to NEXT
+                        if (prog >= 0.64) {
                             if (!nextChannelTriggered) {
                                 nextChannelTriggered = true;
                                 sound.playCrtSwitch();
@@ -554,11 +570,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Phase 1 (0.00 -> 0.16): TV rises smoothly into the exact viewport center and LOCKS!
+            // Phase 1 (0.00 -> 0.14): TV rises smoothly into the exact viewport center (50vh) and LOCKS!
             zoomTl.to(streetStage, {
                 y: 0,
                 ease: 'power1.out',
-                duration: 0.16
+                duration: 0.14
             }, 0);
 
             if (lateralShowcase) {
@@ -567,29 +583,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     x: 0,
                     ease: 'power1.out',
                     duration: 0.14
-                }, 0.04);
+                }, 0);
             }
 
-            // Phase 2 (0.16 -> 0.64): THE PINNED / FROZEN TV PHASE
+            // Phase 2 (0.14 -> 0.62): THE PINNED / FROZEN TV PHASE
             // The TV is 100% frozen dead-center (y: 0, scale: 1). It does NOT move up!
             // Lateral showcase is fully interactive for reading and hovering channels.
 
-            // Phase 3 (0.64 -> 0.72): Lateral showcase smoothly fades out as plunge begins
+            // Phase 3 (0.62 -> 0.68): Lateral showcase smoothly fades out as plunge begins
             if (lateralShowcase) {
                 zoomTl.to(lateralShowcase, {
                     opacity: 0,
                     x: -40,
                     ease: 'power2.in',
-                    duration: 0.08
-                }, 0.64);
+                    duration: 0.06
+                }, 0.62);
             }
 
-            // Phase 4 (0.68 -> 1.00): Camera zooms deep into the centered TV tube!
+            // Phase 4 (0.66 -> 1.00): Camera zooms deep into the centered TV tube!
             zoomTl.to(streetStage, {
                 scale: 7.2,
                 ease: 'power2.inOut',
-                duration: 0.32
-            }, 0.68);
+                duration: 0.34
+            }, 0.66);
 
             // Curved glass reflection fades away as we plunge inside the CRT phosphors
             if (tvGlass) {
@@ -598,6 +614,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     ease: 'none',
                     duration: 0.15
                 }, 0.75);
+            }
+
+            // Gently fade out background artwork during deep zoom plunge
+            const heroArtBackdrop = document.getElementById('heroArtBackdrop');
+            if (heroArtBackdrop) {
+                zoomTl.to(heroArtBackdrop, {
+                    opacity: 0,
+                    ease: 'power1.in',
+                    duration: 0.25
+                }, 0.72);
             }
         }
     }
@@ -614,21 +640,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (rect.top > 0 || rect.bottom < 0) return; // not currently visible
             }
 
+            // Don't auto-cycle if NEXT channel is active during zoom
+            const nextSlide = Array.from(portalSlides).find(s => s.dataset.channel === 'NEXT');
+            if (nextSlide && nextSlide.classList.contains('active')) return;
+
             currentPortalCh = (currentPortalCh % 5) + 1;
             const chStr = `0${currentPortalCh}`;
             portalSlides.forEach(slide => {
-                if (slide.dataset.channel === chStr) {
-                    slide.classList.add('active');
-                } else if (slide.dataset.channel !== 'NEXT') {
-                    slide.classList.remove('active');
-                }
+                slide.classList.toggle('active', slide.dataset.channel === chStr);
             });
             lateralItems.forEach(item => {
-                if (item.dataset.channel === chStr) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
+                item.classList.toggle('active', item.dataset.channel === chStr);
             });
         }, 4500);
     }

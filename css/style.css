@@ -66,12 +66,12 @@ html {
     font-family: var(--font-mono);
     font-size: 15px;
     line-height: 1.6;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body.editorial-body {
@@ -79,7 +79,7 @@ body.editorial-body {
     color: var(--text-main);
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     position: relative;
     cursor: default;
 }
@@ -538,30 +538,27 @@ body.cursor-hovering .cursor-label {
    SECTION 00: HERO / LAUNCHPAD (SUBLIME ARTWORK & KINETIC PARALLAX)
    ========================================================================== */
 
-.hero-scroll-track {
+.hero-stage {
     position: relative;
     width: 100vw;
-    height: 165vh; /* Responsive, punchy, immediate scroll kinetic track */
-}
-
-.hero-stage {
-    position: sticky;
-    top: 0;
-    width: 100vw;
     height: 100vh;
-    max-height: 100vh;
+    min-height: 100vh;
     padding-top: var(--hud-height);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
-    will-change: opacity;
+    background: transparent;
+    z-index: 2;
+    will-change: transform, opacity;
 }
 
 .hero-art-backdrop {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
@@ -569,14 +566,14 @@ body.cursor-hovering .cursor-label {
 
 .hero-bg-painting {
     position: absolute;
-    top: -20%;
+    top: -15%;
     left: 50%;
     transform: translateX(-50%);
     width: 115%;
     min-width: 100vw;
-    height: 160%;
+    height: 145%;
     object-fit: cover;
-    filter: brightness(0.85) contrast(1.15) saturate(1.1);
+    filter: brightness(0.88) contrast(1.12) saturate(1.08);
     will-change: transform, opacity;
     transition: opacity 0.45s ease;
 }
@@ -584,8 +581,8 @@ body.cursor-hovering .cursor-label {
 .art-gradient-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 50% 40%, rgba(8,9,12,0.05) 0%, rgba(8,9,12,0.45) 75%, rgba(6,7,10,0.92) 100%),
-                linear-gradient(180deg, rgba(8,9,12,0.5) 0%, transparent 20%, transparent 70%, #06070a 100%);
+    background: radial-gradient(circle at 50% 40%, rgba(8,9,12,0.02) 0%, rgba(8,9,12,0.2) 75%, rgba(6,7,10,0.55) 100%),
+                linear-gradient(180deg, rgba(8,9,12,0.3) 0%, transparent 20%, transparent 70%, rgba(20,17,14,0.65) 100%);
     pointer-events: none;
 }
 
@@ -927,14 +924,17 @@ body.cursor-hovering .cursor-label {
 
 .hero-ticker-wrap {
     width: 100%;
-    background: #000000;
-    border-top: 1px solid var(--border-line);
-    border-bottom: 1px solid var(--border-line);
-    padding: 0.6rem 0;
+    background: rgba(18, 16, 13, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+    padding: 0.55rem 0;
     overflow: hidden;
     white-space: nowrap;
     position: relative;
     z-index: 2;
+    transition: opacity 0.3s ease;
 }
 
 .ticker-track {
@@ -959,19 +959,20 @@ body.cursor-hovering .cursor-label {
 .works-highway-track {
     position: relative;
     width: 100vw;
-    height: 380vh; /* Scrub track: Enter -> Pinned Center TV & Lateral Projects -> Camera Zoom into TV */
-    background: radial-gradient(ellipse at 50% 0%, #171b26 0%, #0d0f16 35%, #06070a 80%);
+    /* Height is managed by ScrollTrigger pinning +=350vh */
+    min-height: 100vh;
+    background: transparent;
 }
 
 .street-sticky-viewport {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
 }
 
 .street-stage {
@@ -1009,8 +1010,9 @@ body.cursor-hovering .cursor-label {
     height: 100%;
     object-fit: cover;
     display: block;
-    mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0,0,0,0.5) 30%, black 44%, black 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0,0,0,0.5) 30%, black 44%, black 100%);
+    z-index: 1;
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 42%, black 50%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 32%, rgba(0,0,0,0.4) 42%, black 50%, black 100%);
 }
 
 .tv-screen-portal {
@@ -1025,6 +1027,7 @@ body.cursor-hovering .cursor-label {
     box-shadow: inset 0 0 18px rgba(0,0,0,0.98), 0 0 18px rgba(214, 58, 47, 0.22);
     pointer-events: all;
     transition: box-shadow 0.2s ease;
+    z-index: 2;
 }
 
 .tv-screen-portal.glitching {
@@ -1691,6 +1694,8 @@ body.cursor-hovering .cursor-label {
    ========================================================================== */
 
 .metrics-stage {
+    position: relative;
+    z-index: 10;
     padding: 7rem 3rem;
     background-color: var(--bg-core);
     border-top: 1px solid var(--border-line);
