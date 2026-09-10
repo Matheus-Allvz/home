@@ -370,13 +370,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const y = window.scrollY;
         if (hud) {
-            if (y > 35) {
+            if (y > 120) {
                 hud.classList.add('hud--hidden');
             } else {
                 hud.classList.remove('hud--hidden');
             }
         }
     }, { passive: true });
+
 
 
     // -------------------------------------------------------------
@@ -400,9 +401,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: heroStage,
                     start: 'top top',
-                    end: () => '+=' + (window.innerHeight * 0.85),
+                    end: () => '+=' + (window.innerHeight * 1.1),
                     pin: true,
-                    scrub: 0.2,
+                    scrub: 0.3,
                     anticipatePin: 1
                 }
             });
@@ -475,38 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // B. INTERACTIVE HERO ARTWORK SELECTOR SWITCHER (SYNCS HERO & STREET SKY)
-        const artPills = document.querySelectorAll('.art-pill');
-        const streetSky = document.getElementById('streetSkyImg');
 
-        if (artPills.length > 0 && heroPainting) {
-            artPills.forEach(pill => {
-                pill.addEventListener('click', () => {
-                    artPills.forEach(p => p.classList.remove('active'));
-                    pill.classList.add('active');
-                    const newSrc = pill.dataset.art;
-                    sound.playClick(640, 0.04);
-
-                    heroPainting.style.opacity = '0.2';
-                    if (streetSky) streetSky.style.opacity = '0.2';
-
-                    setTimeout(() => {
-                        heroPainting.src = newSrc;
-                        heroPainting.onload = () => {
-                            heroPainting.style.opacity = '1';
-                        };
-                        if (streetSky) {
-                            streetSky.src = newSrc;
-                            streetSky.onload = () => {
-                                streetSky.style.opacity = '1';
-                            };
-                        }
-                    }, 180);
-                });
-            });
-        }
-
-        // C. STREET & VINTAGE TV: MULTI-STAGE PINNED CENTER + LATERAL SHOWCASE + ZOOM TIMELINE
+        // B. STREET & VINTAGE TV: MULTI-STAGE PINNED CENTER + LATERAL SHOWCASE + ZOOM TIMELINE
         const worksTrack = document.getElementById('works');
         const streetViewport = document.getElementById('streetViewport');
         const streetStage = document.getElementById('streetStage');
@@ -528,14 +499,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: worksTrack,
                     pin: streetViewport,
                     start: 'top top',
-                    end: () => '+=' + (window.innerHeight * 3.5),
+                    end: () => '+=' + (window.innerHeight * 2.5),
                     scrub: 0.25,
                     anticipatePin: 1,
                     onUpdate: (self) => {
                         const prog = self.progress;
 
-                        // When user scrolls past the pinned zone (prog >= 0.64), switch TV channel to NEXT
-                        if (prog >= 0.64) {
+                        // When user scrolls past the pinned zone (prog >= 0.40), switch TV channel to NEXT
+                        if (prog >= 0.40) {
                             if (!nextChannelTriggered) {
                                 nextChannelTriggered = true;
                                 sound.playCrtSwitch();
@@ -586,26 +557,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 0);
             }
 
-            // Phase 2 (0.14 -> 0.62): THE PINNED / FROZEN TV PHASE
-            // The TV is 100% frozen dead-center (y: 0, scale: 1). It does NOT move up!
+            // Phase 2 (0.14 -> 0.38): THE PINNED / FROZEN TV PHASE (50% shorter than before)
+            // The TV is 100% frozen dead-center (y: 0, scale: 1).
             // Lateral showcase is fully interactive for reading and hovering channels.
 
-            // Phase 3 (0.62 -> 0.68): Lateral showcase smoothly fades out as plunge begins
+            // Phase 3 (0.38 -> 0.44): Lateral showcase smoothly fades out as plunge begins
             if (lateralShowcase) {
                 zoomTl.to(lateralShowcase, {
                     opacity: 0,
                     x: -40,
                     ease: 'power2.in',
                     duration: 0.06
-                }, 0.62);
+                }, 0.38);
             }
 
-            // Phase 4 (0.66 -> 1.00): Camera zooms deep into the centered TV tube!
+            // Phase 4 (0.42 -> 1.00): Camera zooms deep into the centered TV tube!
             zoomTl.to(streetStage, {
                 scale: 7.2,
                 ease: 'power2.inOut',
-                duration: 0.34
-            }, 0.66);
+                duration: 0.58
+            }, 0.42);
 
             // Curved glass reflection fades away as we plunge inside the CRT phosphors
             if (tvGlass) {
@@ -613,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity: 0,
                     ease: 'none',
                     duration: 0.15
-                }, 0.75);
+                }, 0.55);
             }
 
             // Gently fade out background artwork during deep zoom plunge
@@ -622,10 +593,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 zoomTl.to(heroArtBackdrop, {
                     opacity: 0,
                     ease: 'power1.in',
-                    duration: 0.25
-                }, 0.72);
+                    duration: 0.30
+                }, 0.50);
             }
         }
+
     }
 
     // Auto cycle portal TV channels gently every 4.5s until user hovers manually
