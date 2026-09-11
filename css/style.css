@@ -953,7 +953,7 @@ body.cursor-hovering .cursor-label {
     .street-stage {
         width: 175vw;
         height: calc(175vw * 1.2427);
-        top: calc(50vh - (175vw * 0.85415));
+        top: calc(38vh - (175vw * 0.85415));
     }
 }
 
@@ -2689,15 +2689,28 @@ body.cursor-hovering .cursor-label {
         left: 10px;
         right: 10px;
         top: auto;
-        bottom: 15px;
+        bottom: 10px;
         transform: none;
         width: calc(100% - 20px);
-        max-height: 48vh;
-        padding: 10px 12px;
+        max-height: 40vh;
+        padding: 8px 10px;
         box-sizing: border-box;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
     }
+    .works-lateral-showcase::-webkit-scrollbar {
+        width: 3px;
+    }
+    .works-lateral-showcase::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .works-lateral-showcase::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 2px;
+    }
+
     .lateral-header {
         margin-bottom: 4px;
         padding-bottom: 4px;
@@ -2979,14 +2992,15 @@ body.cursor-hovering .cursor-label {
     }
 }
 
-/* Touch device cursor reset */
-@media (hover: none) and (pointer: coarse) {
+/* Touch device & mobile cursor reset */
+@media (hover: none) and (pointer: coarse), (max-width: 900px) {
     .custom-cursor, .cursor-dot, .cursor-circle, .cursor-label {
         display: none !important;
     }
     html, body, *, *::before, *::after,
     a, button, input, textarea, select, label, svg,
-    .work-item, .tv-knob, .btn-knob, .kinetic-stamp, .magnetic-item, .meta-card, .spec-card, .cmd-card, .cd-jewel-case {
+    .work-item, .lateral-item, .tv-knob, .btn-knob, .kinetic-stamp, .magnetic-item, .meta-card, .spec-card, .cmd-card, .cd-jewel-case {
         cursor: auto !important;
     }
 }
+
