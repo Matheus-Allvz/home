@@ -297,31 +297,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let userHasManuallyTuned = false;
 
     if (lateralItems.length > 0) {
-        lateralItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                userHasManuallyTuned = true;
-                lateralItems.forEach(w => w.classList.remove('active'));
-                item.classList.add('active');
+        const tuneChannel = (item) => {
+            userHasManuallyTuned = true;
+            lateralItems.forEach(w => w.classList.remove('active'));
+            item.classList.add('active');
 
-                const chId = item.dataset.channel;
+            const chId = item.dataset.channel;
 
-                if (tvScreenPortal) {
-                    tvScreenPortal.classList.add('glitching');
-                    sound.playCrtSwitch();
+            if (tvScreenPortal) {
+                tvScreenPortal.classList.add('glitching');
+                sound.playCrtSwitch();
 
-                    setTimeout(() => {
-                        tvScreenPortal.classList.remove('glitching');
-                    }, 140);
+                setTimeout(() => {
+                    tvScreenPortal.classList.remove('glitching');
+                }, 140);
+            }
+
+            portalSlides.forEach(slide => {
+                if (slide.dataset.channel === chId) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
                 }
-
-                portalSlides.forEach(slide => {
-                    if (slide.dataset.channel === chId) {
-                        slide.classList.add('active');
-                    } else {
-                        slide.classList.remove('active');
-                    }
-                });
             });
+        };
+
+        lateralItems.forEach(item => {
+            item.addEventListener('mouseenter', () => tuneChannel(item));
+            item.addEventListener('click', () => tuneChannel(item));
+            item.addEventListener('touchstart', () => tuneChannel(item), { passive: true });
         });
     }
 
