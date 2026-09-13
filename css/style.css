@@ -952,18 +952,53 @@ body.cursor-hovering .cursor-label {
 @media (max-width: 768px) {
     .works-highway-track,
     .street-sticky-viewport {
-        background: #08090c !important;
+        background: transparent !important;
     }
     .street-stage {
-        height: 215vh;
-        width: calc(215vh * 0.8047);
-        top: calc(38vh - (215vh * 0.68734));
+        width: max(310vw, 152vh) !important;
+        height: calc(max(310vw, 152vh) * 1.2427) !important;
+        top: calc(42vh - (max(310vw, 152vh) * 0.85415)) !important;
+        max-width: none !important;
     }
     .street-bg-img {
-        mask-image: linear-gradient(to bottom, transparent 0%, transparent 5%, black 16%, black 100%) !important;
-        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 5%, black 16%, black 100%) !important;
+        max-width: none !important;
+        mask-image: linear-gradient(to bottom, transparent 0%, transparent 44%, rgba(0,0,0,0.15) 48%, rgba(0,0,0,0.7) 53%, black 58%, black 100%) !important;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 44%, rgba(0,0,0,0.15) 48%, rgba(0,0,0,0.7) 53%, black 58%, black 100%) !important;
+    }
+    .tv-screen-portal {
+        max-width: none !important;
+    }
+    .tv-channel-container {
+        font-size: 7.2px !important;
+        padding: 5% 6% !important;
+    }
+    .tv-hud-header {
+        font-size: 7.5px !important;
+        padding-bottom: 2px !important;
+        margin-bottom: 3px !important;
+    }
+    .tv-terminal-content {
+        gap: 2.5px !important;
+    }
+    .term-row {
+        font-size: 7px !important;
+        line-height: 1.25 !important;
+        letter-spacing: -0.15px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .term-progress-track {
+        height: 3px !important;
+        margin-top: 3px !important;
+    }
+    .tv-hud-footer {
+        font-size: 7px !important;
+        padding-top: 2px !important;
+        margin-top: 2px !important;
     }
 }
+
 
 
 .street-bg-img {
@@ -2499,7 +2534,8 @@ body.cursor-hovering .cursor-label {
 }
 
 @media (max-width: 900px) {
-    *, *::before, *::after {
+    *:not(.street-stage):not(.street-bg-img):not(.hero-bg-painting):not(.tv-screen-portal):not(.tv-live-screen):not(.tv-glass-overlay), 
+    *::before, *::after {
         max-width: 100%;
         box-sizing: border-box;
     }
