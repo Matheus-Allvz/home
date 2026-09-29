@@ -263,17 +263,22 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('cursor-hovering');
             sound.playClick(320, 0.03);
             if (label) {
-                if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = 'SWITCH CH';
-                else if (el.classList.contains('cd-jewel-case')) label.textContent = 'PLAY';
-                else if (el.classList.contains('contact-card--copy')) label.textContent = 'COPY';
+                const i18n = window.PortfolioI18n;
+                if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = i18n ? i18n.t('cursor.switchCh') : 'SWITCH CH';
+                else if (el.classList.contains('cd-jewel-case')) label.textContent = i18n ? i18n.t('cursor.play') : 'PLAY';
+                else if (el.classList.contains('contact-card--copy')) label.textContent = i18n ? i18n.t('cursor.copy') : 'COPY';
                 else if (el.classList.contains('kinetic-stamp') || el.closest('.kinetic-stamp')) label.textContent = 'MAC // 2026';
                 else if (el.dataset.cursor) label.textContent = el.dataset.cursor;
-                else label.textContent = 'VIEW';
+                else label.textContent = i18n ? i18n.t('cursor.view') : 'VIEW';
             }
         });
         el.addEventListener('mouseleave', () => {
             document.body.classList.remove('cursor-hovering');
         });
+    });
+
+    window.addEventListener('portfolio:languageChanged', () => {
+        sound.playClick(680, 0.04);
     });
 
     const kineticStampEl = document.getElementById('kineticStamp');

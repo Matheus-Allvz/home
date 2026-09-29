@@ -473,6 +473,100 @@ body.cursor-hovering .cursor-label {
     gap: 1.2rem;
 }
 
+/* Language Switcher - Desktop HUD */
+.hud-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    border: 1px solid var(--border-line);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.hud-lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 4px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+    line-height: 1;
+}
+
+.hud-lang-btn:hover {
+    color: var(--accent-gold);
+}
+
+.hud-lang-btn.active {
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
+}
+
+.hud-lang-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 2px;
+    right: 2px;
+    height: 2px;
+    background: var(--accent-vermilion);
+}
+
+.lang-divider {
+    color: var(--accent-amber);
+    font-size: 9px;
+    opacity: 0.6;
+    margin: 0 1px;
+    user-select: none;
+}
+
+/* Language Switcher - Mobile Drawer */
+.drawer-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.drawer-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--border-line);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.drawer-lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 4px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.drawer-lang-btn:hover {
+    color: var(--accent-gold);
+}
+
+.drawer-lang-btn.active {
+    color: var(--accent-vermilion);
+    font-weight: 800;
+}
+
 .hud-audio-btn {
     background: transparent;
     border: 1px solid var(--border-line);

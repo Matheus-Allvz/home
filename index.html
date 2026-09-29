@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css?v=20260913_tv_v2">
+    <link rel="stylesheet" href="css/style.css?v=20260929_i18n">
 </head>
 <body class="editorial-body" data-audio="off">
 
@@ -62,13 +62,13 @@
             </div>
             <div class="introloading-words-box" id="introloadingWordsBox">
                 <span class="introloading-wordIV">2026</span>
-                <span class="introloading-word" id="word0">WELCOME</span>
-                <span class="introloading-word" id="word1">TO</span>
-                <span class="introloading-word" id="word2">THE PORTFOLIO</span>
-                <span class="introloading-word" id="word3">OF</span>
-                <span class="introloading-word" id="word4">MATHEUS</span>
-                <span class="introloading-word" id="word5">ALVES</span>
-                <span class="introloading-sentence" id="introSentence">WELCOME TO THE PORTFOLIO OF MATHEUS ALVES</span>
+                <span class="introloading-word" id="word0" data-i18n="preloader.word0">WELCOME</span>
+                <span class="introloading-word" id="word1" data-i18n="preloader.word1">TO</span>
+                <span class="introloading-word" id="word2" data-i18n="preloader.word2">THE PORTFOLIO</span>
+                <span class="introloading-word" id="word3" data-i18n="preloader.word3">OF</span>
+                <span class="introloading-word" id="word4" data-i18n="preloader.word4">MATHEUS</span>
+                <span class="introloading-word" id="word5" data-i18n="preloader.word5">ALVES</span>
+                <span class="introloading-sentence" id="introSentence" data-i18n="preloader.sentence">WELCOME TO THE PORTFOLIO OF MATHEUS ALVES</span>
                 <div class="introloading-sub-box" id="introSubBox">
                     <svg class="introloading-loading-ticker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630.594 99.116">
                         <path d="M31.8,5.52c-5.4,0-7.559,1.439-7.559,6.6V86.276c0,5.88,3.12,6.96,8.28,6.96H47.878c15.359,0,20.879-7.679,22.679-19.319h1.2V97.436H0v-2.52H4.2c5.4,0,7.559-1.44,7.559-6.6V12.12c0-5.161-2.159-6.6-7.559-6.6H0V3H37.2V5.52Z" fill="#000000"/>
@@ -79,7 +79,7 @@
                         <path d="M510.6,99.116h-1.08L442.677,19.8V82.917c0,8.4,1.441,12,8.64,12h4.56v2.52H424.558v-2.52h3.6c6.84,0,9.48-3.48,9.48-12V16.2c0-7.8-6.72-10.679-12.96-10.679V3h20.039l60.838,72.357V17.519c0-8.4-1.44-12-8.639-12h-4.561V3h31.319V5.52h-3.6c-6.839,0-9.479,3.48-9.479,12Z" fill="#000000"/>
                         <path d="M608.875,64.917c0-2.64-2.16-4.08-4.8-4.08H597V58.318h33.6v2.519h-4.439c-2.64,0-4.8,1.44-4.8,4.08v18.6c-4.8,9.359-19.56,15.6-37.679,15.6-35.518,0-53.157-23.759-53.157-49.078,0-29.159,21.479-49.2,52.438-49.2a69.783,69.783,0,0,1,35.158,9.24V27.839h-1.321c-6.6-17.279-20.278-23.4-34.078-23.4-18.959,0-37.678,13.56-37.678,45.6,0,30.959,18,45.478,39.358,45.478,10.439,0,19.68-3.48,24.479-10.8Z" fill="#000000"/>
                     </svg>
-                    <span class="introloading-note">C# .NET 8 Backend Architecture // High-Throughput &amp; Resilient Distributed Systems</span>
+                    <span class="introloading-note" data-i18n="preloader.note">C# .NET 8 Backend Architecture // High-Throughput &amp; Resilient Distributed Systems</span>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
             </a>
             <div class="hud-status">
                 <span class="status-pulse"></span>
-                <span class="status-text">ACTUAR // C# DEV</span>
+                <span class="status-text" data-i18n="hud.status">ACTUAR // C# DEV</span>
             </div>
         </div>
 
@@ -139,20 +139,25 @@
         </div>
 
         <div class="hud-right">
-            <button class="hud-audio-btn magnetic-item" id="audioToggle" title="Toggle Synthesizer Sound FX">
+            <div class="hud-lang-toggle" role="group" aria-label="Language Selector">
+                <button class="hud-lang-btn magnetic-item active" data-lang-btn="pt" aria-label="Versão em Português">PT</button>
+                <span class="lang-divider">/</span>
+                <button class="hud-lang-btn magnetic-item" data-lang-btn="en" aria-label="English Version">EN</button>
+            </div>
+            <button class="hud-audio-btn magnetic-item" id="audioToggle" title="Toggle Synthesizer Sound FX" data-i18n-attr="title:hud.audioTitle">
                 <span class="audio-icon">◈</span>
-                <span class="audio-text">SOUND: <strong id="audioStateText">OFF</strong></span>
+                <span class="audio-text"><span data-i18n="hud.audioLabel">SOUND:</span> <strong id="audioStateText">OFF</strong></span>
             </button>
             <nav class="hud-nav">
-                <a href="#hero" class="nav-link magnetic-item"><span class="num">00.</span>INTRO</a>
-                <a href="#works" class="nav-link magnetic-item"><span class="num">01.</span>WORKS</a>
-                <a href="#metrics" class="nav-link magnetic-item"><span class="num">02.</span>METRICS</a>
-                <a href="#process" class="nav-link magnetic-item"><span class="num">03.</span>PROCESS</a>
-                <a href="#manifesto" class="nav-link magnetic-item"><span class="num">04.</span>MANIFESTO</a>
-                <a href="#lab" class="nav-link magnetic-item"><span class="num">05.</span>LAB</a>
-                <a href="#contact" class="nav-link magnetic-item nav-link--cta"><span class="num">06.</span>CONTACT</a>
+                <a href="#hero" class="nav-link magnetic-item" data-i18n-html="hud.navIntro"><span class="num">00.</span>INTRO</a>
+                <a href="#works" class="nav-link magnetic-item" data-i18n-html="hud.navWorks"><span class="num">01.</span>WORKS</a>
+                <a href="#metrics" class="nav-link magnetic-item" data-i18n-html="hud.navMetrics"><span class="num">02.</span>METRICS</a>
+                <a href="#process" class="nav-link magnetic-item" data-i18n-html="hud.navProcess"><span class="num">03.</span>PROCESS</a>
+                <a href="#manifesto" class="nav-link magnetic-item" data-i18n-html="hud.navManifesto"><span class="num">04.</span>MANIFESTO</a>
+                <a href="#lab" class="nav-link magnetic-item" data-i18n-html="hud.navLab"><span class="num">05.</span>LAB</a>
+                <a href="#contact" class="nav-link magnetic-item nav-link--cta" data-i18n-html="hud.navContact"><span class="num">06.</span>CONTACT</a>
             </nav>
-            <button class="hud-mobile-btn" id="mobileMenuBtn" aria-label="Abrir Menu">
+            <button class="hud-mobile-btn" id="mobileMenuBtn" aria-label="Abrir Menu" data-i18n-attr="aria-label:hud.mobileMenuAria">
                 <span class="mobile-btn-text">MENU&nbsp;[&nbsp;≡&nbsp;]</span>
             </button>
         </div>
@@ -165,23 +170,30 @@
                 <span class="drawer-code">MAC//04.0</span>
                 <span class="drawer-name">MATHEUS ALVES</span>
             </div>
-            <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Fechar Menu">[ ✕ ] CLOSE</button>
+            <div class="drawer-actions">
+                <div class="drawer-lang-toggle" role="group" aria-label="Language Selector">
+                    <button class="drawer-lang-btn active" data-lang-btn="pt">PT</button>
+                    <span class="lang-divider">/</span>
+                    <button class="drawer-lang-btn" data-lang-btn="en">EN</button>
+                </div>
+                <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Fechar Menu" data-i18n="drawer.closeBtn" data-i18n-attr="aria-label:drawer.closeAria">[ ✕ ] CLOSE</button>
+            </div>
         </div>
         <nav class="drawer-links">
-            <a href="#hero" class="drawer-link"><span class="d-num">00.</span>INTRO</a>
-            <a href="#works" class="drawer-link"><span class="d-num">01.</span>WORKS</a>
-            <a href="#metrics" class="drawer-link"><span class="d-num">02.</span>METRICS</a>
-            <a href="#process" class="drawer-link"><span class="d-num">03.</span>PROCESS</a>
-            <a href="#manifesto" class="drawer-link"><span class="d-num">04.</span>MANIFESTO</a>
-            <a href="#lab" class="drawer-link"><span class="d-num">05.</span>LAB</a>
-            <a href="#contact" class="drawer-link drawer-link--cta"><span class="d-num">06.</span>CONTACT HUB ↗</a>
+            <a href="#hero" class="drawer-link" data-i18n-html="drawer.navIntro"><span class="d-num">00.</span>INTRO</a>
+            <a href="#works" class="drawer-link" data-i18n-html="drawer.navWorks"><span class="d-num">01.</span>WORKS</a>
+            <a href="#metrics" class="drawer-link" data-i18n-html="drawer.navMetrics"><span class="d-num">02.</span>METRICS</a>
+            <a href="#process" class="drawer-link" data-i18n-html="drawer.navProcess"><span class="d-num">03.</span>PROCESS</a>
+            <a href="#manifesto" class="drawer-link" data-i18n-html="drawer.navManifesto"><span class="d-num">04.</span>MANIFESTO</a>
+            <a href="#lab" class="drawer-link" data-i18n-html="drawer.navLab"><span class="d-num">05.</span>LAB</a>
+            <a href="#contact" class="drawer-link drawer-link--cta" data-i18n-html="drawer.navContact"><span class="d-num">06.</span>CONTACT HUB ↗</a>
         </nav>
         <div class="drawer-footer">
             <div class="drawer-geo-row">
                 <span>LAT 16.6869° S / LON 49.2648° W</span>
             </div>
             <div class="drawer-sub-row">
-                <span class="drawer-status-pill">ACTUAR // C# .NET 8 DEV</span>
+                <span class="drawer-status-pill" data-i18n="drawer.statusPill">ACTUAR // C# .NET 8 DEV</span>
                 <span class="drawer-clock-text" id="drawerClock">--:--:-- UTC-3</span>
             </div>
         </div>
@@ -215,15 +227,15 @@
 
                 <!-- Top Floating Manifesto Summary -->
                 <div class="hero-top-manifesto" id="heroTopManifesto">
-                    <p class="top-manifesto-text">ARCHITECTURAL DISCIPLINE // C# .NET 8 BACKEND // ZERO SILENT FAILURES // CLEAN DOMAIN BOUNDARIES // HIGH-THROUGHPUT RELATIONAL PERSISTENCE</p>
+                    <p class="top-manifesto-text" data-i18n="hero.topManifesto">ARCHITECTURAL DISCIPLINE // C# .NET 8 BACKEND // ZERO SILENT FAILURES // CLEAN DOMAIN BOUNDARIES // HIGH-THROUGHPUT RELATIONAL PERSISTENCE</p>
                 </div>
 
                 <div class="hero-content-grid">
                     <!-- Left Column: Manifesto / Rulebook Excerpt in Vertical Swiss Layout (Moves Down) -->
                     <div class="hero-col-left" id="heroColLeft">
                         <div class="vertical-manifesto">
-                            <p class="v-text">THOU SHALT NOT WRITE SILENT CATCH BLOCKS. THOU SHALT HONOR CLEAN ARCHITECTURE BOUNDARIES. THOU SHALT TREAT ROOT CAUSE ANALYSIS AS AN EXACT SCIENCE. THOU SHALT REDUCE HUMAN LATENCY INTO SUB-SECOND PIPELINES. THOU SHALT DESIGN RESILIENT QUEUES WITH IDEMPOTENCY.</p>
-                            <p class="v-text">THOU SHALT NOT OVERLOAD YOUR DOMAIN LOGIC. THOU SHALT MEASURE ALLOCATIONS BEFORE OPTIMIZATION. THOU SHALT NEVER DEPLOY UNINDEXED FOREIGN KEYS.</p>
+                            <p class="v-text" data-i18n="hero.vertical1">THOU SHALT NOT WRITE SILENT CATCH BLOCKS. THOU SHALT HONOR CLEAN ARCHITECTURE BOUNDARIES. THOU SHALT TREAT ROOT CAUSE ANALYSIS AS AN EXACT SCIENCE. THOU SHALT REDUCE HUMAN LATENCY INTO SUB-SECOND PIPELINES. THOU SHALT DESIGN RESILIENT QUEUES WITH IDEMPOTENCY.</p>
+                            <p class="v-text" data-i18n="hero.vertical2">THOU SHALT NOT OVERLOAD YOUR DOMAIN LOGIC. THOU SHALT MEASURE ALLOCATIONS BEFORE OPTIMIZATION. THOU SHALT NEVER DEPLOY UNINDEXED FOREIGN KEYS.</p>
                         </div>
                     </div>
 
@@ -237,7 +249,7 @@
                                 <span class="badge-sub">MATHEUS ALVES</span>
                             </div>
                             <div class="slanted-badge slanted-badge--dark">
-                                <span>[BACKEND ARCHITECT &amp; C# .NET 8 ENGINEER]</span>
+                                <span data-i18n-html="hero.badgeSub">[BACKEND ARCHITECT &amp; C# .NET 8 ENGINEER]</span>
                             </div>
                         </div>
 
@@ -264,29 +276,29 @@
                         <!-- Hero Subtitle & Core Metrics Row -->
                         <div class="hero-meta-row" id="heroMetaRow">
                             <div class="meta-card">
-                                <span class="meta-label">// ROLE</span>
-                                <strong class="meta-value">Backend Software Dev @ Actuar</strong>
-                                <span class="meta-note">Promoted N1 ➔ N2 ➔ Dev C#</span>
+                                <span class="meta-label" data-i18n="hero.roleLabel">// ROLE</span>
+                                <strong class="meta-value" data-i18n="hero.roleValue">Backend Software Dev @ Actuar</strong>
+                                <span class="meta-note" data-i18n="hero.roleNote">Promoted N1 ➔ N2 ➔ Dev C#</span>
                             </div>
                             <div class="meta-card">
-                                <span class="meta-label">// ACADEMIC</span>
-                                <strong class="meta-value">PUC Goiás (CR: 8.6)</strong>
-                                <span class="meta-note">Computer Science (2024-2029)</span>
+                                <span class="meta-label" data-i18n="hero.academicLabel">// ACADEMIC</span>
+                                <strong class="meta-value" data-i18n="hero.academicValue">PUC Goiás (CR: 8.6)</strong>
+                                <span class="meta-note" data-i18n="hero.academicNote">Computer Science (2024-2029)</span>
                             </div>
                             <div class="meta-card">
-                                <span class="meta-label">// SPECIALIZATION</span>
-                                <strong class="meta-value">C# .NET 8 / Clean Arch / RabbitMQ</strong>
-                                <span class="meta-note">High-throughput distributed systems</span>
+                                <span class="meta-label" data-i18n="hero.specLabel">// SPECIALIZATION</span>
+                                <strong class="meta-value" data-i18n="hero.specValue">C# .NET 8 / Clean Arch / RabbitMQ</strong>
+                                <span class="meta-note" data-i18n="hero.specNote">High-throughput distributed systems</span>
                             </div>
                         </div>
 
                         <!-- Rotating Kinetic Stamp Badge -->
                         <div class="hero-stamp-wrapper">
-                            <div class="kinetic-stamp magnetic-item" id="kineticStamp" data-cursor="MAC // 2026" role="button" tabindex="0" aria-label="Selo Matheus Alves da Costa">
+                            <div class="kinetic-stamp magnetic-item" id="kineticStamp" data-cursor="MAC // 2026" role="button" tabindex="0" aria-label="Selo Matheus Alves da Costa" data-i18n-attr="aria-label:hero.stampAria">
                                 <svg viewBox="0 0 200 200">
                                     <path id="stampPath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
                                     <text>
-                                        <textPath href="#stampPath" startOffset="0%">
+                                        <textPath href="#stampPath" startOffset="0%" data-i18n="hero.stampText">
                                             ● MATHEUS ALVES ● C# .NET 8 ARCHITECT ● ACTUAR ● CR 8.6 PUC-GO
                                         </textPath>
                                     </text>
@@ -319,8 +331,8 @@
                 <!-- Kinetic Ticker Strip -->
                 <div class="hero-ticker-wrap">
                     <div class="ticker-track">
-                        <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
-                        <span class="ticker-item">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
+                        <span class="ticker-item" data-i18n="hero.ticker">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
+                        <span class="ticker-item" data-i18n="hero.ticker">// C# .NET 8 // CLEAN ARCHITECTURE // CQRS // RABBITMQ // POSTGRESQL // HIGH-THROUGHPUT PIPELINES // ZERO SILENT FAILURES // SUB-SECOND TELEMETRY //</span>
                     </div>
                 </div>
             </section>
@@ -352,126 +364,126 @@
                                 <!-- Channel 01: DataClean Suite -->
                                 <div class="tv-channel-slide active" id="portalCh1" data-channel="01">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge">CH-01 // DATACLEAN.ENGINE</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>LIVE BENCHMARK</span>
+                                        <span class="tv-ch-badge" data-i18n="works.ch1.badgeTv">CH-01 // DATACLEAN.ENGINE</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.ch1.recTv">LIVE BENCHMARK</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; ENGINE: C# .NET 8 / CLEAN ARCHITECTURE</div>
-                                        <div class="term-row">&gt; BATCH: 48,200 RECORDS INGESTION</div>
-                                        <div class="term-row highlight-green">&gt; LATENCY: 6m02s ➔ 1.84s (99.4% SPEED GAIN)</div>
-                                        <div class="term-row text-dim">&gt; MEMORY: ZERO GC STALLS // STREAMING PARSER</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.ch1.term1">&gt; ENGINE: C# .NET 8 / CLEAN ARCHITECTURE</div>
+                                        <div class="term-row" data-i18n-html="works.ch1.term2">&gt; BATCH: 48,200 RECORDS INGESTION</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.ch1.term3">&gt; LATENCY: 6m02s ➔ 1.84s (99.4% SPEED GAIN)</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.ch1.term4">&gt; MEMORY: ZERO GC STALLS // STREAMING PARSER</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 99.4%;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>STATUS: 200 OK</span>
-                                        <span>RABBITMQ + POSTGRESQL</span>
+                                        <span data-i18n="works.ch1.footer1">STATUS: 200 OK</span>
+                                        <span data-i18n="works.ch1.footer2">RABBITMQ + POSTGRESQL</span>
                                     </div>
                                 </div>
 
                                 <!-- Channel 02: Meppo Focus Engine -->
                                 <div class="tv-channel-slide" id="portalCh2" data-channel="02">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge">CH-02 // MEPPO.FOCUS</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>AUTOMATION</span>
+                                        <span class="tv-ch-badge" data-i18n="works.ch2.badgeTv">CH-02 // MEPPO.FOCUS</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.ch2.recTv">AUTOMATION</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; ORCHESTRATION: CLICKUP &amp; WHATSAPP APIS</div>
-                                        <div class="term-row highlight-green">&gt; TIME SAVED: 6min MANUAL ➔ 4 SECONDS</div>
-                                        <div class="term-row">&gt; PROTOCOL: RESTful EVENT BUS</div>
-                                        <div class="term-row text-dim">&gt; REDUCED COGNITIVE LOAD BY 85%</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.ch2.term1">&gt; ORCHESTRATION: CLICKUP &amp; WHATSAPP APIS</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.ch2.term2">&gt; TIME SAVED: 6min MANUAL ➔ 4 SECONDS</div>
+                                        <div class="term-row" data-i18n-html="works.ch2.term3">&gt; PROTOCOL: RESTful EVENT BUS</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.ch2.term4">&gt; REDUCED COGNITIVE LOAD BY 85%</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 98.0%;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>STATUS: ACTIVE RUN</span>
-                                        <span>100% IN-HOUSE PROD</span>
+                                        <span data-i18n="works.ch2.footer1">STATUS: ACTIVE RUN</span>
+                                        <span data-i18n="works.ch2.footer2">100% IN-HOUSE PROD</span>
                                     </div>
                                 </div>
 
                                 <!-- Channel 03: Actuar Core & RCA Framework -->
                                 <div class="tv-channel-slide" id="portalCh3" data-channel="03">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge">CH-03 // ACTUAR.RCA</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>DIAGNOSTICS</span>
+                                        <span class="tv-ch-badge" data-i18n="works.ch3.badgeTv">CH-03 // ACTUAR.RCA</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.ch3.recTv">DIAGNOSTICS</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; RCA ENGINE: ISOLATING INCIDENT VECTORS</div>
-                                        <div class="term-row highlight-green">&gt; CERTIFICATION SCORE: 14.75 / 15.0</div>
-                                        <div class="term-row">&gt; METRICS: 5x TOP 1 ANALYST OF THE MONTH</div>
-                                        <div class="term-row text-dim">&gt; TIER-2 HIGH COMPLEXITY RESILIENCE</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.ch3.term1">&gt; RCA ENGINE: ISOLATING INCIDENT VECTORS</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.ch3.term2">&gt; CERTIFICATION SCORE: 14.75 / 15.0</div>
+                                        <div class="term-row" data-i18n-html="works.ch3.term3">&gt; METRICS: 5x TOP 1 ANALYST OF THE MONTH</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.ch3.term4">&gt; TIER-2 HIGH COMPLEXITY RESILIENCE</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 98.3%;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>PROMOTED N1 ➔ N2 ➔ DEV</span>
-                                        <span>ACTUAR PRODUCTION</span>
+                                        <span data-i18n="works.ch3.footer1">PROMOTED N1 ➔ N2 ➔ DEV</span>
+                                        <span data-i18n="works.ch3.footer2">ACTUAR PRODUCTION</span>
                                     </div>
                                 </div>
 
                                 <!-- Channel 04: Async Data Ingestion Pipeline -->
                                 <div class="tv-channel-slide" id="portalCh4" data-channel="04">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge">CH-04 // ASYNC.PIPELINE</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>HIGH-THROUGHPUT</span>
+                                        <span class="tv-ch-badge" data-i18n="works.ch4.badgeTv">CH-04 // ASYNC.PIPELINE</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.ch4.recTv">HIGH-THROUGHPUT</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; STREAM: IAsyncEnumerable&lt;RecordChunk&gt;</div>
-                                        <div class="term-row highlight-green">&gt; RATE: 12,400 MSGS / SECOND</div>
-                                        <div class="term-row">&gt; MEMORY: 0 B ON HEAP (Span&lt;T&gt;)</div>
-                                        <div class="term-row text-dim">&gt; HEALTH: IDEMPOTENT &amp; ZERO LOSS</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.ch4.term1">&gt; STREAM: IAsyncEnumerable&lt;RecordChunk&gt;</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.ch4.term2">&gt; RATE: 12,400 MSGS / SECOND</div>
+                                        <div class="term-row" data-i18n-html="works.ch4.term3">&gt; MEMORY: 0 B ON HEAP (Span&lt;T&gt;)</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.ch4.term4">&gt; HEALTH: IDEMPOTENT &amp; ZERO LOSS</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 99.8%;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>POSTGRESQL + EF CORE</span>
-                                        <span>DAPPER BULK WRITES</span>
+                                        <span data-i18n="works.ch4.footer1">POSTGRESQL + EF CORE</span>
+                                        <span data-i18n="works.ch4.footer2">DAPPER BULK WRITES</span>
                                     </div>
                                 </div>
 
                                 <!-- Channel 05: Embedded Telemetry -->
                                 <div class="tv-channel-slide" id="portalCh5" data-channel="05">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge">CH-05 // TELEMETRY.IOT</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>HARDWARE LAB</span>
+                                        <span class="tv-ch-badge" data-i18n="works.ch5.badgeTv">CH-05 // TELEMETRY.IOT</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.ch5.recTv">HARDWARE LAB</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; MCU: DUAL ARM CORTEX-M0+ @ 133MHz</div>
-                                        <div class="term-row highlight-green">&gt; SAMPLING: 1000 Hz REAL-TIME JITTER-FREE</div>
-                                        <div class="term-row">&gt; PROTOCOL: UART / SPI HIGH-SPEED FIFO</div>
-                                        <div class="term-row text-dim">&gt; ACADEMIC: PUC GOIÁS CS (CR 8.6)</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.ch5.term1">&gt; MCU: DUAL ARM CORTEX-M0+ @ 133MHz</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.ch5.term2">&gt; SAMPLING: 1000 Hz REAL-TIME JITTER-FREE</div>
+                                        <div class="term-row" data-i18n-html="works.ch5.term3">&gt; PROTOCOL: UART / SPI HIGH-SPEED FIFO</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.ch5.term4">&gt; ACADEMIC: PUC GOIÁS CS (CR 8.6)</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 100%;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>FREERTOS C++</span>
-                                        <span>LOGIC ANALYZED</span>
+                                        <span data-i18n="works.ch5.footer1">FREERTOS C++</span>
+                                        <span data-i18n="works.ch5.footer2">LOGIC ANALYZED</span>
                                     </div>
                                 </div>
 
                                 <!-- Channel NEXT: Portal to Section 02 (Awards & Telemetry) -->
                                 <div class="tv-channel-slide" id="portalChNext" data-channel="NEXT">
                                     <div class="tv-hud-header">
-                                        <span class="tv-ch-badge highlight-green">CH-NEXT // TELEMETRY HUB</span>
-                                        <span class="tv-rec-badge"><span class="rec-dot"></span>PORTAL ENGAGED</span>
+                                        <span class="tv-ch-badge highlight-green" data-i18n="works.chNext.badgeTv">CH-NEXT // TELEMETRY HUB</span>
+                                        <span class="tv-rec-badge"><span class="rec-dot"></span><span data-i18n="works.chNext.recTv">PORTAL ENGAGED</span></span>
                                     </div>
                                     <div class="tv-terminal-content">
-                                        <div class="term-row text-vermilion">&gt; INITIATING SECTION 02 HANDOFF...</div>
-                                        <div class="term-row highlight-green">&gt; RECOGNITIONS &amp; SYSTEM BENCHMARKS</div>
-                                        <div class="term-row">&gt; BENCHMARK: 5x TOP 1 / 14.75 / CR 8.6</div>
-                                        <div class="term-row text-dim">&gt; CAMERA PLUNGING INTO PHOSPHORS...</div>
+                                        <div class="term-row text-vermilion" data-i18n-html="works.chNext.term1">&gt; INITIATING SECTION 02 HANDOFF...</div>
+                                        <div class="term-row highlight-green" data-i18n-html="works.chNext.term2">&gt; RECOGNITIONS &amp; SYSTEM BENCHMARKS</div>
+                                        <div class="term-row" data-i18n-html="works.chNext.term3">&gt; BENCHMARK: 5x TOP 1 / 14.75 / CR 8.6</div>
+                                        <div class="term-row text-dim" data-i18n-html="works.chNext.term4">&gt; CAMERA PLUNGING INTO PHOSPHORS...</div>
                                         <div class="term-progress-track">
                                             <div class="term-progress-bar" style="width: 100%; background: #10b981;"></div>
                                         </div>
                                     </div>
                                     <div class="tv-hud-footer">
-                                        <span>STATUS: 200 OK</span>
-                                        <span>SECTION 02 INCOMING ➔</span>
+                                        <span data-i18n="works.chNext.footer1">STATUS: 200 OK</span>
+                                        <span data-i18n="works.chNext.footer2">SECTION 02 INCOMING ➔</span>
                                     </div>
                                 </div>
                             </div>
@@ -482,11 +494,11 @@
                 <!-- Subtle Translucent Lateral Projects Showcase (Left Side, Non-Obstructive) -->
                 <aside class="works-lateral-showcase" id="lateralShowcase">
                     <div class="lateral-header">
-                        <span class="lateral-counter">[01.0 // SELECTED WORKS 2024 — 2026]</span>
-                        <h2 class="lateral-heading">ENGINEERING REPERTORY</h2>
+                        <span class="lateral-counter" data-i18n="works.counter">[01.0 // SELECTED WORKS 2024 — 2026]</span>
+                        <h2 class="lateral-heading" data-i18n="works.heading">ENGINEERING REPERTORY</h2>
                         <div class="lateral-broadcast-indicator">
                             <span class="broadcast-dot"></span>
-                            <span class="broadcast-text">HOVER PROJECT TO TUNE VINTAGE CRT TV</span>
+                            <span class="broadcast-text" data-i18n="works.broadcast">HOVER PROJECT TO TUNE VINTAGE CRT TV</span>
                         </div>
                     </div>
 
@@ -495,11 +507,11 @@
                         <article class="lateral-item active" data-channel="01" data-work="dataclean">
                             <div class="lateral-item__header">
                                 <span class="lateral-item__ch">CH-01</span>
-                                <span class="lateral-item__badge">C# .NET 8 // 99.4% GAIN</span>
+                                <span class="lateral-item__badge" data-i18n="works.ch1.badgeLateral">C# .NET 8 // 99.4% GAIN</span>
                             </div>
                             <h3 class="lateral-item__title">DATACLEAN SUITE</h3>
                             <div class="lateral-item__footer">
-                                <span class="lateral-item__metric">6m02s ➔ 1.84s (99.4% SPEEDUP)</span>
+                                <span class="lateral-item__metric" data-i18n="works.ch1.metricLateral">6m02s ➔ 1.84s (99.4% SPEEDUP)</span>
                                 <span class="lateral-item__arrow">↗</span>
                             </div>
                         </article>
@@ -508,11 +520,11 @@
                         <article class="lateral-item" data-channel="02" data-work="meppo">
                             <div class="lateral-item__header">
                                 <span class="lateral-item__ch">CH-02</span>
-                                <span class="lateral-item__badge">C# / JS AUTOMATION</span>
+                                <span class="lateral-item__badge" data-i18n="works.ch2.badgeLateral">C# / JS AUTOMATION</span>
                             </div>
                             <h3 class="lateral-item__title">MEPPO FOCUS ENGINE</h3>
                             <div class="lateral-item__footer">
-                                <span class="lateral-item__metric">100% In-House // Zero Latency</span>
+                                <span class="lateral-item__metric" data-i18n="works.ch2.metricLateral">100% In-House // Zero Latency</span>
                                 <span class="lateral-item__arrow">↗</span>
                             </div>
                         </article>
@@ -521,11 +533,11 @@
                         <article class="lateral-item" data-channel="03" data-work="actuar">
                             <div class="lateral-item__header">
                                 <span class="lateral-item__ch">CH-03</span>
-                                <span class="lateral-item__badge">RABBITMQ / POSTGRES</span>
+                                <span class="lateral-item__badge" data-i18n="works.ch3.badgeLateral">RABBITMQ / POSTGRES</span>
                             </div>
                             <h3 class="lateral-item__title">ACTUAR CORE &amp; RCA</h3>
                             <div class="lateral-item__footer">
-                                <span class="lateral-item__metric">Score: 14.75 / 15.0 // 5x Top 1</span>
+                                <span class="lateral-item__metric" data-i18n="works.ch3.metricLateral">Score: 14.75 / 15.0 // 5x Top 1</span>
                                 <span class="lateral-item__arrow">↗</span>
                             </div>
                         </article>
@@ -534,11 +546,11 @@
                         <article class="lateral-item" data-channel="04" data-work="pipeline">
                             <div class="lateral-item__header">
                                 <span class="lateral-item__ch">CH-04</span>
-                                <span class="lateral-item__badge">HIGH-THROUGHPUT QUEUES</span>
+                                <span class="lateral-item__badge" data-i18n="works.ch4.badgeLateral">HIGH-THROUGHPUT QUEUES</span>
                             </div>
                             <h3 class="lateral-item__title">ASYNC DATA PIPELINE</h3>
                             <div class="lateral-item__footer">
-                                <span class="lateral-item__metric">12,400 msgs/s // Span&lt;T&gt; 0 B Heap</span>
+                                <span class="lateral-item__metric" data-i18n="works.ch4.metricLateral">12,400 msgs/s // Span&lt;T&gt; 0 B Heap</span>
                                 <span class="lateral-item__arrow">↗</span>
                             </div>
                         </article>
@@ -547,11 +559,11 @@
                         <article class="lateral-item" data-channel="05" data-work="telemetry">
                             <div class="lateral-item__header">
                                 <span class="lateral-item__ch">CH-05</span>
-                                <span class="lateral-item__badge">RP2040 / FREERTOS C++</span>
+                                <span class="lateral-item__badge" data-i18n="works.ch5.badgeLateral">RP2040 / FREERTOS C++</span>
                             </div>
-                            <h3 class="lateral-item__title">EMBEDDED TELEMETRY</h3>
+                            <h3 class="lateral-item__title" data-i18n="works.ch5.title">EMBEDDED TELEMETRY</h3>
                             <div class="lateral-item__footer">
-                                <span class="lateral-item__metric">1000 Hz Sampling // High-Speed FIFO</span>
+                                <span class="lateral-item__metric" data-i18n="works.ch5.metricLateral">1000 Hz Sampling // High-Speed FIFO</span>
                                 <span class="lateral-item__arrow">↗</span>
                             </div>
                         </article>
@@ -559,7 +571,7 @@
 
                     <div class="lateral-scroll-hint">
                         <span class="hint-arrow">↓</span>
-                        <span class="hint-text">SCROLL DOWN TO DIVE INTO TELEMETRY PORTAL</span>
+                        <span class="hint-text" data-i18n="works.scrollHint">SCROLL DOWN TO DIVE INTO TELEMETRY PORTAL</span>
                     </div>
                 </aside>
             </div>
@@ -572,41 +584,41 @@
         <section class="metrics-stage" id="metrics">
             <div class="metrics-container">
                 <div class="metrics-title-row">
-                    <span class="editorial-tag">// 02.0 RECOGNITIONS &amp; BENCHMARKS</span>
-                    <h2 class="metrics-monumental-heading">AWARDS &amp; TELEMETRY</h2>
+                    <span class="editorial-tag" data-i18n-html="metrics.tag">// 02.0 RECOGNITIONS &amp; BENCHMARKS</span>
+                    <h2 class="metrics-monumental-heading" data-i18n-html="metrics.heading">AWARDS &amp; TELEMETRY</h2>
                 </div>
 
                 <div class="metrics-table-grid">
                     <!-- Column 1: Actuar Performance & Ranking -->
                     <div class="metrics-card">
-                        <span class="card-badge">ACTUAR RANKINGS</span>
+                        <span class="card-badge" data-i18n="metrics.card1Badge">ACTUAR RANKINGS</span>
                         <div class="big-metric-val">5x <span class="metric-unit">TOP 1</span></div>
-                        <p class="metric-desc">Eleito 5 vezes Analista Top 1 e 1 vez Top 2 no ranking geral interno de performance técnica e resolução em apenas 8 meses.</p>
-                        <div class="metric-footer-tag">HIGH COMPLEXITY INCIDENT RESOLUTION</div>
+                        <p class="metric-desc" data-i18n="metrics.card1Desc">Eleito 5 vezes Analista Top 1 e 1 vez Top 2 no ranking geral interno de performance técnica e resolução em apenas 8 meses.</p>
+                        <div class="metric-footer-tag" data-i18n="metrics.card1Footer">HIGH COMPLEXITY INCIDENT RESOLUTION</div>
                     </div>
 
                     <!-- Column 2: Internal Architecture Certification -->
                     <div class="metrics-card metrics-card--highlight">
-                        <span class="card-badge">CERTIFICATION SCORE</span>
+                        <span class="card-badge" data-i18n="metrics.card2Badge">CERTIFICATION SCORE</span>
                         <div class="big-metric-val">14.75<span class="metric-slash">/</span>15.0</div>
-                        <p class="metric-desc">Pontuação quase perfeita na rigorosa certificação técnica interna de arquitetura do ecossistema, regras de negócio e fluxo de dados.</p>
-                        <div class="metric-footer-tag">PROMOTED N1 ➔ N2 ➔ DEV C#</div>
+                        <p class="metric-desc" data-i18n="metrics.card2Desc">Pontuação quase perfeita na rigorosa certificação técnica interna de arquitetura do ecossistema, regras de negócio e fluxo de dados.</p>
+                        <div class="metric-footer-tag" data-i18n="metrics.card2Footer">PROMOTED N1 ➔ N2 ➔ DEV C#</div>
                     </div>
 
                     <!-- Column 3: Academic Excellence @ PUC Goiás -->
                     <div class="metrics-card">
-                        <span class="card-badge">ACADEMIC HONORS</span>
+                        <span class="card-badge" data-i18n="metrics.card3Badge">ACADEMIC HONORS</span>
                         <div class="big-metric-val">8.6 <span class="metric-unit">CR</span></div>
-                        <p class="metric-desc">Coeficiente de Rendimento destacado no Bacharelado em Ciência da Computação pela PUC Goiás. Domínio de Estruturas de Dados, Algoritmos e SOs.</p>
-                        <div class="metric-footer-tag">PUC GOIÁS // 2024 — 2029</div>
+                        <p class="metric-desc" data-i18n="metrics.card3Desc">Coeficiente de Rendimento destacado no Bacharelado em Ciência da Computação pela PUC Goiás. Domínio de Estruturas de Dados, Algoritmos e SOs.</p>
+                        <div class="metric-footer-tag" data-i18n="metrics.card3Footer">PUC GOIÁS // 2024 — 2029</div>
                     </div>
 
                     <!-- Column 4: System Latency Optimization -->
                     <div class="metrics-card">
-                        <span class="card-badge">LATENCY DROP</span>
+                        <span class="card-badge" data-i18n="metrics.card4Badge">LATENCY DROP</span>
                         <div class="big-metric-val">99.4<span class="metric-unit">%</span></div>
-                        <p class="metric-desc">Otimização drástica do pipeline de dados de 6 minutos de processamento síncrono para menos de 2 segundos via paralelismo assíncrono em C#.</p>
-                        <div class="metric-footer-tag">SUB-SECOND THROUGHPUT</div>
+                        <p class="metric-desc" data-i18n="metrics.card4Desc">Otimização drástica do pipeline de dados de 6 minutos de processamento síncrono para menos de 2 segundos via paralelismo assíncrono em C#.</p>
+                        <div class="metric-footer-tag" data-i18n="metrics.card4Footer">SUB-SECOND THROUGHPUT</div>
                     </div>
                 </div>
             </div>
@@ -621,11 +633,11 @@
             <div class="process-stage-inner">
                 <div class="process-header">
                     <div class="process-header-left">
-                        <span class="process-pill">GALLERY // ARCHITECTURAL SESSIONS</span>
-                        <h2 class="process-title">MY PROCESS</h2>
+                        <span class="process-pill" data-i18n="process.pill">GALLERY // ARCHITECTURAL SESSIONS</span>
+                        <h2 class="process-title" data-i18n="process.title">MY PROCESS</h2>
                     </div>
                     <div class="process-header-right">
-                        <p class="process-sub">A 6-phase battle-tested engineering cycle for zero-defect backend systems, from initial RCA discovery to production telemetry.</p>
+                        <p class="process-sub" data-i18n="process.sub">A 6-phase battle-tested engineering cycle for zero-defect backend systems, from initial RCA discovery to production telemetry.</p>
                     </div>
                 </div>
 
@@ -649,8 +661,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">1</div>
-                                <h4 class="cd-step-title">Briefing &amp; RCA</h4>
-                                <p class="cd-step-desc">Investigação profunda de gargalos operacionais e levantamento minucioso dos requisitos de negócio e latência alvo.</p>
+                                <h4 class="cd-step-title" data-i18n-html="process.cd1Title">Briefing &amp; RCA</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd1Desc">Investigação profunda de gargalos operacionais e levantamento minucioso dos requisitos de negócio e latência alvo.</p>
                             </div>
                         </div>
 
@@ -670,8 +682,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">2</div>
-                                <h4 class="cd-step-title">Domain Modeling</h4>
-                                <p class="cd-step-desc">Mapeamento de agregados, entidades ricas e isolamento dos limites de contexto para prevenir acoplamentos indesejados.</p>
+                                <h4 class="cd-step-title" data-i18n="process.cd2Title">Domain Modeling</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd2Desc">Mapeamento de agregados, entidades ricas e isolamento dos limites de contexto para prevenir acoplamentos indesejados.</p>
                             </div>
                         </div>
 
@@ -691,8 +703,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">3</div>
-                                <h4 class="cd-step-title">KickOff &amp; Queues</h4>
-                                <p class="cd-step-desc">Estruturação de tópicos, filas resilientes e mensageria assíncrona desacoplada para suportar picos de tráfego.</p>
+                                <h4 class="cd-step-title" data-i18n-html="process.cd3Title">KickOff &amp; Queues</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd3Desc">Estruturação de tópicos, filas resilientes e mensageria assíncrona desacoplada para suportar picos de tráfego.</p>
                             </div>
                         </div>
 
@@ -712,8 +724,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">4</div>
-                                <h4 class="cd-step-title">Development</h4>
-                                <p class="cd-step-desc">Construção em C# (.NET 8) com Clean Architecture, CQRS, queries otimizadas em Dapper/EF Core e injeção de dependência.</p>
+                                <h4 class="cd-step-title" data-i18n="process.cd4Title">Development</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd4Desc">Construção em C# (.NET 8) com Clean Architecture, CQRS, queries otimizadas em Dapper/EF Core e injeção de dependência.</p>
                             </div>
                         </div>
 
@@ -733,8 +745,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">5</div>
-                                <h4 class="cd-step-title">Benchmark &amp; Tuning</h4>
-                                <p class="cd-step-desc">Testes de carga com BenchmarkDotNet, análise de coletas de Garbage Collection e eliminação de gargalos de I/O.</p>
+                                <h4 class="cd-step-title" data-i18n-html="process.cd5Title">Benchmark &amp; Tuning</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd5Desc">Testes de carga com BenchmarkDotNet, análise de coletas de Garbage Collection e eliminação de gargalos de I/O.</p>
                             </div>
                         </div>
 
@@ -754,8 +766,8 @@
                             </div>
                             <div class="cd-caption">
                                 <div class="cd-num-badge">6</div>
-                                <h4 class="cd-step-title">Quality &amp; Deploy</h4>
-                                <p class="cd-step-desc">Deploy conteinerizado via Docker em Linux VPS, instrumentação de logs estruturados e monitoramento contínuo em tempo real.</p>
+                                <h4 class="cd-step-title" data-i18n-html="process.cd6Title">Quality &amp; Deploy</h4>
+                                <p class="cd-step-desc" data-i18n="process.cd6Desc">Deploy conteinerizado via Docker em Linux VPS, instrumentação de logs estruturados e monitoramento contínuo em tempo real.</p>
                             </div>
                         </div>
 
@@ -771,69 +783,69 @@
         <section class="manifesto-stage" id="manifesto">
             <div class="manifesto-container">
                 <div class="manifesto-header">
-                    <span class="editorial-tag">// 04.0 CODE OF ETHICS &amp; DISCIPLINE</span>
-                    <h2 class="manifesto-title">THE 10 COMMANDMENTS OF BACKEND CRAFTSMANSHIP</h2>
+                    <span class="editorial-tag" data-i18n-html="manifesto.tag">// 04.0 CODE OF ETHICS &amp; DISCIPLINE</span>
+                    <h2 class="manifesto-title" data-i18n="manifesto.title">THE 10 COMMANDMENTS OF BACKEND CRAFTSMANSHIP</h2>
                 </div>
 
                 <div class="commandments-grid">
                     <div class="cmd-card">
                         <span class="cmd-num">I.</span>
-                        <h4 class="cmd-title">Thou shalt not write silent catch blocks</h4>
-                        <p class="cmd-text">Engolir exceções oculta corrupção de estado. Toda falha deve ser registrada com rastreamento de pilha completo ou tratada com idempotência.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c1Title">Thou shalt not write silent catch blocks</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c1Desc">Engolir exceções oculta corrupção de estado. Toda falha deve ser registrada com rastreamento de pilha completo ou tratada com idempotência.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">II.</span>
-                        <h4 class="cmd-title">Thou shalt honor Clean Architecture</h4>
-                        <p class="cmd-text">A camada de Domínio deve permanecer pura e desacoplada de frameworks, bancos de dados e protocolos externos.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c2Title">Thou shalt honor Clean Architecture</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c2Desc">A camada de Domínio deve permanecer pura e desacoplada de frameworks, bancos de dados e protocolos externos.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">III.</span>
-                        <h4 class="cmd-title">Thou shalt treat RCA as an exact science</h4>
-                        <p class="cmd-text">Não aplique correções superficiais em sintomas; investigue a causa-raiz nos logs estruturados até isolar o vetor da falha.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c3Title">Thou shalt treat RCA as an exact science</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c3Desc">Não aplique correções superficiais em sintomas; investigue a causa-raiz nos logs estruturados até isolar o vetor da falha.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">IV.</span>
-                        <h4 class="cmd-title">Thou shalt crush human latency</h4>
-                        <p class="cmd-text">Se uma rotina manual custa 6 minutos à equipe de atendimento, automatize o fluxo para milissegundos com C# assíncrono.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c4Title">Thou shalt crush human latency</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c4Desc">Se uma rotina manual custa 6 minutos à equipe de atendimento, automatize o fluxo para milissegundos com C# assíncrono.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">V.</span>
-                        <h4 class="cmd-title">Thou shalt design resilient queues</h4>
-                        <p class="cmd-text">Mensageria distribuída com RabbitMQ deve prever dead-letter queues, retentativas exponenciais e consumidores idempotentes.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c5Title">Thou shalt design resilient queues</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c5Desc">Mensageria distribuída com RabbitMQ deve prever dead-letter queues, retentativas exponenciais e consumidores idempotentes.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">VI.</span>
-                        <h4 class="cmd-title">Thou shalt benchmark memory allocations</h4>
-                        <p class="cmd-text">Alocações excessivas no heap desencadeiam pausas de Garbage Collector. Utilize `Span<T>`, `ReadOnlyMemory<T>` e streams sempre que aplicável.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c6Title">Thou shalt benchmark memory allocations</h4>
+                        <p class="cmd-text" data-i18n-html="manifesto.c6Desc">Alocações excessivas no heap desencadeiam pausas de Garbage Collector. Utilize `Span<T>`, `ReadOnlyMemory<T>` e streams sempre que aplicável.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">VII.</span>
-                        <h4 class="cmd-title">Thou shalt index foreign keys</h4>
-                        <p class="cmd-text">Queries sem índices causam table scans em tabelas massivas. Otimize o plano de execução antes de culpar o banco de dados.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c7Title">Thou shalt index foreign keys</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c7Desc">Queries sem índices causam table scans em tabelas massivas. Otimize o plano de execução antes de culpar o banco de dados.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">VIII.</span>
-                        <h4 class="cmd-title">Thou shalt decouple read from write</h4>
-                        <p class="cmd-text">Empregue CQRS com Dapper para leituras de ultra-alta velocidade e EF Core com regras de agregação para mutações críticas.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c8Title">Thou shalt decouple read from write</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c8Desc">Empregue CQRS com Dapper para leituras de ultra-alta velocidade e EF Core com regras de agregação para mutações críticas.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">IX.</span>
-                        <h4 class="cmd-title">Thou shalt emit structured observability</h4>
-                        <p class="cmd-text">Logs em texto puro dificultam diagnósticos distribuídos. Emita JSON com CorrelationId e métricas de telemetria integradas.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c9Title">Thou shalt emit structured observability</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c9Desc">Logs em texto puro dificultam diagnósticos distribuídos. Emita JSON com CorrelationId e métricas de telemetria integradas.</p>
                     </div>
 
                     <div class="cmd-card">
                         <span class="cmd-num">X.</span>
-                        <h4 class="cmd-title">Thou shalt build software that outlasts hype</h4>
-                        <p class="cmd-text">Priorize robustez, testabilidade e clareza de engenharia sobre tendências passageiras do ecossistema.</p>
+                        <h4 class="cmd-title" data-i18n="manifesto.c10Title">Thou shalt build software that outlasts hype</h4>
+                        <p class="cmd-text" data-i18n="manifesto.c10Desc">Priorize robustez, testabilidade e clareza de engenharia sobre tendências passageiras do ecossistema.</p>
                     </div>
                 </div>
             </div>
@@ -846,45 +858,45 @@
         <section class="lab-stage" id="lab">
             <div class="lab-container">
                 <div class="lab-header">
-                    <span class="editorial-tag">// 05.0 TECH ARSENAL</span>
-                    <h2 class="lab-title">ENGINEERING SPECIFICATIONS</h2>
+                    <span class="editorial-tag" data-i18n-html="lab.tag">// 05.0 TECH ARSENAL</span>
+                    <h2 class="lab-title" data-i18n="lab.title">ENGINEERING SPECIFICATIONS</h2>
                 </div>
 
                 <div class="lab-spec-grid">
                     <div class="spec-card">
                         <div class="spec-icon">01</div>
                         <h3 class="spec-name">C# .NET 8</h3>
-                        <p class="spec-desc">Desenvolvimento de APIs robustas, Workers assíncronos em background, Tasks concorrentes, Channels e LINQ de alta performance.</p>
+                        <p class="spec-desc" data-i18n="lab.s1Desc">Desenvolvimento de APIs robustas, Workers assíncronos em background, Tasks concorrentes, Channels e LINQ de alta performance.</p>
                     </div>
 
                     <div class="spec-card">
                         <div class="spec-icon">02</div>
                         <h3 class="spec-name">Clean Architecture &amp; CQRS</h3>
-                        <p class="spec-desc">Domain-Driven Design, MediatR, desacoplamento por camadas, interfaces coesas e segregação estrita de comandos e consultas.</p>
+                        <p class="spec-desc" data-i18n="lab.s2Desc">Domain-Driven Design, MediatR, desacoplamento por camadas, interfaces coesas e segregação estrita de comandos e consultas.</p>
                     </div>
 
                     <div class="spec-card">
                         <div class="spec-icon">03</div>
                         <h3 class="spec-name">RabbitMQ &amp; MassTransit</h3>
-                        <p class="spec-desc">Arquitetura orientada a eventos, tópicos, fanouts, controle de concorrência e processamento assíncrono distribuído.</p>
+                        <p class="spec-desc" data-i18n="lab.s3Desc">Arquitetura orientada a eventos, tópicos, fanouts, controle de concorrência e processamento assíncrono distribuído.</p>
                     </div>
 
                     <div class="spec-card">
                         <div class="spec-icon">04</div>
                         <h3 class="spec-name">PostgreSQL &amp; SQL Server</h3>
-                        <p class="spec-desc">Modelagem relacional, otimização de índices B-Tree, CTEs complexas, isolamento de transações ACID e Dapper ORM.</p>
+                        <p class="spec-desc" data-i18n="lab.s4Desc">Modelagem relacional, otimização de índices B-Tree, CTEs complexas, isolamento de transações ACID e Dapper ORM.</p>
                     </div>
 
                     <div class="spec-card">
                         <div class="spec-icon">05</div>
                         <h3 class="spec-name">Docker &amp; Linux VPS</h3>
-                        <p class="spec-desc">Conteinerização multi-stage leve com Alpine, reverse proxy com Nginx, certificados SSL automatizados e deploy contínuo.</p>
+                        <p class="spec-desc" data-i18n="lab.s5Desc">Conteinerização multi-stage leve com Alpine, reverse proxy com Nginx, certificados SSL automatizados e deploy contínuo.</p>
                     </div>
 
                     <div class="spec-card">
                         <div class="spec-icon">06</div>
                         <h3 class="spec-name">Embedded C++ &amp; IoT</h3>
-                        <p class="spec-desc">Sistemas embarcados em microcontroladores RP2040 e ESP32 com FreeRTOS, telemetria serial via UART/SPI e controle em tempo real.</p>
+                        <p class="spec-desc" data-i18n="lab.s6Desc">Sistemas embarcados em microcontroladores RP2040 e ESP32 com FreeRTOS, telemetria serial via UART/SPI e controle em tempo real.</p>
                     </div>
                 </div>
             </div>
@@ -901,33 +913,33 @@
                     <div class="pop-banana-symbol"></div>
                 </div>
 
-                <div class="outro-huge-heading">
+                <div class="outro-huge-heading" data-i18n-html="outro.heading">
                     WE NEED TO BUILD<br>RESILIENT SYSTEMS.
                 </div>
 
-                <p class="outro-sub">Disponível para desafios de alta complexidade técnica, engenharia de backend C# (.NET 8) e sistemas distribuídos.</p>
+                <p class="outro-sub" data-i18n="outro.sub">Disponível para desafios de alta complexidade técnica, engenharia de backend C# (.NET 8) e sistemas distribuídos.</p>
 
                 <div class="outro-actions-grid">
                     <a href="https://wa.me/5562993123343" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
-                        <span class="c-label">WHATSAPP DIRECT</span>
+                        <span class="c-label" data-i18n="outro.whatsapp">WHATSAPP DIRECT</span>
                         <span class="c-val">+55 (62) 99312-3343</span>
                         <span class="c-arrow">↗</span>
                     </a>
 
                     <a href="https://linkedin.com/in/matheusallvz" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
-                        <span class="c-label">LINKEDIN PROFILE</span>
+                        <span class="c-label" data-i18n="outro.linkedin">LINKEDIN PROFILE</span>
                         <span class="c-val">/in/matheusallvz</span>
                         <span class="c-arrow">↗</span>
                     </a>
 
                     <a href="https://github.com/Matheus-Allvz" target="_blank" rel="noopener noreferrer" class="contact-card magnetic-item">
-                        <span class="c-label">GITHUB REPOSITORIES</span>
+                        <span class="c-label" data-i18n="outro.github">GITHUB REPOSITORIES</span>
                         <span class="c-val">@Matheus-Allvz</span>
                         <span class="c-arrow">↗</span>
                     </a>
 
                     <button class="contact-card contact-card--copy magnetic-item" id="copyEmailBtn" data-email="workingaccount.matheus@gmail.com">
-                        <span class="c-label">ELECTRONIC MAIL</span>
+                        <span class="c-label" data-i18n="outro.email">ELECTRONIC MAIL</span>
                         <span class="c-val">workingaccount.matheus@gmail.com</span>
                         <span class="c-arrow">📋</span>
                     </button>
@@ -940,17 +952,17 @@
                     <div class="footer-sigil">MAC</div>
                     <div class="footer-copy-text">
                         <strong>© 2026 MATHEUS ALVES DA COSTA</strong><br>
-                        <span>All rights reserved. Backend Engineering.</span>
+                        <span data-i18n="footer.rights">All rights reserved. Backend Engineering.</span>
                     </div>
                 </div>
 
                 <div class="footer-segment footer-segment--magenta">
-                    <span class="f-title">Direct Inquiries:</span>
+                    <span class="f-title" data-i18n="footer.inquiries">Direct Inquiries:</span>
                     <a href="mailto:workingaccount.matheus@gmail.com" class="f-email-link">workingaccount.matheus@gmail.com</a>
                 </div>
 
                 <div class="footer-segment footer-segment--dark">
-                    <span class="f-title">Follow Architecture:</span>
+                    <span class="f-title" data-i18n="footer.follow">Follow Architecture:</span>
                     <div class="f-links">
                         <a href="https://github.com/Matheus-Allvz" target="_blank">GitHub</a>
                         <a href="https://linkedin.com/in/matheusallvz" target="_blank">LinkedIn</a>
@@ -958,13 +970,13 @@
                 </div>
 
                 <div class="footer-segment footer-segment--orange">
-                    <span class="f-title">Academic:</span>
+                    <span class="f-title" data-i18n="footer.academic">Academic:</span>
                     <strong>PUC Goiás</strong>
                 </div>
 
                 <div class="footer-segment footer-segment--top">
                     <a href="#hero" class="back-to-top-btn magnetic-item" id="backToTop">
-                        <span>BACK TO TOP ↑</span>
+                        <span data-i18n="footer.backToTop">BACK TO TOP ↑</span>
                     </a>
                 </div>
             </footer>
@@ -975,12 +987,13 @@
     <!-- Toast Notification for Email Copy -->
     <div class="editorial-toast" id="toast">
         <span class="toast-icon">✓</span>
-        <span class="toast-msg">Email copiado para a área de transferência!</span>
+        <span class="toast-msg" data-i18n="toast.emailCopied">Email copiado para a área de transferência!</span>
     </div>
 
     <!-- GSAP & ScrollTrigger Engine -->
     <script src="js/gsap.min.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
-    <script src="js/main.js?v=20260913_tv_v2"></script>
+    <script src="js/i18n.js?v=20260929_i18n"></script>
+    <script src="js/main.js?v=20260929_i18n"></script>
 </body>
 </html>
