@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css?v=20260929_i18n">
+    <link rel="stylesheet" href="css/style.css?v=20260929_fix2">
 </head>
 <body class="editorial-body" data-audio="off">
 
@@ -938,10 +938,16 @@
                         <span class="c-arrow">↗</span>
                     </a>
 
-                    <button class="contact-card contact-card--copy magnetic-item" id="copyEmailBtn" data-email="workingaccount.matheus@gmail.com">
-                        <span class="c-label" data-i18n="outro.email">ELECTRONIC MAIL</span>
+                    <button class="contact-card contact-card--copy magnetic-item" id="copyEmailBtn" data-email="workingaccount.matheus@gmail.com" type="button" aria-label="Copiar email para a área de transferência">
+                        <span class="c-label" data-i18n="outro.email">EMAIL</span>
                         <span class="c-val">workingaccount.matheus@gmail.com</span>
-                        <span class="c-arrow">📋</span>
+                        <span class="c-copy-action">
+                            <svg class="c-copy-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span class="c-copy-text" id="copyBtnText" data-i18n="outro.copyBadge">[COPY]</span>
+                        </span>
                     </button>
                 </div>
             </div>
@@ -990,10 +996,11 @@
         <span class="toast-msg" data-i18n="toast.emailCopied">Email copiado para a área de transferência!</span>
     </div>
 
-    <!-- GSAP & ScrollTrigger Engine -->
-    <script src="js/gsap.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
-    <script src="js/i18n.js?v=20260929_i18n"></script>
-    <script src="js/main.js?v=20260929_i18n"></script>
+    <!-- Smooth Scroll & GSAP Engine -->
+    <script src="js/lenis.min.js?v=20260929_fix2"></script>
+    <script src="js/gsap.min.js?v=20260929_fix2"></script>
+    <script src="js/ScrollTrigger.min.js?v=20260929_fix2"></script>
+    <script src="js/i18n.js?v=20260929_fix2"></script>
+    <script src="js/main.js?v=20260929_fix2"></script>
 </body>
 </html>

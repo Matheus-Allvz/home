@@ -83,7 +83,7 @@
                     term1: "&gt; MOTOR: C# .NET 8 / CLEAN ARCHITECTURE",
                     term2: "&gt; LOTE: INGESTÃO DE 48.200 REGISTROS",
                     term3: "&gt; LATÊNCIA: 6m02s ➔ 1.84s (GANHO DE 99.4%)",
-                    term4: "&gt; MEMÓRIA: ZERO PAUSAS DE GC // PARSER STREAMING",
+                    term4: "&gt; MEMÓRIA: 0 GC STALLS // STREAMING PARSER",
                     footer1: "STATUS: 200 OK",
                     footer2: "RABBITMQ + POSTGRESQL"
                 },
@@ -92,9 +92,9 @@
                     metricLateral: "100% In-House // Zero Latência",
                     badgeTv: "CH-02 // MEPPO.FOCUS",
                     recTv: "AUTOMAÇÃO",
-                    term1: "&gt; ORQUESTRAÇÃO: APIS DO CLICKUP &amp; WHATSAPP",
+                    term1: "&gt; ORQUESTRAÇÃO: APIS CLICKUP &amp; WHATSAPP",
                     term2: "&gt; TEMPO ECONOMIZADO: 6min MANUAL ➔ 4 SEGUNDOS",
-                    term3: "&gt; PROTOCOLO: BARRAMENTO DE EVENTOS RESTful",
+                    term3: "&gt; PROTOCOLO: BARRAMENTO RESTful",
                     term4: "&gt; REDUÇÃO DE 85% NA CARGA COGNITIVA",
                     footer1: "STATUS: EXECUÇÃO ATIVA",
                     footer2: "100% PRODUÇÃO PRÓPRIA"
@@ -104,10 +104,10 @@
                     metricLateral: "Nota: 14.75 / 15.0 // 5x Top 1",
                     badgeTv: "CH-03 // ACTUAR.RCA",
                     recTv: "DIAGNÓSTICOS",
-                    term1: "&gt; MOTOR RCA: ISOLANDO VETORES DE INCIDENTES",
+                    term1: "&gt; MOTOR RCA: ISOLANDO VETORES DE FALHA",
                     term2: "&gt; NOTA DE CERTIFICAÇÃO: 14.75 / 15.0",
                     term3: "&gt; MÉTRICAS: 5x ANALISTA TOP 1 DO MÊS",
-                    term4: "&gt; RESILIÊNCIA NÍVEL 2 - ALTA COMPLEXIDADE",
+                    term4: "&gt; RESILIÊNCIA N2 - ALTA COMPLEXIDADE",
                     footer1: "PROMOVIDO N1 ➔ N2 ➔ DEV",
                     footer2: "PRODUÇÃO ACTUAR"
                 },
@@ -132,7 +132,7 @@
                     term1: "&gt; MCU: DUAL ARM CORTEX-M0+ @ 133MHz",
                     term2: "&gt; AMOSTRAGEM: 1000 Hz EM TEMPO REAL SEM JITTER",
                     term3: "&gt; PROTOCOLO: FIFO DE ALTA VELOCIDADE UART / SPI",
-                    term4: "&gt; ACADÊMICO: CIÊNCIA DA COMPUTAÇÃO PUC-GO (CR 8.6)",
+                    term4: "&gt; ACADÊMICO: PUC GOIÁS CS (CR 8.6)",
                     footer1: "FREERTOS C++",
                     footer2: "ANALISADO EM ANALISADOR LÓGICO"
                 },
@@ -220,7 +220,9 @@
                 whatsapp: "WHATSAPP DIRETO",
                 linkedin: "PERFIL LINKEDIN",
                 github: "REPOSITÓRIOS GITHUB",
-                email: "CORREIO ELETRÔNICO"
+                email: "EMAIL",
+                copyBadge: "[COPIAR]",
+                copiedBadge: "[COPIADO!]"
             },
             footer: {
                 rights: "Todos os direitos reservados. Engenharia de Backend.",
@@ -312,8 +314,8 @@
                     recTv: "LIVE BENCHMARK",
                     term1: "&gt; ENGINE: C# .NET 8 / CLEAN ARCHITECTURE",
                     term2: "&gt; BATCH: 48,200 RECORDS INGESTION",
-                    term3: "&gt; LATENCY: 6m02s ➔ 1.84s (99.4% SPEED GAIN)",
-                    term4: "&gt; MEMORY: ZERO GC STALLS // STREAMING PARSER",
+                    term3: "&gt; LATENCY: 6m02s ➔ 1.84s (99.4% GAIN)",
+                    term4: "&gt; MEMORY: 0 GC STALLS // STREAMING PARSER",
                     footer1: "STATUS: 200 OK",
                     footer2: "RABBITMQ + POSTGRESQL"
                 },
@@ -360,7 +362,7 @@
                     badgeTv: "CH-05 // TELEMETRY.IOT",
                     recTv: "HARDWARE LAB",
                     term1: "&gt; MCU: DUAL ARM CORTEX-M0+ @ 133MHz",
-                    term2: "&gt; SAMPLING: 1000 Hz REAL-TIME JITTER-FREE",
+                    term2: "&gt; SAMPLING: 1000 Hz JITTER-FREE",
                     term3: "&gt; PROTOCOL: UART / SPI HIGH-SPEED FIFO",
                     term4: "&gt; ACADEMIC: PUC GOIÁS CS (CR 8.6)",
                     footer1: "FREERTOS C++",
@@ -450,7 +452,9 @@
                 whatsapp: "WHATSAPP DIRECT",
                 linkedin: "LINKEDIN PROFILE",
                 github: "GITHUB REPOSITORIES",
-                email: "ELECTRONIC MAIL"
+                email: "EMAIL",
+                copyBadge: "[COPY]",
+                copiedBadge: "[COPIED!]"
             },
             footer: {
                 rights: "All rights reserved. Backend Engineering.",
