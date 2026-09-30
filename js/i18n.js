@@ -142,7 +142,7 @@
                     term1: "&gt; INICIANDO TRANSIÇÃO PARA SEÇÃO 02...",
                     term2: "&gt; RECONHECIMENTOS &amp; BENCHMARKS DE SISTEMA",
                     term3: "&gt; BENCHMARK: 5x TOP 1 / 14.75 / CR 8.6",
-                    term4: "&gt; CÂMERA MERGULHANDO NOS FÓSFOROS...",
+                    term4: "&gt; CONECTANDO AO HUB DE TELEMETRIA...",
                     footer1: "STATUS: 200 OK",
                     footer2: "SEÇÃO 02 SE APROXIMANDO ➔"
                 }
@@ -375,7 +375,7 @@
                     term1: "&gt; INITIATING SECTION 02 HANDOFF...",
                     term2: "&gt; RECOGNITIONS &amp; SYSTEM BENCHMARKS",
                     term3: "&gt; BENCHMARK: 5x TOP 1 / 14.75 / CR 8.6",
-                    term4: "&gt; CAMERA PLUNGING INTO PHOSPHORS...",
+                    term4: "&gt; CONNECTING TO TELEMETRY HUB...",
                     footer1: "STATUS: 200 OK",
                     footer2: "SECTION 02 INCOMING ➔"
                 }

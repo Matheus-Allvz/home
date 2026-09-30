@@ -411,6 +411,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8.5. SMOOTH SCROLL ENGINE (LENIS INTEGRATION WITH GSAP)
     // -------------------------------------------------------------
     let lenis = null;
+    let worksZoomTl = null;
+    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
     if (typeof Lenis !== 'undefined') {
         lenis = new Lenis({
             duration: 1.15,
@@ -436,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gsap.ticker.lagSmoothing(0);
         }
 
-        // Smooth anchor scrolling
+        // Smooth anchor scrolling with cinematic cubic curve
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 const targetId = anchor.getAttribute('href');
@@ -444,7 +447,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const targetEl = document.querySelector(targetId);
                     if (targetEl) {
                         e.preventDefault();
-                        lenis.scrollTo(targetEl, { offset: 0, duration: 1.2 });
+                        if (targetId === '#metrics' && worksZoomTl && worksZoomTl.scrollTrigger) {
+                            lenis.scrollTo(worksZoomTl.scrollTrigger.end, {
+                                offset: 0,
+                                duration: 2.2,
+                                easing: easeInOutCubic
+                            });
+                        } else {
+                            lenis.scrollTo(targetEl, {
+                                offset: 0,
+                                duration: 1.6,
+                                easing: easeInOutCubic
+                            });
+                        }
                     }
                 }
             });
@@ -459,13 +474,20 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollDiveBtn.addEventListener('click', (e) => {
             e.preventDefault();
             sound.playClick(520, 0.05);
-            const target = document.getElementById('metrics');
-            if (target) {
-                if (lenis) {
-                    lenis.scrollTo(target, { offset: 0, duration: 1.8 });
-                } else {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+
+            const metricsEl = document.getElementById('metrics');
+            const targetPos = (worksZoomTl && worksZoomTl.scrollTrigger)
+                ? worksZoomTl.scrollTrigger.end
+                : (metricsEl || '#metrics');
+
+            if (lenis) {
+                lenis.scrollTo(targetPos, {
+                    offset: 0,
+                    duration: 2.4,
+                    easing: easeInOutCubic
+                });
+            } else if (metricsEl) {
+                metricsEl.scrollIntoView({ behavior: 'smooth' });
             }
         });
     }
@@ -591,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     pin: streetViewport,
                     start: 'top top',
                     end: () => '+=' + (window.innerHeight * 2.5),
-                    scrub: 0.6,
+                    scrub: 0.25,
                     anticipatePin: 0,
                     onUpdate: (self) => {
                         const prog = self.progress;
@@ -681,6 +703,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     duration: 0.30
                 }, 0.50);
             }
+
+            worksZoomTl = zoomTl;
         }
 
     }
