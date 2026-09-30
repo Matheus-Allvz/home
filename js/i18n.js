@@ -239,7 +239,8 @@
                 switchCh: "MUDAR CANAL",
                 play: "TOCAR",
                 copy: "COPIAR",
-                view: "VER"
+                view: "VER",
+                dive: "MERGULHAR"
             }
         },
         en: {
@@ -471,7 +472,8 @@
                 switchCh: "SWITCH CH",
                 play: "PLAY",
                 copy: "COPY",
-                view: "VIEW"
+                view: "VIEW",
+                dive: "DIVE"
             }
         }
     };

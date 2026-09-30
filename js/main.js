@@ -265,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (label) {
                 const i18n = window.PortfolioI18n;
                 if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = i18n ? i18n.t('cursor.switchCh') : 'SWITCH CH';
+                else if (el.classList.contains('lateral-scroll-hint') || el.id === 'scrollDiveBtn') label.textContent = i18n ? i18n.t('cursor.dive') : 'DIVE';
                 else if (el.classList.contains('cd-jewel-case')) label.textContent = i18n ? i18n.t('cursor.play') : 'PLAY';
                 else if (el.classList.contains('contact-card--copy')) label.textContent = i18n ? i18n.t('cursor.copy') : 'COPY';
                 else if (el.classList.contains('kinetic-stamp') || el.closest('.kinetic-stamp')) label.textContent = 'MAC // 2026';
@@ -447,6 +448,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 8.6. AUTOMATIC SCROLL DIVE TRIGGER (WORKS TO METRICS)
+    // -------------------------------------------------------------
+    const scrollDiveBtn = document.getElementById('scrollDiveBtn') || document.querySelector('.lateral-scroll-hint');
+    if (scrollDiveBtn) {
+        scrollDiveBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            sound.playClick(520, 0.05);
+            const target = document.getElementById('metrics');
+            if (target) {
+                if (lenis) {
+                    lenis.scrollTo(target, { offset: 0, duration: 1.8 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
     }
 
