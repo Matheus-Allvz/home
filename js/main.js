@@ -263,17 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('cursor-hovering');
             sound.playClick(320, 0.03);
             if (label) {
-                if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = 'SWITCH CH';
-                else if (el.classList.contains('cd-jewel-case')) label.textContent = 'PLAY';
-                else if (el.classList.contains('contact-card--copy')) label.textContent = 'COPY';
+                const i18n = window.PortfolioI18n;
+                if (el.classList.contains('work-item') || el.classList.contains('lateral-item')) label.textContent = i18n ? i18n.t('cursor.switchCh') : 'SWITCH CH';
+                else if (el.classList.contains('lateral-scroll-hint') || el.id === 'scrollDiveBtn') label.textContent = i18n ? i18n.t('cursor.dive') : 'DIVE';
+                else if (el.classList.contains('cd-jewel-case')) label.textContent = i18n ? i18n.t('cursor.play') : 'PLAY';
+                else if (el.classList.contains('contact-card--copy')) label.textContent = i18n ? i18n.t('cursor.copy') : 'COPY';
                 else if (el.classList.contains('kinetic-stamp') || el.closest('.kinetic-stamp')) label.textContent = 'MAC // 2026';
                 else if (el.dataset.cursor) label.textContent = el.dataset.cursor;
-                else label.textContent = 'VIEW';
+                else label.textContent = i18n ? i18n.t('cursor.view') : 'VIEW';
             }
         });
         el.addEventListener('mouseleave', () => {
             document.body.classList.remove('cursor-hovering');
         });
+    });
+
+    window.addEventListener('portfolio:languageChanged', () => {
+        sound.playClick(680, 0.04);
     });
 
     const kineticStampEl = document.getElementById('kineticStamp');
@@ -349,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. COPY EMAIL TO CLIPBOARD WITH TOAST FEEDBACK
     // -------------------------------------------------------------
     const copyBtn = document.getElementById('copyEmailBtn');
+    const copyBtnText = document.getElementById('copyBtnText');
     const toast = document.getElementById('toast');
 
     if (copyBtn) {
@@ -356,12 +363,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = copyBtn.dataset.email || 'workingaccount.matheus@gmail.com';
             navigator.clipboard.writeText(email).then(() => {
                 sound.playClick(880, 0.06);
+                copyBtn.classList.add('copied');
+                
+                const i18n = window.PortfolioI18n;
+                const copiedLabel = i18n ? i18n.t('outro.copiedBadge') : '[COPIADO!]';
+                const normalLabel = i18n ? i18n.t('outro.copyBadge') : '[COPIAR]';
+
+                if (copyBtnText) {
+                    copyBtnText.textContent = copiedLabel;
+                }
+
                 if (toast) {
                     toast.classList.add('show');
                     setTimeout(() => {
                         toast.classList.remove('show');
                     }, 2800);
                 }
+
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    if (copyBtnText) {
+                        copyBtnText.textContent = normalLabel;
+                    }
+                }, 2000);
             });
         });
     }
@@ -383,6 +407,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
 
+    // -------------------------------------------------------------
+    // 8.5. SMOOTH SCROLL ENGINE (LENIS INTEGRATION WITH GSAP)
+    // -------------------------------------------------------------
+    let lenis = null;
+    let worksZoomTl = null;
+    const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    if (typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+            duration: 1.15,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 0.95,
+            touchMultiplier: 1.4,
+            infinite: false
+        });
+
+        lenis.on('scroll', () => {
+            if (window.ScrollTrigger) {
+                ScrollTrigger.update();
+            }
+        });
+
+        if (window.gsap) {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        }
+
+        // Smooth anchor scrolling with cinematic cubic curve
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const targetId = anchor.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        if (targetId === '#metrics' && worksZoomTl && worksZoomTl.scrollTrigger) {
+                            lenis.scrollTo(worksZoomTl.scrollTrigger.end, {
+                                offset: 0,
+                                duration: 2.2,
+                                easing: easeInOutCubic
+                            });
+                        } else {
+                            lenis.scrollTo(targetEl, {
+                                offset: 0,
+                                duration: 1.6,
+                                easing: easeInOutCubic
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 8.6. AUTOMATIC SCROLL DIVE TRIGGER (WORKS TO METRICS)
+    // -------------------------------------------------------------
+    const scrollDiveBtn = document.getElementById('scrollDiveBtn') || document.querySelector('.lateral-scroll-hint');
+    if (scrollDiveBtn) {
+        scrollDiveBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            sound.playClick(520, 0.05);
+
+            const metricsEl = document.getElementById('metrics');
+            const targetPos = (worksZoomTl && worksZoomTl.scrollTrigger)
+                ? worksZoomTl.scrollTrigger.end
+                : (metricsEl || '#metrics');
+
+            if (lenis) {
+                lenis.scrollTo(targetPos, {
+                    offset: 0,
+                    duration: 2.4,
+                    easing: easeInOutCubic
+                });
+            } else if (metricsEl) {
+                metricsEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
 
     // -------------------------------------------------------------
     // 9. GSAP SCROLLTRIGGER ENGINE: IMMEDIATE HERO PARALLAX & STREET TV ZOOM
@@ -390,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.gsap && window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
 
-        // A. HERO PARALLAX TIMELINE (IMMEDIATE, HIGH-IMPACT VELOCITY)
+        // A. HERO PARALLAX TIMELINE (SMOOTH, ZERO JUMP/SOLAVANCO)
         const heroStage = document.getElementById('hero');
         const heroPainting = document.getElementById('heroBgPainting');
         const heroColLeft = document.getElementById('heroColLeft');
@@ -405,10 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: heroStage,
                     start: 'top top',
-                    end: () => '+=' + (window.innerHeight * 1.1),
+                    end: () => '+=' + (window.innerHeight * 1.0),
                     pin: true,
-                    scrub: 0.3,
-                    anticipatePin: 1
+                    scrub: 0.6,
+                    anticipatePin: 0
                 }
             });
 
@@ -490,10 +599,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const portalChNext = document.getElementById('portalChNext');
 
         if (worksTrack && streetStage && streetViewport) {
-            // Initial positioning: TV starts slightly below center and glides to center
-            gsap.set(streetStage, { y: '20vh', scale: 1 });
+            // Initial positioning: TV sits rock-solid centered at y: 0 (no jarring jump)
+            gsap.set(streetStage, { y: 0, scale: 1 });
             if (lateralShowcase) {
-                gsap.set(lateralShowcase, { opacity: 0, x: -30 });
+                gsap.set(lateralShowcase, { opacity: 0, x: -20 });
             }
 
             let nextChannelTriggered = false;
@@ -505,7 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     start: 'top top',
                     end: () => '+=' + (window.innerHeight * 2.5),
                     scrub: 0.25,
-                    anticipatePin: 1,
+                    anticipatePin: 0,
                     onUpdate: (self) => {
                         const prog = self.progress;
 
@@ -545,19 +654,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Phase 1 (0.00 -> 0.14): TV rises smoothly into the exact viewport center (50vh) and LOCKS!
-            zoomTl.to(streetStage, {
-                y: 0,
-                ease: 'power1.out',
-                duration: 0.14
-            }, 0);
-
+            // Phase 1 (0.00 -> 0.10): Lateral showcase smoothly glides in while TV remains steadily centered
             if (lateralShowcase) {
                 zoomTl.to(lateralShowcase, {
                     opacity: 1,
                     x: 0,
                     ease: 'power1.out',
-                    duration: 0.14
+                    duration: 0.10
                 }, 0);
             }
 
@@ -600,6 +703,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     duration: 0.30
                 }, 0.50);
             }
+
+            worksZoomTl = zoomTl;
         }
 
     }
