@@ -1,0 +1,10 @@
+.git
+.github
+.gitattributes
+.gitignore
+.DS_Store
+deploy.sh
+docker-compose*.yml
+Dockerfile
+.dockerignore
+*.md
