@@ -1,13 +1,15 @@
-name: CI & Quality Gate
+name: CI/CD Pipeline
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   validate:
+    name: CI Quality Gate
     runs-on: ubuntu-latest
 
     steps:
@@ -25,4 +27,30 @@ jobs:
           test -f css/style.css || exit 1
           test -f js/main.js || exit 1
           test -f js/i18n.js || exit 1
+          test -f deploy.sh || exit 1
           echo "All core assets verified."
+
+  deploy:
+    name: Continuous Deployment to VPS
+    needs: validate
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Execute Remote Deploy via SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$SSH_USER@$SSH_HOST" "cd /home/deploy/portfolio && git fetch origin main && git reset --hard origin/main && bash deploy.sh"
+
+      - name: Verify Live Production Health
+        run: |
+          echo "Verifying production URL..."
+          curl -f -I -s https://matheus-alves.dev/ | head -n 5
+          echo "Production deployment is live and healthy."
